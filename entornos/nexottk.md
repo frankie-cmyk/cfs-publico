@@ -18,3 +18,7 @@ nexo.css ya no define los botones ni la flecha del carrusel; tatanka-tokens.css 
 ## Tanda 9 · todos los componentes desde GitHub (25-11-2026)
 
 nexo.css ya no define ningún componente del sistema; solo queda el adaptador de Tatanka.
+
+## Ventanas (25-11-2026)
+
+La ventana de confirmación usa la pieza «Ventana» de GitHub; nexo.css ya no la define.

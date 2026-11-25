@@ -82,3 +82,7 @@ El fragmento 444 lee del manual común las etiquetas (chip y chip-elegida) y los
 - Gráficas de Madre: tendrán una gama de colores propia, solo para ellas (por definir).
 - Barras de progreso y etiquetas de estado (verde, lima, naranja, rojo): de acuerdo en pasarlas a GitHub; Madre dejará su copia.
 - Piezas que solo existen en una de las dos webs (tarjetas, ventanas y maquetación de las fichas de Madre; adaptador de Tatanka en nexoTTK): se revisan ahora.
+
+## Ventanas «modo nexottk» (25-11-2026)
+
+Pieza «Ventana» común en cfs-componentes.css. Madre (444) la aplica a Help, Eat, Brunch, Show, Panic y Chat, sin franja. Copia: 1090.
