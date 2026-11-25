@@ -76,3 +76,9 @@ El fragmento 444 ya no copia el aspecto de los botones: lo lee del componente Bo
 ## Tanda 9 · etiquetas y campos desde GitHub (25-11-2026)
 
 El fragmento 444 lee del manual común las etiquetas (chip y chip-elegida) y los campos (campo, selector y campo de varias líneas) y los aplica a sus listas. Se añaden las opciones de Help y los botones de vista de las gráficas. La etiqueta elegida es siempre noche. Copia: 1089.
+
+## Decisiones de Frankie (25-11-2026, 22:31)
+
+- Gráficas de Madre: tendrán una gama de colores propia, solo para ellas (por definir).
+- Barras de progreso y etiquetas de estado (verde, lima, naranja, rojo): de acuerdo en pasarlas a GitHub; Madre dejará su copia.
+- Piezas que solo existen en una de las dos webs (tarjetas, ventanas y maquetación de las fichas de Madre; adaptador de Tatanka en nexoTTK): se revisan ahora.
