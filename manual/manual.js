@@ -186,7 +186,12 @@
     return '<h1 class="acento-lima">Tabla</h1><p class="m-entradilla">Marco con borde y radio de caja, cabecera gris en mayúsculas pequeñas, filas con aire, cifras a la derecha con su barrita y el estado como etiqueta verde o roja. La nota sobre los datos va dentro, como pie, en estilo nota. Sin cabecera sirve para listas de datos: la primera columna va en gris. Solo pesos de la casa: normal y negrita.</p>' + ejemplo(c + '<div style="width:100%;margin-top:16px"><table class="tabla"><tbody><tr><td>Redactado</td><td>Madre, 10-11-2026</td></tr><tr><td>Revisado</td><td>Frankie Gómez</td></tr></tbody></table></div>', 'tabla-marco · tabla · tabla-tarjetas · tabla-num · tabla-sec · tabla-si · tabla-no · tabla-barra');
   } };
 
-  var orden = ['inicio', 'color', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla'];
+  P.ventana = { grupo: 'Componentes', titulo: 'Ventana', html: function () {
+    var c = '<div class="ventana" role="dialog" style="position:relative"><button type="button" class="ventana-cerrar">Cerrar</button><h2 class="ventana-titulo" style="margin-top:0">¿Eliminar esta plantilla?</h2><p class="ventana-texto">«Contrato de trabajo» se borrará y no se puede deshacer.</p><div class="ventana-botones"><button type="button" class="boton boton-principal">Cancelar</button><button type="button" class="boton boton-secundario">Eliminar</button></div></div>';
+    return '<h1 class="acento-lima">Ventana</h1><p class="m-entradilla">Una sola para todo: velo noche, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado, texto pequeño gris, botones de 160 en fila y centrados, equis arriba a la derecha. 480 de ancho; «ventana-ancha», 560, para formularios. Se cierra con la equis, con Escape o pulsando fuera.</p>' + ejemplo(c, 'ventana-velo › ventana (ventana-ancha) › ventana-cerrar · ventana-titulo · ventana-texto · ventana-botones');
+  } };
+
+  var orden = ['inicio', 'color', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla', 'ventana'];
   var menu = document.getElementById('m-menu'), pagina = document.getElementById('m-pagina');
 
   function pintaMenu(actual) {
@@ -194,9 +199,13 @@
     orden.forEach(function (k) { if (P[k].grupo !== g) { g = P[k].grupo; h += '<h2>' + esc(g) + '</h2>'; } h += '<a href="#' + k + '"' + (k === actual ? ' aria-current="page"' : '') + '>' + esc(P[k].titulo) + '</a>'; });
     menu.innerHTML = h;
   }
+  /* Modo «solo» (25-11-2026): ?solo=1 enseña un apartado sin cabecera ni índice, para verlo dentro de otra web (Madre lo usa en su Manual de diseño). */
+  var solo = /[?&]solo=1/.test(location.search);
+  if (solo) { document.documentElement.classList.add('m-solo'); }
   function ve() {
     var k = (location.hash || '#inicio').slice(1); if (!P[k]) { k = 'inicio'; }
     pintaMenu(k); pagina.innerHTML = P[k].html(); document.title = P[k].titulo + ' · Manual de Confirmsign';
+    if (solo) { var ir = pagina.querySelectorAll('a[href^="#"]'); for (var i = 0; i < ir.length; i++) { ir[i].setAttribute('target', '_top'); ir[i].setAttribute('href', location.pathname + ir[i].getAttribute('href')); } }
     menu.classList.remove('abierto'); pagina.focus({ preventScroll: true }); window.scrollTo(0, 0);
   }
   document.querySelector('.m-menu-boton').addEventListener('click', function () { var a = menu.classList.toggle('abierto'); this.setAttribute('aria-expanded', a ? 'true' : 'false'); });

@@ -44,3 +44,5 @@ body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);
 
 /* Retícula (25-11-2026) */
 .m-ret{display:flex;box-sizing:border-box;max-width:100%;height:72px;margin:var(--ttk-espacio-8) 0 0;background:var(--ttk-paleta-crema-00);border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno)}.m-ret i{display:block;height:100%;background:var(--ttk-paleta-lima-200);border-left:1px solid var(--ttk-paleta-lima-800);border-right:1px solid var(--ttk-paleta-lima-800);box-sizing:border-box}.m-ret-rep{gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8)}.m-ret-rep b{display:flex;align-items:center;justify-content:center;background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);font-size:14px}.m-ret-nota{font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400);margin:var(--ttk-espacio-4) 0 var(--ttk-espacio-16)}
+/* Modo «solo»: sin cabecera ni índice (25-11-2026) */
+.m-solo .m-cab,.m-solo .m-menu{display:none}.m-solo .m-cuerpo{grid-template-columns:1fr;min-height:0}.m-solo .m-pagina{padding:0 0 var(--ttk-espacio-24)}.m-solo .m-pagina>h1{display:none}
