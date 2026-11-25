@@ -25,3 +25,16 @@ Madre carga `manual/estilos/cfs-tokens.css` (desde https://www.m-cfs.us/manual/e
 Letras: ya eran las del nexo (Poppins, Syne y Georgia, con los mismos tamaños). Quedan para las tandas siguientes: radios, sombras con nombre propio, piezas y plantillas, y los colores escritos a mano dentro de otras piezas de Madre.
 
 Dónde está en Madre: fragmento 670 «[M00 Estilos de la casa]» (copia previa: 980).
+
+## Tanda 2 · radios y sombras (25-11-2026)
+
+| Variable de Madre | Valor del manual | Antes |
+|---|---|---|
+| --cfs-radio-peque | --ttk-radio-pequeno (4) | 8 |
+| --cfs-radio-tarjeta | --ttk-radio-tarjeta (4) | 12 |
+| --cfs-radio-caja | --ttk-radio-caja (8) | 10 |
+| --cfs-radio-pastilla | --ttk-radio-pildora | 999 |
+| --cfs-sombra-suave | --ttk-sombra-tarjeta | mismo valor |
+| --cfs-sombra-alzada | --ttk-sombra-flotante | mismo valor |
+
+Fragmento 670 (copia previa: 981). Quedan los radios y sombras escritos a mano dentro de otras piezas de Madre.
