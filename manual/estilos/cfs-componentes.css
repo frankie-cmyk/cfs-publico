@@ -114,3 +114,10 @@ textarea.campo{padding:8px 12px}
 .ventana-botones .boton{width:160px;min-width:0}
 .ventana-cerrar{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;border:0;font-size:0;color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%23001524' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/16px 16px no-repeat;cursor:pointer}
 @media (max-width:599px){.ventana{padding:32px 24px 24px}.ventana-botones{flex-direction:column;gap:8px}.ventana-botones .boton{width:100%}}
+/* Retícula (25-11-2026, Frankie: «¿has creado una hoja de grid?»). La hoja que se usa: «contenedor» centra el contenido a 1360 con márgenes de 40; «reticula» reparte en 12 columnas con huecos de 32 (8 columnas y 24 en tableta, 4 y 16 en móvil); cada pieza dice cuántas columnas ocupa con «col-3», «col-4», «col-6», «col-9» o «col-12».
+   En tableta, 12 pasa a 8, 9 a 8, 6 a 4, 4 a 4 y 3 a 4; en móvil todo va a 4 (una por fila). Valores de los tokens --ttk-ret-*. */
+.contenedor{box-sizing:border-box;width:100%;max-width:calc(var(--ttk-ret-escritorio-contenedor,1360px) + 2 * var(--ttk-ret-escritorio-margen,40px));margin:0 auto;padding:0 var(--ttk-ret-escritorio-margen,40px)}
+.reticula{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--ttk-ret-escritorio-hueco,32px)}
+.col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-9{grid-column:span 9}.col-12{grid-column:span 12}
+@media (max-width:1024px){.contenedor{padding:0 var(--ttk-ret-tableta-margen,24px)}.reticula{grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--ttk-ret-tableta-hueco,24px)}.col-3,.col-4,.col-6{grid-column:span 4}.col-9,.col-12{grid-column:span 8}}
+@media (max-width:599px){.contenedor{padding:0 var(--ttk-ret-movil-margen,16px)}.reticula{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ttk-ret-movil-hueco,16px)}.col-3,.col-4,.col-6,.col-9,.col-12{grid-column:span 4}}
