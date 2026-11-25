@@ -103,3 +103,14 @@ textarea.campo{padding:8px 12px}
 .tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris)}
 .tabla.tabla-tarjetas .tabla-barra{margin-left:0}
 }
+/* Ventana (25-11-2026, Frankie: «modo nexottk», CAMBIALO). Una sola para Madre y nexoTTK, la del nexo: velo noche al 70 %, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado (sin franja), texto pequeño gris, botones de 160 en fila y centrados, equis noche arriba a la derecha.
+   «ventana-velo» > «ventana» (480; «ventana ventana-ancha», 560, para formularios) > «ventana-cerrar», «ventana-titulo», «ventana-texto», «ventana-botones». */
+.ventana-velo{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:color-mix(in srgb,var(--ttk-paleta-noche-800) 70%,transparent)}
+.ventana{position:relative;box-sizing:border-box;width:480px;max-width:100%;padding:40px 40px 32px;background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-tarjeta,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
+.ventana-ancha{width:560px}
+.ventana-titulo{margin:0 0 12px;font-family:var(--ttk-font-titulos);font-size:21px;line-height:28px;font-weight:700;color:var(--ttk-paleta-noche-800)}
+.ventana-texto{margin:0 0 32px;font-family:var(--ttk-font-textos);font-size:14px;line-height:20px;font-weight:400;color:var(--ttk-paleta-noche-400)}
+.ventana-botones{display:flex;justify-content:center;gap:16px}
+.ventana-botones .boton{width:160px;min-width:0}
+.ventana-cerrar{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;border:0;font-size:0;color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%23001524' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/16px 16px no-repeat;cursor:pointer}
+@media (max-width:520px){.ventana{padding:32px 24px 24px}.ventana-botones{flex-direction:column;gap:8px}.ventana-botones .boton{width:100%}}
