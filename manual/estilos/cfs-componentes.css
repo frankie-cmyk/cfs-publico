@@ -62,18 +62,38 @@
 @media (prefers-reduced-motion:reduce){.tarjeta-plantilla,.tarjeta-plantilla:hover,.tarjeta-plantilla:focus-within{transform:none;transition:box-shadow var(--ttk-tarjeta-transicion,.2s) ease}}
 
 
-/* Tabla (25-11-2026, Frankie: CAMBIALO). Marco con borde y radio de caja; cabecera gris en mayúsculas pequeñas; filas de 14 con aire; cifras a la derecha con barrita; estado como etiqueta verde o roja. En Madre: cfs-tabla-ord (fragmento 670). */
-.tabla-marco{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-caja,8px);overflow:auto}
-.tabla{width:100%;border-collapse:collapse;font-family:var(--ttk-font-textos);font-size:14px;line-height:20px;color:var(--ttk-texto-oscuro,#001524)}
-.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro);border-bottom:1px solid var(--ttk-linea-clara);padding:10px 16px;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris);vertical-align:bottom}
-.tabla td{padding:14px 16px;border-bottom:1px solid var(--ttk-linea-clara);vertical-align:middle}
-.tabla tbody tr:last-child td{border-bottom:0}
-.tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)}
-.tabla .tabla-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* Tabla (25-11-2026, Frankie: CAMBIALO; «todas las tablas deben ser iguales»). Una sola tabla para todo: con cabecera o sin ella (listas de datos).
+   Marco con borde y radio de caja; cabecera gris en mayúsculas pequeñas (se puede ordenar con un botón dentro de la cabecera); filas de 14 con aire;
+   cifras a la derecha con barrita; estado como etiqueta verde o roja; nota al pie dentro de la tabla.
+   En el móvil, con la clase tabla-tarjetas, una tarjeta por fila y el nombre de la columna (data-l) encima de cada dato.
+   Lleva !important porque manda sobre los estilos viejos de cada entorno. */
+.tabla-marco{overflow:auto;max-width:100%}
+.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:1px solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-caja,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,#fff)!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,#001524)!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto}
+.tabla th,.tabla td{word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important}
+.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:1px solid var(--ttk-linea-clara)!important;padding:10px 16px!important;font-size:12px!important;line-height:16px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
+.tabla th:has(>button){padding:0!important}
+.tabla th>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:4px;width:100%;padding:10px 16px;font:inherit;letter-spacing:inherit;text-transform:uppercase!important;color:inherit;cursor:pointer}
+.tabla th>button:hover{color:var(--ttk-texto-oscuro,#001524)}.tabla th>button:focus-visible{outline:2px solid var(--ttk-boton-foco,#001524);outline-offset:-2px}
+.tabla th>button::after{content:"↕";opacity:.5;font-weight:400}.tabla th[aria-sort=ascending]>button::after{content:"↑";opacity:1}.tabla th[aria-sort=descending]>button::after{content:"↓";opacity:1}
+.tabla td{padding:14px 16px!important;border:0!important;border-bottom:1px solid var(--ttk-linea-clara)!important;vertical-align:middle!important;font-size:14px!important;line-height:20px!important;font-weight:400!important;color:var(--ttk-texto-oscuro,#001524)!important;background:transparent!important;text-align:left}
+.tabla tbody tr:last-child td{border-bottom:0!important}
+.tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)!important}
+.tabla td b,.tabla td strong{font-weight:700}
+.tabla .tabla-num,.tabla th.tabla-num>button{text-align:right!important;justify-content:flex-end;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabla:not(:has(thead)) td:first-child{color:var(--ttk-texto-gris)!important;width:1%;white-space:nowrap}
 .tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:400}
 .tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:999px;font-size:12px;line-height:16px;font-weight:700;white-space:nowrap}
 .tabla-si{background:var(--ttk-paleta-verde-00);color:var(--ttk-paleta-verde-800)}.tabla-si::before{content:"✓"}
 .tabla-no{background:var(--ttk-paleta-rojo-00);color:var(--ttk-estado-cerrar-sesion)}.tabla-no::before{content:"✕"}
 .tabla-barra{display:block;height:4px;width:120px;max-width:100%;margin:6px 0 0 auto;background:var(--ttk-fondo-gris-claro);border-radius:2px;overflow:hidden}
 .tabla-barra i{display:block;height:4px;background:var(--ttk-paleta-verde-800)}.tabla-barra.no i{background:var(--ttk-paleta-rojo-800)}
-.tabla tfoot td.tabla-nota{font-size:10px;line-height:14px;font-style:italic;color:var(--ttk-texto-gris);background:var(--ttk-fondo-gris-claro);border-top:1px solid var(--ttk-linea-clara);border-bottom:0;padding:10px 16px}
+.tabla tfoot td{font-size:10px!important;line-height:14px!important;font-style:italic;color:var(--ttk-texto-gris)!important;background:var(--ttk-fondo-gris-claro)!important;border-top:1px solid var(--ttk-linea-clara)!important;border-bottom:0!important;padding:10px 16px!important}
+@media (max-width:767px){
+.tabla.tabla-tarjetas{border:0!important;background:transparent!important;border-radius:0!important;overflow:visible}
+.tabla.tabla-tarjetas thead{display:none}
+.tabla.tabla-tarjetas,.tabla.tabla-tarjetas tbody,.tabla.tabla-tarjetas tfoot,.tabla.tabla-tarjetas tr,.tabla.tabla-tarjetas td{display:block;width:auto!important}
+.tabla.tabla-tarjetas tbody tr{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-caja,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,#fff)}
+.tabla.tabla-tarjetas tbody td{border:0!important;padding:4px 16px!important;white-space:normal!important;text-align:left!important}
+.tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris)}
+.tabla.tabla-tarjetas .tabla-barra{margin-left:0}
+}
