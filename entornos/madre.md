@@ -72,3 +72,7 @@ Una sola paleta de 27 colores (manual › Paleta): noche, verde, lima, rojo y na
 ## Tanda 8 · botones desde GitHub (25-11-2026)
 
 El fragmento 444 ya no copia el aspecto de los botones: lo lee del componente Botón de manual/estilos/cfs-componentes.css y lo aplica a la lista de botones de Madre. El botón «Buscar» de Panic pierde su alto propio (44) y queda en 40. Copias: 1087 y 1088.
+
+## Tanda 9 · etiquetas y campos desde GitHub (25-11-2026)
+
+El fragmento 444 lee del manual común las etiquetas (chip y chip-elegida) y los campos (campo, selector y campo de varias líneas) y los aplica a sus listas. Se añaden las opciones de Help y los botones de vista de las gráficas. La etiqueta elegida es siempre noche. Copia: 1089.

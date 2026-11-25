@@ -14,3 +14,7 @@ La web del nexo ya no tiene su propia copia: su tatanka-tokens.css solo importa 
 ## Tanda 8 · botones desde GitHub (25-11-2026)
 
 nexo.css ya no define los botones ni la flecha del carrusel; tatanka-tokens.css importa también manual/estilos/cfs-componentes.css.
+
+## Tanda 9 · todos los componentes desde GitHub (25-11-2026)
+
+nexo.css ya no define ningún componente del sistema; solo queda el adaptador de Tatanka.
