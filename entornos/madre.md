@@ -50,3 +50,5 @@ Fragmento 670 (copia previa: 981). Quedan los radios y sombras escritos a mano d
 | Modo noche, principal | igual que de día | --ttk-boton-principal-oscuro |
 
 Se añadieron a «secundario» .cfs-hp-otra y .cfs-ch-nueva. Fragmento 444 «[M41 Piezas comunes]» (copia previa: 982). Quedan pastillas, campos y chips.
+
+Botones sueltos pasados al común (25-11-2026, 19:16): «Recargar la página» y «Sí, actualizar» como principales; «Cerrar», «Ahora no» y «Solicitar búsqueda» (Panic) como secundarios; el botón de elegir archivo, como secundario. Copia previa del 444: 983. Revisadas Pendientes, Vacaciones, Inventario, Claves, Log y Certificaciones: no quedan botones con estilo propio; lo que queda son etiquetas, tarjetas y flechas (tandas siguientes).
