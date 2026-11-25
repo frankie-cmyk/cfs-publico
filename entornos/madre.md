@@ -68,3 +68,7 @@ Una sola paleta de 27 colores (manual › Paleta): noche, verde, lima, rojo y na
 - Gestor web › Diseño general de Madre usa la paleta (fragmento 94, copia previa 997); la ficha «2. Colores» solo la enseña a ella (670, copia 998).
 - Colores escritos a mano, pasados al más próximo de la paleta (fondos casi blancos a crema), en cinco tandas con CAMBIALO: 1) portada y Certificaciones, 7 fragmentos; 2) 10 fragmentos; 3) 15; 4) 48; 5) gráficas, 7, con las series en la escala de noche 800, 600, 400 y 200. Unos 2.070 colores; copias previas 1000 a 1086.
 - Pendiente: la serie destacada de las gráficas en lima y los guiones a partir de la quinta serie.
+
+## Tanda 8 · botones desde GitHub (25-11-2026)
+
+El fragmento 444 ya no copia el aspecto de los botones: lo lee del componente Botón de manual/estilos/cfs-componentes.css y lo aplica a la lista de botones de Madre. El botón «Buscar» de Panic pierde su alto propio (44) y queda en 40. Copias: 1087 y 1088.

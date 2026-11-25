@@ -10,3 +10,7 @@ nexoTTK (la web del nexo de Tatanka) toma los colores del Sketch de Tatanka, que
 ## Tanda 7 · valores desde GitHub (25-11-2026)
 
 La web del nexo ya no tiene su propia copia: su tatanka-tokens.css solo importa /manual/estilos/cfs-tokens.css, que se sirve desde este repositorio. Un cambio aquí llega solo a Madre y al nexo.
+
+## Tanda 8 · botones desde GitHub (25-11-2026)
+
+nexo.css ya no define los botones ni la flecha del carrusel; tatanka-tokens.css importa también manual/estilos/cfs-componentes.css.
