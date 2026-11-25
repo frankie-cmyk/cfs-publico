@@ -55,6 +55,10 @@
 .casilla:checked:disabled{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800))}
 .chip{display:inline-flex;align-items:center;gap:8px;box-sizing:border-box;min-height:32px;padding:0 12px;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:14px;line-height:20px}
 .chip b{font-weight:700}.chip .chip-valor{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400))}
+/* Etiqueta elegida (25-11-2026, Frankie: CAMBIALO, tanda 9; la que ya usaba Madre en filtros y pestañas): «chip chip-elegida», en noche con letra papel. */
+.chip.chip-elegida{background:var(--ttk-paleta-noche-800);border-color:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
+/* Campo de varias líneas (25-11-2026, tanda 9): «textarea» con «campo» lleva aire arriba y abajo para que el texto no pegue al borde. */
+textarea.campo{padding:8px 12px}
 
 /* Tarjeta de plantilla (17-11-2026, «Tarjetas/Plantilla» del Sketch): margen interior de 16; al pasar el ratón o llegar con el teclado sube 4 px y la sombra pasa a «flotante», en 0,2 s; si el equipo pide reducir el movimiento, solo cambia la sombra. «tarjeta-plantilla». */
 .tarjeta-plantilla{transition:transform var(--ttk-tarjeta-transicion,.2s) ease,box-shadow var(--ttk-tarjeta-transicion,.2s) ease}
