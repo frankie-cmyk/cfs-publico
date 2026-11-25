@@ -56,3 +56,7 @@ Botones sueltos pasados al común (25-11-2026, 19:16): «Recargar la página» y
 ## Tanda 4 · letras (25-11-2026)
 
 Mismas cuatro letras que nexoTTK: Syne (títulos), Georgia cursiva (coletillas), Poppins (texto) y Courier New (código). Tamaños igualados con CAMBIALO: H1 34, H2 21, H3 18, título de tarjeta Poppins negrita 16, párrafo 16, nota 10. El botón «Actualizar esta ficha» dejó de ir en Arial. Ficha «1. Fuentes» de Madre con alfabetos y valores leídos en vivo. Fragmentos 670 (copias previas 984, 985, 989), 689 (986, 988) y 444 (987).
+
+## Tanda 5 · tabla (25-11-2026)
+
+Componente nuevo del manual: Tabla (no existía en nexoTTK). En Madre todas las tablas ordenables (cfs-tabla-ord) lo usan: marco, cabecera gris en mayúsculas, filas con aire, cifras a la derecha con barrita y estado como etiqueta verde o roja. Equivalencias: tabla → cfs-tabla-ord, tabla-num → cfs-tnum, tabla-sec/si/no/barra → cfs-tabla-sec/si/no/barra. Fragmentos 670 (copia previa 990) y 689 (991); botón «Medir ahora» al principal en 444.
