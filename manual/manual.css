@@ -39,3 +39,4 @@ body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);
   .m-pagina{padding:var(--ttk-espacio-24) var(--ttk-espacio-16) var(--ttk-espacio-48)}
 }
 .m-pagina:focus{outline:none}
+.m-pagina .tabla td:nth-child(2){min-width:176px}
