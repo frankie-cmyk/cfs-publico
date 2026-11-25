@@ -6,3 +6,7 @@ nexoTTK (la web del nexo de Tatanka) toma los colores del Sketch de Tatanka, que
 
 - Sketch de Tatanka: rojo 600 a 00 recalculados desde el 800 #E00307; familia naranja añadida (800 #C75519 a 00); azul y verde petróleo con los valores de noche; crema 800 y 400 con el valor de crema 600; crema 200 y blanco con el valor de papel #FDFBF8. Copia previa: «Tatanka_26 V2.0 UX · antes de la paleta única · 2026-11-25 2200».
 - tatanka-tokens.css del nexo: igual que manual/estilos/cfs-tokens.css.
+
+## Tanda 7 · valores desde GitHub (25-11-2026)
+
+La web del nexo ya no tiene su propia copia: su tatanka-tokens.css solo importa /manual/estilos/cfs-tokens.css, que se sirve desde este repositorio. Un cambio aquí llega solo a Madre y al nexo.
