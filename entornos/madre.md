@@ -60,3 +60,11 @@ Mismas cuatro letras que nexoTTK: Syne (títulos), Georgia cursiva (coletillas),
 ## Tanda 5 · tabla (25-11-2026)
 
 Componente nuevo del manual: Tabla (no existía en nexoTTK). En Madre todas las tablas ordenables (cfs-tabla-ord) lo usan: marco, cabecera gris en mayúsculas, filas con aire, cifras a la derecha con barrita y estado como etiqueta verde o roja. Equivalencias: tabla → cfs-tabla-ord, tabla-num → cfs-tnum, tabla-sec/si/no/barra → cfs-tabla-sec/si/no/barra. Fragmentos 670 (copia previa 990) y 689 (991); botón «Medir ahora» al principal en 444.
+
+## Tanda 6 · colores (25-11-2026)
+
+Una sola paleta de 27 colores (manual › Paleta): noche, verde, lima, rojo y naranja, cinco tonos cada uno, más crema y papel (el blanco de la casa). Todo color que no esté en la paleta deja de existir (Frankie: «extingue cualquier otro color de nexoTTK y Madre»).
+
+- Gestor web › Diseño general de Madre usa la paleta (fragmento 94, copia previa 997); la ficha «2. Colores» solo la enseña a ella (670, copia 998).
+- Colores escritos a mano, pasados al más próximo de la paleta (fondos casi blancos a crema), en cinco tandas con CAMBIALO: 1) portada y Certificaciones, 7 fragmentos; 2) 10 fragmentos; 3) 15; 4) 48; 5) gráficas, 7, con las series en la escala de noche 800, 600, 400 y 200. Unos 2.070 colores; copias previas 1000 a 1086.
+- Pendiente: la serie destacada de las gráficas en lima y los guiones a partir de la quinta serie.
