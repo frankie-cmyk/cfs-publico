@@ -1,3 +1,4 @@
+/* Paleta de pintor sin dinero (Frankie, 25-11-2026): cinco pigmentos (noche, verde, lima, rojo y naranja) con cinco tonos cada uno, más crema y papel (crema 00, en lugar del blanco). Azul y verde petróleo se juntan en noche; los tonos de crema que no se distinguen, en crema y papel. Los nombres viejos siguen valiendo y apuntan al color que queda. */
 /* Colores simplificados a la paleta del Sketch (Frankie, 25-11-2026: «simplifica a los más próximos»; sin blanco puro: el más claro es crema 00; rojo 800 #E00307 con su degradado). */
 /* Copia para el nexo (Claude 16-11-2026): igual que MKT_Drop/70_Tatanka/Tokens de Tatanka (Claude)/tatanka-tokens.css, solo cambian las rutas de las letras a fonts/. */
 /* Tatanka_26 V2.0 UX · valores del manual de estilos · versión 2.1 · 16-11-2026
@@ -24,16 +25,16 @@
   --ttk-paleta-noche-400:#66737c;
   --ttk-paleta-noche-200:#99a1a7;
   --ttk-paleta-noche-00:#ccd0d342;
-  --ttk-paleta-azul-800:#061c3f;
-  --ttk-paleta-azul-600:#384965;
-  --ttk-paleta-azul-400:#6a778c;
-  --ttk-paleta-azul-200:#9ba4b2;
-  --ttk-paleta-azul-00:#cdd2d8;
-  --ttk-paleta-verde-petroleo-800:#26464b;
-  --ttk-paleta-verde-petroleo-600:#516b6f;
-  --ttk-paleta-verde-petroleo-400:#7d9093;
-  --ttk-paleta-verde-petroleo-200:#a8b5b7;
-  --ttk-paleta-verde-petroleo-00:#d4dadb;
+  --ttk-paleta-azul-800:var(--ttk-paleta-noche-800);
+  --ttk-paleta-azul-600:var(--ttk-paleta-noche-600);
+  --ttk-paleta-azul-400:var(--ttk-paleta-noche-400);
+  --ttk-paleta-azul-200:var(--ttk-paleta-noche-200);
+  --ttk-paleta-azul-00:var(--ttk-paleta-noche-00);
+  --ttk-paleta-verde-petroleo-800:var(--ttk-paleta-noche-600);
+  --ttk-paleta-verde-petroleo-600:var(--ttk-paleta-noche-400);
+  --ttk-paleta-verde-petroleo-400:var(--ttk-paleta-noche-200);
+  --ttk-paleta-verde-petroleo-200:var(--ttk-paleta-noche-200);
+  --ttk-paleta-verde-petroleo-00:var(--ttk-paleta-noche-00);
   --ttk-paleta-verde-800:#357a38;
   --ttk-paleta-verde-600:#5d9560;
   --ttk-paleta-verde-400:#86af88;
@@ -49,10 +50,11 @@
   --ttk-paleta-rojo-400:#ec686a;
   --ttk-paleta-rojo-200:#f39a9c;
   --ttk-paleta-rojo-00:#f9cdcd;
-  --ttk-paleta-crema-800:#f7ebdc;
+  --ttk-paleta-naranja-800:#c75519;--ttk-paleta-naranja-600:#d27747;--ttk-paleta-naranja-400:#dd9975;--ttk-paleta-naranja-200:#e9bba3;--ttk-paleta-naranja-00:#f4ddd1;
+  --ttk-paleta-crema-800:var(--ttk-paleta-crema-600);
   --ttk-paleta-crema-600:#f9efe3;
-  --ttk-paleta-crema-400:#faf3ea;
-  --ttk-paleta-crema-200:#fcf7f1;
+  --ttk-paleta-crema-400:var(--ttk-paleta-crema-600);
+  --ttk-paleta-crema-200:var(--ttk-paleta-crema-00);
   --ttk-paleta-crema-00:#fdfbf8;
   --ttk-texto-oscuro:var(--ttk-paleta-noche-800);
   --ttk-texto-gris:var(--ttk-paleta-noche-400);
@@ -76,7 +78,7 @@
   --ttk-linea-documento:var(--ttk-paleta-verde-petroleo-400);
   --ttk-estado-cerrar-sesion:var(--ttk-paleta-rojo-600);
   --ttk-etiqueta-pastilla:var(--ttk-paleta-noche-400);
-  --ttk-etiqueta-blog:#c75519;
+  --ttk-etiqueta-blog:var(--ttk-paleta-naranja-800);
   --ttk-banner-ayuda:var(--ttk-paleta-noche-600);
   --ttk-texto-etiqueta-de-seccion:var(--ttk-paleta-verde-petroleo-800);
   /* Espacios, radios y sombras */
