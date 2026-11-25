@@ -38,3 +38,15 @@ Dónde está en Madre: fragmento 670 «[M00 Estilos de la casa]» (copia previa:
 | --cfs-sombra-alzada | --ttk-sombra-flotante | mismo valor |
 
 Fragmento 670 (copia previa: 981). Quedan los radios y sombras escritos a mano dentro de otras piezas de Madre.
+
+## Tanda 3 · botones (25-11-2026)
+
+| Botón de Madre | Antes | Ahora (manual) |
+|---|---|---|
+| Principal | marino, píldora, negrita | --ttk-boton-principal-claro (verde), radio 4, alto 40, mayúsculas |
+| Principal al pasar | lima | --ttk-boton-pasar-claro |
+| Secundario | blanco, borde gris, píldora | borde --ttk-boton-secundario-claro, transparente, mismas medidas |
+| Enviar de Help (.cfs-hp-env) | — | --ttk-boton-enviar (rojo) |
+| Modo noche, principal | igual que de día | --ttk-boton-principal-oscuro |
+
+Se añadieron a «secundario» .cfs-hp-otra y .cfs-ch-nueva. Fragmento 444 «[M41 Piezas comunes]» (copia previa: 982). Quedan pastillas, campos y chips.
