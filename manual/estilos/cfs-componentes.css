@@ -65,14 +65,15 @@
 /* Tabla (25-11-2026, Frankie: CAMBIALO). Marco con borde y radio de caja; cabecera gris en mayúsculas pequeñas; filas de 14 con aire; cifras a la derecha con barrita; estado como etiqueta verde o roja. En Madre: cfs-tabla-ord (fragmento 670). */
 .tabla-marco{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-caja,8px);overflow:auto}
 .tabla{width:100%;border-collapse:collapse;font-family:var(--ttk-font-textos);font-size:14px;line-height:20px;color:var(--ttk-texto-oscuro,#001524)}
-.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro);border-bottom:1px solid var(--ttk-linea-clara);padding:10px 16px;font-size:12px;line-height:16px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris);vertical-align:bottom}
+.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro);border-bottom:1px solid var(--ttk-linea-clara);padding:10px 16px;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris);vertical-align:bottom}
 .tabla td{padding:14px 16px;border-bottom:1px solid var(--ttk-linea-clara);vertical-align:middle}
 .tabla tbody tr:last-child td{border-bottom:0}
 .tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)}
 .tabla .tabla-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:400}
-.tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:999px;font-size:12px;line-height:16px;font-weight:600;white-space:nowrap}
+.tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:999px;font-size:12px;line-height:16px;font-weight:700;white-space:nowrap}
 .tabla-si{background:var(--ttk-paleta-verde-00);color:var(--ttk-paleta-verde-800)}.tabla-si::before{content:"✓"}
 .tabla-no{background:var(--ttk-paleta-rojo-00);color:var(--ttk-estado-cerrar-sesion)}.tabla-no::before{content:"✕"}
 .tabla-barra{display:block;height:4px;width:120px;max-width:100%;margin:6px 0 0 auto;background:var(--ttk-fondo-gris-claro);border-radius:2px;overflow:hidden}
 .tabla-barra i{display:block;height:4px;background:var(--ttk-paleta-verde-800)}.tabla-barra.no i{background:var(--ttk-paleta-rojo-800)}
+.tabla tfoot td.tabla-nota{font-size:10px;line-height:14px;font-style:italic;color:var(--ttk-texto-gris);background:var(--ttk-fondo-gris-claro);border-top:1px solid var(--ttk-linea-clara);border-bottom:0;padding:10px 16px}

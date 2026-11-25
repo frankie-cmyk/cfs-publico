@@ -115,8 +115,8 @@
   P.tabla = { grupo: 'Componentes', titulo: 'Tabla', html: function () {
     var c = '<div class="tabla-marco" style="width:100%"><table class="tabla"><thead><tr><th>Tamaño</th><th class="tabla-num">Veces</th><th class="tabla-num">Parte del total</th><th>¿De la casa?</th></tr></thead><tbody>' +
       '<tr><td><b>14 px</b></td><td class="tabla-num">3.313</td><td class="tabla-num">44,6 %<span class="tabla-barra"><i style="width:45%"></i></span></td><td><span class="tabla-si">Sí</span><span class="tabla-sec">Pequeña</span></td></tr>' +
-      '<tr><td><b>13 px</b></td><td class="tabla-num">4</td><td class="tabla-num">0,1 %<span class="tabla-barra no"><i style="width:1%"></i></span></td><td><span class="tabla-no">No, suelto</span></td></tr></tbody></table></div>';
-    return '<h1 class="acento-lima">Tabla</h1><p class="m-entradilla">Marco con borde y radio de caja, cabecera gris en mayúsculas pequeñas, filas con aire, cifras a la derecha con su barrita y el estado como etiqueta verde o roja.</p>' + ejemplo(c, 'tabla-marco · tabla · tabla-num · tabla-sec · tabla-si · tabla-no · tabla-barra');
+      '<tr><td><b>13 px</b></td><td class="tabla-num">4</td><td class="tabla-num">0,1 %<span class="tabla-barra no"><i style="width:1%"></i></span></td><td><span class="tabla-no">No, suelto</span></td></tr></tbody><tfoot><tr><td class="tabla-nota" colspan="4">Nota al pie de la tabla: de dónde salen los datos y cuándo se midieron.</td></tr></tfoot></table></div>';
+    return '<h1 class="acento-lima">Tabla</h1><p class="m-entradilla">Marco con borde y radio de caja, cabecera gris en mayúsculas pequeñas, filas con aire, cifras a la derecha con su barrita y el estado como etiqueta verde o roja. La nota sobre los datos va dentro, como pie, en estilo nota. Solo pesos de la casa: normal y negrita.</p>' + ejemplo(c, 'tabla-marco · tabla · tabla-num · tabla-sec · tabla-si · tabla-no · tabla-barra');
   } };
 
   var orden = ['inicio', 'color', 'tipografia', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla'];
