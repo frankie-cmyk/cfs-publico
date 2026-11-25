@@ -31,7 +31,7 @@ body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);
 .m-medida i{display:block;height:16px;background:var(--ttk-paleta-lima-800)}
 .m-caja{width:160px;height:96px;background:var(--ttk-fondo-blanco);border:1px solid var(--ttk-linea-clara);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ttk-texto-gris)}
 .m-pantallas{display:flex;gap:var(--ttk-espacio-8);margin:0 0 var(--ttk-espacio-16)}
-@media (max-width:760px){
+@media (max-width:599px){
   .m-cuerpo{grid-template-columns:1fr}
   .m-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;z-index:4;height:auto}
   .m-menu.abierto{display:block}
@@ -40,3 +40,6 @@ body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);
 }
 .m-pagina:focus{outline:none}
 .m-pagina .tabla td:nth-child(2){min-width:176px}
+
+/* Retícula (25-11-2026) */
+.m-ret{display:flex;box-sizing:border-box;max-width:100%;height:72px;margin:var(--ttk-espacio-8) 0 0;background:var(--ttk-paleta-crema-00);border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno)}.m-ret i{display:block;height:100%;background:var(--ttk-paleta-lima-200);border-left:1px solid var(--ttk-paleta-lima-800);border-right:1px solid var(--ttk-paleta-lima-800);box-sizing:border-box}.m-ret-rep{gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8)}.m-ret-rep b{display:flex;align-items:center;justify-content:center;background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);font-size:14px}.m-ret-nota{font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400);margin:var(--ttk-espacio-4) 0 var(--ttk-espacio-16)}

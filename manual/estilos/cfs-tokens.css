@@ -96,6 +96,11 @@
   --ttk-sombra-tarjeta:0 2px 8px #00152440;--ttk-sombra-flotante:0 12px 36px #0015243d;--ttk-sombra-caja:var(--ttk-sombra-tarjeta);--ttk-sombra-panel:var(--ttk-sombra-tarjeta);--ttk-sombra-ventana:var(--ttk-sombra-flotante);--ttk-tarjeta-realce:4px;--ttk-tarjeta-transicion:.2s;--ttk-tarjeta-margen:16px;--ttk-precio:var(--ttk-paleta-verde-800);
   /* Acento lima (17-11-2026, traído de Madre): raya vertical delante de los títulos; gruesa en el título de página y fina en los títulos de apartado */--ttk-acento-color:var(--ttk-paleta-lima-800);--ttk-acento-grueso:6px;--ttk-acento-fino:3px;--ttk-acento-aire:16px;
   --ttk-contenedor:85rem;
+  /* Retícula (25-11-2026, de la lámina 1.1 del Sketch de Tatanka; Frankie: «unifícalo»: un solo corte de móvil, 599, en todo el manual): 12 columnas en escritorio, 8 en tableta y 4 en móvil, con huecos y márgenes fijos. Los anchos de referencia son 1440, 768 y 390. */
+  --ttk-ret-escritorio-desde:1025px;--ttk-ret-escritorio-contenedor:1360px;--ttk-ret-escritorio-columnas:12;--ttk-ret-escritorio-columna:84px;--ttk-ret-escritorio-hueco:32px;--ttk-ret-escritorio-margen:40px;
+  --ttk-ret-tableta-desde:600px;--ttk-ret-tableta-contenedor:720px;--ttk-ret-tableta-columnas:8;--ttk-ret-tableta-columna:69px;--ttk-ret-tableta-hueco:24px;--ttk-ret-tableta-margen:24px;
+  --ttk-ret-movil-contenedor:358px;--ttk-ret-movil-columnas:4;--ttk-ret-movil-columna:77.5px;--ttk-ret-movil-hueco:16px;--ttk-ret-movil-margen:16px;
+  --ttk-ret-texto-ancho:664px;
 
   /* Compatibilidad: las variables que ya usa la web toman los valores del manual */
   --font-sans:var(--ttk-font-textos);

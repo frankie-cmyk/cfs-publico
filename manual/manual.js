@@ -101,6 +101,37 @@
       return '<h1 class="acento-lima">' + titulo + '</h1><p class="m-entradilla">' + texto + '</p>' + vs.map(function (x) { return dibujo(x); }).join('');
     } };
   }
+  P.reticula = { grupo: 'Fundamentos', titulo: 'Retícula', html: function () {
+    var cs = getComputedStyle(document.documentElement);
+    function v(n) { return cs.getPropertyValue('--ttk-ret-' + n).trim(); }
+    function px(n) { return parseFloat(v(n)); }
+    function rejilla(t, ancho) {
+      var n = px(t + '-columnas'), col = px(t + '-columna'), hueco = px(t + '-hueco'), margen = px(t + '-margen'), cont = px(t + '-contenedor');
+      var esc1 = 100 / ancho, h = '<div class="m-ret" style="width:' + (ancho * esc1) + '%;padding:0 ' + (margen * esc1) + '%">';
+      for (var i = 0; i < n; i++) { h += '<i style="width:' + (col / cont * 100) + '%;margin-right:' + (i < n - 1 ? (hueco / cont * 100) : 0) + '%"></i>'; }
+      return h + '</div><p class="m-ret-nota">' + n + ' columnas de ' + v(t + '-columna') + ', huecos de ' + v(t + '-hueco') + ', márgenes de ' + v(t + '-margen') + ' · contenido ' + v(t + '-contenedor') + ' en ' + ancho + ' px</p>';
+    }
+    function reparto(nombre, partes, uso) {
+      var h = '<div class="m-ret m-ret-rep">';
+      partes.forEach(function (p) { h += '<b style="flex:' + p + ' ' + p + ' 0">' + p + '</b>'; });
+      return '<h3>' + esc(nombre) + '</h3>' + h + '</div><p class="m-ret-nota">' + esc(uso) + '</p>';
+    }
+    return '<h1 class="acento-lima">Retícula</h1><p class="m-entradilla">El esqueleto de cada página: columnas iguales con huecos y márgenes fijos. Toda pieza ocupa un número entero de columnas y sus bordes caen siempre sobre el borde de una columna. Solo los fondos de color y las fotos a todo lo ancho llegan hasta el borde de la pantalla.</p>' +
+      '<h2>Escritorio · desde ' + esc(v('escritorio-desde')) + '</h2>' + rejilla('escritorio', 1440) +
+      '<h2>Tableta · desde ' + esc(v('tableta-desde')) + '</h2>' + rejilla('tableta', 768) +
+      '<h2>Móvil · hasta ' + (px('tableta-desde') - 1) + 'px</h2>' + rejilla('movil', 390) +
+      '<h2>Cómo se reparten las 12 columnas</h2>' +
+      reparto('Información · 3 y 9', [3, 9], 'Páginas con menú a la izquierda: menú de 3 columnas y contenido de 9.') +
+      reparto('Ficha · 9 y 3', [9, 3], 'La página de cada plantilla: contenido de 9 columnas y lateral de 3, donde va el precio.') +
+      reparto('Tres tarjetas · 4, 4 y 4', [4, 4, 4], 'Portada: tarjetas de canales y de servicios.') +
+      reparto('Cuatro tarjetas · 3, 3, 3 y 3', [3, 3, 3, 3], 'Portada: filas de plantillas más usadas y básicas.') +
+      reparto('Buscador · 3 y tres de 3', [3, 3, 3, 3], 'Buscador y páginas de canal: filtros de 3 columnas y tres tarjetas de 3.') +
+      '<h2>Reglas</h2><ul><li><b>Texto a ' + esc(v('texto-ancho')) + ' como mucho.</b> Entradillas, párrafos y listas no pasan de ese ancho para que se lean bien; los titulares ocupan toda su columna. En móvil el texto va a todo el ancho.</li>' +
+      '<li><b>Filas llenas.</b> En una rejilla de tarjetas todas las filas van completas. Si sobra una, la de más contenido va sola en una fila entera, como destacada. Nunca una tarjeta sola con un hueco al lado. No vale para carruseles, que van siempre en una línea.</li>' +
+      '<li><b>Por qué 12.</b> Se parte en 2, 3, 4 y 6 partes iguales: mitades, tercios y cuartos sin decimales. Comprobación: 12 columnas de 84 y 11 huecos de 32 suman 1360; con 40 de margen a cada lado, 1440.</li></ul>' +
+      '<p class="m-nota">De dónde sale: lámina 1.1 «Retícula» del Sketch de Tatanka. Los huecos y márgenes de tableta y móvil son los de Material Design.</p>';
+  } };
+
   P.espacios = medidas('--ttk-espacio-', 'Espacios', 'La escala de espacios. Márgenes y separaciones usan solo estos valores.', function (x) { return '<div class="m-medida"><i style="width:' + x.v + '"></i>' + esc(bonito(x.n)) + ' · ' + esc(x.v) + '</div>'; });
   P.radios = medidas('--ttk-radio-', 'Radios', 'Solo tres: pequeño para botones, campos y tarjetas; grande para cajas y banners; píldora para etiquetas y chips.', function (x) { return '<div class="m-medida"><div class="m-caja" style="border-radius:' + x.v + '">' + esc(x.v) + '</div>' + esc(bonito(x.n)) + '</div>'; });
   P.sombras = medidas('--ttk-sombra-', 'Sombras', 'Solo dos: tarjeta para lo apoyado en la página y flotante para lo que queda por encima.', function (x) { return '<div class="m-medida"><div class="m-caja" style="box-shadow:' + x.v + ';border:0">' + esc(bonito(x.n)) + '</div>' + esc(x.v) + '</div>'; });
@@ -153,7 +184,7 @@
     return '<h1 class="acento-lima">Tabla</h1><p class="m-entradilla">Marco con borde y radio de caja, cabecera gris en mayúsculas pequeñas, filas con aire, cifras a la derecha con su barrita y el estado como etiqueta verde o roja. La nota sobre los datos va dentro, como pie, en estilo nota. Sin cabecera sirve para listas de datos: la primera columna va en gris. Solo pesos de la casa: normal y negrita.</p>' + ejemplo(c + '<div style="width:100%;margin-top:16px"><table class="tabla"><tbody><tr><td>Redactado</td><td>Madre, 10-11-2026</td></tr><tr><td>Revisado</td><td>Frankie Gómez</td></tr></tbody></table></div>', 'tabla-marco · tabla · tabla-tarjetas · tabla-num · tabla-sec · tabla-si · tabla-no · tabla-barra');
   } };
 
-  var orden = ['inicio', 'color', 'colorcomp', 'graficas', 'tipografia', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla'];
+  var orden = ['inicio', 'color', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla'];
   var menu = document.getElementById('m-menu'), pagina = document.getElementById('m-pagina');
 
   function pintaMenu(actual) {

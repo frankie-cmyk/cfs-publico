@@ -22,3 +22,7 @@ nexo.css ya no define ningún componente del sistema; solo queda el adaptador de
 ## Ventanas (25-11-2026)
 
 La ventana de confirmación usa la pieza «Ventana» de GitHub; nexo.css ya no la define.
+
+## Retícula en el manual (25-11-2026)
+
+Nuevo apartado «Retícula» con los valores de la lámina 1.1 del Sketch de Tatanka, como tokens (--ttk-ret-*). Un solo corte de móvil en todo el manual: hasta 599; tableta de 600 a 1024; escritorio desde 1025.
