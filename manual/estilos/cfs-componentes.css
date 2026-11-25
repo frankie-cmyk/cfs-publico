@@ -62,7 +62,7 @@
 @media (prefers-reduced-motion:reduce){.tarjeta-plantilla,.tarjeta-plantilla:hover,.tarjeta-plantilla:focus-within{transform:none;transition:box-shadow var(--ttk-tarjeta-transicion,.2s) ease}}
 
 
-/* Tabla (25-11-2026, Frankie: CAMBIALO; «todas las tablas deben ser iguales»). Una sola tabla para todo: con cabecera o sin ella (listas de datos).
+/* Tabla (25-11-2026, Frankie: CAMBIALO; «todas las tablas deben ser iguales»). Una sola tabla para todo: con cabecera, sin ella (listas de datos) o con el título en cada fila.
    Marco con borde y radio de caja; cabecera gris en mayúsculas pequeñas (se puede ordenar con un botón dentro de la cabecera); filas de 14 con aire;
    cifras a la derecha con barrita; estado como etiqueta verde o roja; nota al pie dentro de la tabla.
    En el móvil, con la clase tabla-tarjetas, una tarjeta por fila y el nombre de la columna (data-l) encima de cada dato.
@@ -80,6 +80,8 @@
 .tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)!important}
 .tabla td b,.tabla td strong{font-weight:700}
 .tabla .tabla-num,.tabla th.tabla-num>button{text-align:right!important;justify-content:flex-end;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabla tbody th{background:transparent!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;line-height:20px!important;font-weight:700!important;color:var(--ttk-texto-oscuro,#001524)!important;vertical-align:middle!important;padding:14px 16px!important;border-bottom:1px solid var(--ttk-linea-clara)!important}
+.tabla tbody tr:last-child th{border-bottom:0!important}
 .tabla:not(:has(thead)) td:first-child{color:var(--ttk-texto-gris)!important;width:1%;white-space:nowrap}
 .tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:400}
 .tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:999px;font-size:12px;line-height:16px;font-weight:700;white-space:nowrap}
