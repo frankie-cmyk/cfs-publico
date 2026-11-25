@@ -1,3 +1,4 @@
+/* Colores simplificados a la paleta del Sketch (Frankie, 25-11-2026: «simplifica a los más próximos»; sin blanco puro: el más claro es crema 00; rojo 800 #E00307 con su degradado). */
 /* Copia para el nexo (Claude 16-11-2026): igual que MKT_Drop/70_Tatanka/Tokens de Tatanka (Claude)/tatanka-tokens.css, solo cambian las rutas de las letras a fonts/. */
 /* Tatanka_26 V2.0 UX · valores del manual de estilos · versión 2.1 · 16-11-2026
    Generado desde el Sketch «Tatanka_26 V2.0 UX». No se edita a mano: se cambia en el Sketch y se vuelve a generar.
@@ -44,40 +45,40 @@
   --ttk-paleta-lima-200:#f1f5b7;
   --ttk-paleta-lima-00:#f8fadb;
   --ttk-paleta-rojo-800:#e00307;
-  --ttk-paleta-rojo-600:#f23539;
-  --ttk-paleta-rojo-400:#f5686b;
-  --ttk-paleta-rojo-200:#f99a9c;
-  --ttk-paleta-rojo-00:#fccdce;
+  --ttk-paleta-rojo-600:#e63539;
+  --ttk-paleta-rojo-400:#ec686a;
+  --ttk-paleta-rojo-200:#f39a9c;
+  --ttk-paleta-rojo-00:#f9cdcd;
   --ttk-paleta-crema-800:#f7ebdc;
   --ttk-paleta-crema-600:#f9efe3;
   --ttk-paleta-crema-400:#faf3ea;
   --ttk-paleta-crema-200:#fcf7f1;
   --ttk-paleta-crema-00:#fdfbf8;
-  --ttk-texto-oscuro:#001524;
-  --ttk-texto-gris:#736d66;
-  --ttk-texto-titular:#262626;
-  --ttk-texto-enlace:#023453;
-  --ttk-texto-blanco:#ffffff;
-  --ttk-accion-verde:#357a38;
-  --ttk-accion-verde-al-pasar:#26464b;
-  --ttk-accion-azul-marino:#061c3f;
-  --ttk-accion-claro:#f4f6f9;
-  --ttk-accion-claro-al-pasar:#dfe4e9;
-  --ttk-fondo-blanco:#ffffff;
-  --ttk-fondo-gris-claro:#f4f6f9;
-  --ttk-fondo-arena:#f8f4ee;
-  --ttk-fondo-crema-menu:#f9efe3;
-  --ttk-fondo-noche:#001524;
-  --ttk-fondo-sesion:#00090e;
-  --ttk-linea-clara:#dedbd7;
-  --ttk-linea-gris:#d1d5db;
-  --ttk-linea-separador-canal:#d9dee7;
-  --ttk-linea-documento:#7d9093;
-  --ttk-estado-cerrar-sesion:#a30205;
-  --ttk-etiqueta-pastilla:#5a6b73;
+  --ttk-texto-oscuro:var(--ttk-paleta-noche-800);
+  --ttk-texto-gris:var(--ttk-paleta-noche-400);
+  --ttk-texto-titular:var(--ttk-paleta-noche-800);
+  --ttk-texto-enlace:var(--ttk-paleta-azul-600);
+  --ttk-texto-blanco:var(--ttk-paleta-crema-00);
+  --ttk-accion-verde:var(--ttk-paleta-verde-800);
+  --ttk-accion-verde-al-pasar:var(--ttk-paleta-verde-petroleo-800);
+  --ttk-accion-azul-marino:var(--ttk-paleta-azul-800);
+  --ttk-accion-claro:var(--ttk-paleta-crema-400);
+  --ttk-accion-claro-al-pasar:var(--ttk-paleta-verde-petroleo-00);
+  --ttk-fondo-blanco:var(--ttk-paleta-crema-00);
+  --ttk-fondo-gris-claro:var(--ttk-paleta-crema-400);
+  --ttk-fondo-arena:var(--ttk-paleta-crema-200);
+  --ttk-fondo-crema-menu:var(--ttk-paleta-crema-600);
+  --ttk-fondo-noche:var(--ttk-paleta-noche-800);
+  --ttk-fondo-sesion:var(--ttk-paleta-noche-800);
+  --ttk-linea-clara:var(--ttk-paleta-verde-petroleo-00);
+  --ttk-linea-gris:var(--ttk-paleta-azul-00);
+  --ttk-linea-separador-canal:var(--ttk-paleta-verde-petroleo-00);
+  --ttk-linea-documento:var(--ttk-paleta-verde-petroleo-400);
+  --ttk-estado-cerrar-sesion:var(--ttk-paleta-rojo-600);
+  --ttk-etiqueta-pastilla:var(--ttk-paleta-noche-400);
   --ttk-etiqueta-blog:#c75519;
-  --ttk-banner-ayuda:#38332e;
-  --ttk-texto-etiqueta-de-seccion:#26464b;
+  --ttk-banner-ayuda:var(--ttk-paleta-noche-600);
+  --ttk-texto-etiqueta-de-seccion:var(--ttk-paleta-verde-petroleo-800);
   /* Espacios, radios y sombras */
   --ttk-espacio-4:4px;
   --ttk-espacio-8:8px;
@@ -139,104 +140,104 @@ body,button,input,select,textarea{font-family:var(--ttk-font-textos)}
 h1,h2,h3{font-family:var(--ttk-font-titulos)}
 
 /* Estilos de texto del manual, como clases */
-.ttk-titular-h1{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:39px;color:#001524}
-.ttk-titular-h2{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:27px;color:#001524}
-.ttk-titular-h3{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:24px;color:#001524}
-.ttk-cuerpo-parrafo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:26px;color:#736d66}
-.ttk-cuerpo-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:20px;color:#736d66}
-.ttk-cuerpo-nota{font-family:var(--ttk-font-textos);font-size:10px;font-weight:400;line-height:14px;color:#736d66;text-align:center}
-.ttk-portada-titulo{font-family:var(--ttk-font-titulos);font-size:45px;font-weight:700;line-height:47px;color:#ffffff}
-.ttk-portada-texto{font-family:var(--ttk-font-textos);font-size:18px;font-weight:400;line-height:25px;color:#ffffff}
-.ttk-banner-titulo{font-family:var(--ttk-font-titulos);font-size:38px;font-weight:700;line-height:38px;color:#ffffff}
-.ttk-banner-titulo-derecha{font-family:var(--ttk-font-titulos);font-size:38px;font-weight:700;line-height:38px;color:#ffffff;text-align:right}
-.ttk-banner-subtitulo{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:22px;color:#ffffff}
-.ttk-banner-subtitulo-derecha{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:22px;color:#ffffff;text-align:right}
-.ttk-seccion-titulo{font-family:var(--ttk-font-titulos);font-size:20px;font-weight:700;line-height:24px;color:#262626}
-.ttk-seccion-titulo-grande{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:41px;color:#000000;text-align:center}
-.ttk-seccion-texto-centrado{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:22px;color:#736d66;text-align:center}
-.ttk-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:#000000}
-.ttk-tarjeta-autor{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:16px;color:#736d66}
-.ttk-tarjeta-precio{font-family:var(--ttk-font-textos);font-size:20px;font-weight:700;line-height:24px;color:#357a38}
-.ttk-boton-mayusculas-claro{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:26px;color:#f4f6f9;text-transform:uppercase;text-align:center}
-.ttk-boton-mayusculas-oscuro{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:26px;color:#061c3f;text-transform:uppercase;text-align:center}
-.ttk-boton-mayusculas-noche{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:24px;color:#001524;text-transform:uppercase;text-align:center}
-.ttk-boton-blanco{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:#ffffff;text-align:center}
-.ttk-boton-gris{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:#736d66;text-align:center}
-.ttk-boton-verde{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:#357a38;text-align:center}
-.ttk-boton-gris-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:#736d66;text-align:center}
-.ttk-boton-verde-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:#357a38;text-align:center}
-.ttk-boton-azul-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:#061c3f;text-align:center}
-.ttk-boton-mini{font-family:var(--ttk-font-textos);font-size:11px;font-weight:700;line-height:14px;color:#736d66;text-transform:uppercase;text-align:center}
-.ttk-boton-tarjeta{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:26px;color:#f4f6f9;text-align:center}
-.ttk-menu-principal{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:20px;color:#ffffff}
-.ttk-menu-principal-activo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:#ffffff}
-.ttk-menu-secundario{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:#736d66}
-.ttk-menu-secundario-activo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:18px;color:#736d66}
-.ttk-menu-sesion{font-family:var(--ttk-font-textos);font-size:15px;font-weight:500;line-height:21px;color:#d8dde6}
-.ttk-menu-movil{font-family:var(--ttk-font-textos);font-size:15px;font-weight:700;line-height:20px;color:#001524}
-.ttk-pie-titulo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:18px;color:#f4f6f9;text-transform:uppercase}
-.ttk-pie-enlace{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:#f4f6f9}
-.ttk-etiqueta-antetitulo{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:23px;color:#357a38;text-transform:uppercase;letter-spacing:3px;text-align:center}
-.ttk-etiqueta-verde{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:18px;color:#ffffff}
-.ttk-etiqueta-pastilla{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:14px;color:#5a6b73;text-align:center}
-.ttk-etiqueta-grupo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:19px;color:#746d67}
-.ttk-filtros-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:600;line-height:20px;color:#001524}
-.ttk-filtros-grupo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:600;line-height:18px;color:#001524}
-.ttk-filtros-opcion{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:#001524}
-.ttk-filtros-contador{font-family:var(--ttk-font-textos);font-size:12px;font-weight:400;line-height:16px;color:#6b7280;text-align:right}
-.ttk-filtros-resultados{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:#4b5563}
-.ttk-filtros-chip{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:16px;color:#736d66}
-.ttk-filtros-chip-categoria{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#061c3f}
-.ttk-campo-buscador{font-family:var(--ttk-font-textos);font-size:18px;font-weight:400;line-height:22px;color:#736d66}
-.ttk-campo-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:#736d66}
-.ttk-cifra-grande{font-family:var(--ttk-font-titulos);font-size:56px;font-weight:700;line-height:80px;color:#736d66;text-align:center}
-.ttk-cifra-leyenda{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:18px;color:#736d66;text-align:center}
-.ttk-canal-antetitulo{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:25px;color:#f4f6f9;text-transform:uppercase;text-align:center}
-.ttk-canal-titulo{font-family:var(--ttk-font-titulos);font-size:29px;font-weight:700;line-height:40px;color:#f4f6f9;text-align:center}
-.ttk-canal-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:18px;color:#f4f6f9;text-align:center}
-.ttk-servicio-antetitulo{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:25px;color:#000000;text-transform:uppercase}
-.ttk-servicio-titulo{font-family:var(--ttk-font-titulos);font-size:46px;font-weight:700;line-height:55px;color:#000000}
-.ttk-servicio-titulo-tarjeta{font-family:var(--ttk-font-titulos);font-size:28px;font-weight:700;line-height:40px;color:#ffffff;text-align:center}
-.ttk-servicio-texto-tarjeta{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:18px;color:#ffffff;text-align:center}
-.ttk-ficha-ventaja-titulo{font-family:var(--ttk-font-titulos);font-size:20px;font-weight:700;line-height:30px;color:#061c3f}
-.ttk-ficha-ventaja-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:19px;color:#061c3f}
-.ttk-ficha-paso-numero{font-family:var(--ttk-font-titulos);font-size:41px;font-weight:500;line-height:48px;color:#f8fadb;text-align:center}
-.ttk-ficha-paso-titulo{font-family:var(--ttk-font-textos);font-size:17px;font-weight:500;line-height:30px;color:#061c3f;text-align:center}
-.ttk-ficha-paso-texto{font-family:var(--ttk-font-textos);font-size:11px;font-weight:400;line-height:19px;color:#061c3f;text-align:center}
-.ttk-ficha-info-titulo{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:23px;color:#736d66;text-align:center}
-.ttk-ficha-info-texto{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:23px;color:#736d66;text-align:center}
-.ttk-ficha-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:17px;font-weight:500;line-height:21px;color:#061c3f;text-align:center}
-.ttk-ficha-tarjeta-texto{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:#061c3f;text-align:center}
-.ttk-ficha-evidencia{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:#061c3f;text-align:center}
-.ttk-ficha-documento-titulo{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:25px;color:#736d66}
-.ttk-ficha-documento-texto{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:27px;color:#736d66}
-.ttk-precio-antetitulo{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:17px;color:#ccd0d3;text-transform:uppercase;text-align:center}
-.ttk-precio-importe{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:40px;color:#357a38;text-align:center}
-.ttk-precio-plan{font-family:var(--ttk-font-titulos);font-size:26px;font-weight:700;line-height:26px;color:#ffffff}
-.ttk-precio-apartado{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#736d66;text-align:center}
-.ttk-preguntas-columna{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:24px;color:#001524}
-.ttk-preguntas-pregunta{font-family:var(--ttk-font-textos);font-size:16px;font-weight:600;line-height:24px;color:#736d66}
-.ttk-preguntas-respuesta{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:17px;color:#736d66}
-.ttk-lateral-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:21px;color:#262626}
-.ttk-lateral-enlace{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:20px;color:#736d66}
-.ttk-lateral-enlace-activo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:20px;color:#023453;text-decoration:underline}
-.ttk-editorial-titulo{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:39px;color:#001524}
-.ttk-editorial-entradilla{font-family:var(--ttk-font-textos);font-size:19px;font-weight:700;line-height:28px;color:#001524}
-.ttk-editorial-apartado{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:27px;color:#001524;text-transform:uppercase;letter-spacing:1.5px}
-.ttk-editorial-numero{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:#001524;text-align:center}
+.ttk-titular-h1{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:39px;color:var(--ttk-paleta-noche-800)}
+.ttk-titular-h2{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:27px;color:var(--ttk-paleta-noche-800)}
+.ttk-titular-h3{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800)}
+.ttk-cuerpo-parrafo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:26px;color:var(--ttk-paleta-noche-400)}
+.ttk-cuerpo-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:20px;color:var(--ttk-paleta-noche-400)}
+.ttk-cuerpo-nota{font-family:var(--ttk-font-textos);font-size:10px;font-weight:400;line-height:14px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-portada-titulo{font-family:var(--ttk-font-titulos);font-size:45px;font-weight:700;line-height:47px;color:var(--ttk-paleta-crema-00)}
+.ttk-portada-texto{font-family:var(--ttk-font-textos);font-size:18px;font-weight:400;line-height:25px;color:var(--ttk-paleta-crema-00)}
+.ttk-banner-titulo{font-family:var(--ttk-font-titulos);font-size:38px;font-weight:700;line-height:38px;color:var(--ttk-paleta-crema-00)}
+.ttk-banner-titulo-derecha{font-family:var(--ttk-font-titulos);font-size:38px;font-weight:700;line-height:38px;color:var(--ttk-paleta-crema-00);text-align:right}
+.ttk-banner-subtitulo{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:22px;color:var(--ttk-paleta-crema-00)}
+.ttk-banner-subtitulo-derecha{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:22px;color:var(--ttk-paleta-crema-00);text-align:right}
+.ttk-seccion-titulo{font-family:var(--ttk-font-titulos);font-size:20px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800)}
+.ttk-seccion-titulo-grande{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:41px;color:var(--ttk-paleta-noche-800);text-align:center}
+.ttk-seccion-texto-centrado{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:22px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:var(--ttk-paleta-noche-800)}
+.ttk-tarjeta-autor{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:16px;color:var(--ttk-paleta-noche-400)}
+.ttk-tarjeta-precio{font-family:var(--ttk-font-textos);font-size:20px;font-weight:700;line-height:24px;color:var(--ttk-paleta-verde-800)}
+.ttk-boton-mayusculas-claro{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:26px;color:var(--ttk-paleta-crema-400);text-transform:uppercase;text-align:center}
+.ttk-boton-mayusculas-oscuro{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:26px;color:var(--ttk-paleta-azul-800);text-transform:uppercase;text-align:center}
+.ttk-boton-mayusculas-noche{font-family:var(--ttk-font-textos);font-size:18px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800);text-transform:uppercase;text-align:center}
+.ttk-boton-blanco{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:var(--ttk-paleta-crema-00);text-align:center}
+.ttk-boton-gris{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-boton-verde{font-family:var(--ttk-font-textos);font-size:16px;font-weight:500;line-height:20px;color:var(--ttk-paleta-verde-800);text-align:center}
+.ttk-boton-gris-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-boton-verde-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:var(--ttk-paleta-verde-800);text-align:center}
+.ttk-boton-azul-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:20px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-boton-mini{font-family:var(--ttk-font-textos);font-size:11px;font-weight:700;line-height:14px;color:var(--ttk-paleta-noche-400);text-transform:uppercase;text-align:center}
+.ttk-boton-tarjeta{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:26px;color:var(--ttk-paleta-crema-400);text-align:center}
+.ttk-menu-principal{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:20px;color:var(--ttk-paleta-crema-00)}
+.ttk-menu-principal-activo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:var(--ttk-paleta-crema-00)}
+.ttk-menu-secundario{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:var(--ttk-paleta-noche-400)}
+.ttk-menu-secundario-activo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:18px;color:var(--ttk-paleta-noche-400)}
+.ttk-menu-sesion{font-family:var(--ttk-font-textos);font-size:15px;font-weight:500;line-height:21px;color:var(--ttk-paleta-azul-00)}
+.ttk-menu-movil{font-family:var(--ttk-font-textos);font-size:15px;font-weight:700;line-height:20px;color:var(--ttk-paleta-noche-800)}
+.ttk-pie-titulo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:18px;color:var(--ttk-paleta-crema-400);text-transform:uppercase}
+.ttk-pie-enlace{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:var(--ttk-paleta-crema-400)}
+.ttk-etiqueta-antetitulo{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:23px;color:var(--ttk-paleta-verde-800);text-transform:uppercase;letter-spacing:3px;text-align:center}
+.ttk-etiqueta-verde{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:18px;color:var(--ttk-paleta-crema-00)}
+.ttk-etiqueta-pastilla{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:14px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-etiqueta-grupo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:19px;color:var(--ttk-paleta-noche-400)}
+.ttk-filtros-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:600;line-height:20px;color:var(--ttk-paleta-noche-800)}
+.ttk-filtros-grupo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:600;line-height:18px;color:var(--ttk-paleta-noche-800)}
+.ttk-filtros-opcion{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:var(--ttk-paleta-noche-800)}
+.ttk-filtros-contador{font-family:var(--ttk-font-textos);font-size:12px;font-weight:400;line-height:16px;color:var(--ttk-paleta-noche-400);text-align:right}
+.ttk-filtros-resultados{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:var(--ttk-paleta-noche-600)}
+.ttk-filtros-chip{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:16px;color:var(--ttk-paleta-noche-400)}
+.ttk-filtros-chip-categoria{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:var(--ttk-paleta-azul-800)}
+.ttk-campo-buscador{font-family:var(--ttk-font-textos);font-size:18px;font-weight:400;line-height:22px;color:var(--ttk-paleta-noche-400)}
+.ttk-campo-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:18px;color:var(--ttk-paleta-noche-400)}
+.ttk-cifra-grande{font-family:var(--ttk-font-titulos);font-size:56px;font-weight:700;line-height:80px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-cifra-leyenda{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:18px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-canal-antetitulo{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:25px;color:var(--ttk-paleta-crema-400);text-transform:uppercase;text-align:center}
+.ttk-canal-titulo{font-family:var(--ttk-font-titulos);font-size:29px;font-weight:700;line-height:40px;color:var(--ttk-paleta-crema-400);text-align:center}
+.ttk-canal-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:18px;color:var(--ttk-paleta-crema-400);text-align:center}
+.ttk-servicio-antetitulo{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:25px;color:var(--ttk-paleta-noche-800);text-transform:uppercase}
+.ttk-servicio-titulo{font-family:var(--ttk-font-titulos);font-size:46px;font-weight:700;line-height:55px;color:var(--ttk-paleta-noche-800)}
+.ttk-servicio-titulo-tarjeta{font-family:var(--ttk-font-titulos);font-size:28px;font-weight:700;line-height:40px;color:var(--ttk-paleta-crema-00);text-align:center}
+.ttk-servicio-texto-tarjeta{font-family:var(--ttk-font-textos);font-size:14px;font-weight:500;line-height:18px;color:var(--ttk-paleta-crema-00);text-align:center}
+.ttk-ficha-ventaja-titulo{font-family:var(--ttk-font-titulos);font-size:20px;font-weight:700;line-height:30px;color:var(--ttk-paleta-azul-800)}
+.ttk-ficha-ventaja-texto{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:19px;color:var(--ttk-paleta-azul-800)}
+.ttk-ficha-paso-numero{font-family:var(--ttk-font-titulos);font-size:41px;font-weight:500;line-height:48px;color:var(--ttk-paleta-lima-00);text-align:center}
+.ttk-ficha-paso-titulo{font-family:var(--ttk-font-textos);font-size:17px;font-weight:500;line-height:30px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-ficha-paso-texto{font-family:var(--ttk-font-textos);font-size:11px;font-weight:400;line-height:19px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-ficha-info-titulo{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:23px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-ficha-info-texto{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:23px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-ficha-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:17px;font-weight:500;line-height:21px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-ficha-tarjeta-texto{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-ficha-evidencia{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:var(--ttk-paleta-azul-800);text-align:center}
+.ttk-ficha-documento-titulo{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:25px;color:var(--ttk-paleta-noche-400)}
+.ttk-ficha-documento-texto{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:27px;color:var(--ttk-paleta-noche-400)}
+.ttk-precio-antetitulo{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:17px;color:var(--ttk-paleta-noche-00);text-transform:uppercase;text-align:center}
+.ttk-precio-importe{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:40px;color:var(--ttk-paleta-verde-800);text-align:center}
+.ttk-precio-plan{font-family:var(--ttk-font-titulos);font-size:26px;font-weight:700;line-height:26px;color:var(--ttk-paleta-crema-00)}
+.ttk-precio-apartado{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:var(--ttk-paleta-noche-400);text-align:center}
+.ttk-preguntas-columna{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800)}
+.ttk-preguntas-pregunta{font-family:var(--ttk-font-textos);font-size:16px;font-weight:600;line-height:24px;color:var(--ttk-paleta-noche-400)}
+.ttk-preguntas-respuesta{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:17px;color:var(--ttk-paleta-noche-400)}
+.ttk-lateral-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:21px;color:var(--ttk-paleta-noche-800)}
+.ttk-lateral-enlace{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:20px;color:var(--ttk-paleta-noche-400)}
+.ttk-lateral-enlace-activo{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:20px;color:var(--ttk-paleta-azul-600);text-decoration:underline}
+.ttk-editorial-titulo{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:39px;color:var(--ttk-paleta-noche-800)}
+.ttk-editorial-entradilla{font-family:var(--ttk-font-textos);font-size:19px;font-weight:700;line-height:28px;color:var(--ttk-paleta-noche-800)}
+.ttk-editorial-apartado{font-family:var(--ttk-font-textos);font-size:21px;font-weight:700;line-height:27px;color:var(--ttk-paleta-noche-800);text-transform:uppercase;letter-spacing:1.5px}
+.ttk-editorial-numero{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:var(--ttk-paleta-noche-800);text-align:center}
 .ttk-blog-categoria{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#c75519;text-transform:uppercase;letter-spacing:0.8px}
-.ttk-cookies-titulo{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:25px;color:#061c3f}
-.ttk-cookies-texto{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:#736d66}
-.ttk-cookies-boton-claro{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#ffffff;text-transform:uppercase;text-align:center}
-.ttk-cookies-boton-gris{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#736d66;text-transform:uppercase;text-align:center}
-.ttk-cookies-boton-verde{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:#357a38;text-transform:uppercase;text-align:center}
-.ttk-advertencia-hueco{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:16px;color:#e00307;text-align:center}
-.ttk-ficha-etiqueta-de-seccion{font-family:var(--ttk-font-textos);font-size:14px;font-weight:600;line-height:20px;color:#26464b}
+.ttk-cookies-titulo{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:25px;color:var(--ttk-paleta-azul-800)}
+.ttk-cookies-texto{font-family:var(--ttk-font-textos);font-size:13px;font-weight:400;line-height:19px;color:var(--ttk-paleta-noche-400)}
+.ttk-cookies-boton-claro{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:var(--ttk-paleta-crema-00);text-transform:uppercase;text-align:center}
+.ttk-cookies-boton-gris{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:var(--ttk-paleta-noche-400);text-transform:uppercase;text-align:center}
+.ttk-cookies-boton-verde{font-family:var(--ttk-font-textos);font-size:13px;font-weight:700;line-height:16px;color:var(--ttk-paleta-verde-800);text-transform:uppercase;text-align:center}
+.ttk-advertencia-hueco{font-family:var(--ttk-font-textos);font-size:12px;font-weight:700;line-height:16px;color:var(--ttk-paleta-rojo-800);text-align:center}
+.ttk-ficha-etiqueta-de-seccion{font-family:var(--ttk-font-textos);font-size:14px;font-weight:600;line-height:20px;color:var(--ttk-paleta-verde-petroleo-800)}
 
 /* Títulos de las tarjetas de plantilla (Claude 16-11-2026, Frankie: «pasa las tarjetas»). Igual que en el Sketch v2.10 y los Tokens v2.7:
    Syne «Título 3» (18/24), sitio para tres líneas; lo que sigue a los dos puntos o la coma, en Georgia cursiva (nexo.js lo marca con «ttk-acento»). Tarjetas del carrusel a 484 de alto. */
 :root{--ttk-font-acento:Georgia,"Times New Roman",serif}
 .ttk-acento{font-family:var(--ttk-font-acento);font-style:italic;font-weight:400;font-size:inherit;line-height:inherit;color:inherit;letter-spacing:normal;text-transform:none}
-[class*="DraftCarouselItem-module__"][class*="__info-title"]{font-family:Syne,sans-serif;font-size:18px;font-weight:700;line-height:24px;color:#001524;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;height:82px;min-height:82px;max-height:82px;flex:0 0 82px}
+[class*="DraftCarouselItem-module__"][class*="__info-title"]{font-family:Syne,sans-serif;font-size:18px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;height:82px;min-height:82px;max-height:82px;flex:0 0 82px}
 [class*="DraftCarouselItem-module__"][class*="__item"],[class*="DraftCarouselItem-module__"][class*="__mainLink"],[class*="DraftCarouselItem-module__"][class*="__listItem"],[class*="MostUsedCarouselIntroCard-module__"][class*="__card"],[class*="CarouselBannerCard-module__"][class*="__card"]{height:484px}
 
