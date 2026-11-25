@@ -52,3 +52,7 @@ Fragmento 670 (copia previa: 981). Quedan los radios y sombras escritos a mano d
 Se añadieron a «secundario» .cfs-hp-otra y .cfs-ch-nueva. Fragmento 444 «[M41 Piezas comunes]» (copia previa: 982). Quedan pastillas, campos y chips.
 
 Botones sueltos pasados al común (25-11-2026, 19:16): «Recargar la página» y «Sí, actualizar» como principales; «Cerrar», «Ahora no» y «Solicitar búsqueda» (Panic) como secundarios; el botón de elegir archivo, como secundario. Copia previa del 444: 983. Revisadas Pendientes, Vacaciones, Inventario, Claves, Log y Certificaciones: no quedan botones con estilo propio; lo que queda son etiquetas, tarjetas y flechas (tandas siguientes).
+
+## Tanda 4 · letras (25-11-2026)
+
+Mismas cuatro letras que nexoTTK: Syne (títulos), Georgia cursiva (coletillas), Poppins (texto) y Courier New (código). Tamaños igualados con CAMBIALO: H1 34, H2 21, H3 18, título de tarjeta Poppins negrita 16, párrafo 16, nota 10. El botón «Actualizar esta ficha» dejó de ir en Arial. Ficha «1. Fuentes» de Madre con alfabetos y valores leídos en vivo. Fragmentos 670 (copias previas 984, 985, 989), 689 (986, 988) y 444 (987).
