@@ -1,0 +1,63 @@
+/* nexo.css · reglas comunes del nexo (Claude 17-11-2026). Los valores salen de los tokens de tatanka-tokens.css, que se sacan del Sketch. */
+
+/* ===== 1. Componentes del sistema (los mismos nombres que los símbolos del Sketch; esto es lo que programación se lleva tal cual) =====
+   Botón: «boton» + tipo («boton-principal», «boton-secundario» o «boton-enviar») + tamaño opcional («boton-grande»).
+   Sobre fondo oscuro, el contenedor lleva «sobre-oscuro». Todo sale de los tokens --ttk-boton-* y --ttk-radio-*. */
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:174px;padding:0 20px;box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.boton-grande{min-height:var(--ttk-boton-alto-grande)}
+.boton.boton-principal{background:var(--ttk-boton-principal-claro);color:var(--ttk-boton-principal-claro-texto);border-color:var(--ttk-boton-principal-claro)}
+.boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-claro);border-color:var(--ttk-boton-secundario-claro)}
+.boton.boton-principal:hover,.boton.boton-secundario:hover,a:hover>*>.boton.boton-secundario,a:hover .boton.boton-secundario[aria-hidden="true"]{background:var(--ttk-boton-pasar-claro);color:var(--ttk-boton-pasar-claro-texto);border-color:var(--ttk-boton-pasar-claro)}
+.sobre-oscuro .boton.boton-principal{background:var(--ttk-boton-principal-oscuro);color:var(--ttk-boton-principal-oscuro-texto);border-color:var(--ttk-boton-principal-oscuro)}
+.sobre-oscuro .boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-oscuro);border-color:var(--ttk-boton-secundario-oscuro)}
+.sobre-oscuro .boton.boton-principal:hover,.sobre-oscuro .boton.boton-secundario:hover{background:var(--ttk-boton-pasar-oscuro);color:var(--ttk-boton-pasar-oscuro-texto);border-color:var(--ttk-boton-pasar-oscuro)}
+/* Enviar (17-11-2026, Frankie: «el botón de enviar de las fichas ha de ser rojo»): botón principal en rojo, para la acción de enviar. «boton boton-enviar». Al pasar, como el principal: noche. */
+.boton.boton-enviar{background:var(--ttk-boton-enviar,#e00307);color:var(--ttk-boton-enviar-texto,#fff);border-color:var(--ttk-boton-enviar,#e00307)}
+.boton.boton-enviar:hover{background:var(--ttk-boton-pasar-claro);color:var(--ttk-boton-pasar-claro-texto);border-color:var(--ttk-boton-pasar-claro)}
+.boton:disabled,.boton[aria-disabled="true"]{opacity:var(--ttk-boton-desactivado);pointer-events:none}
+/* Botón pequeño y estados (17-11-2026, Frankie: «uno más pequeño» y «que funcionen igual en wait, over…»). «boton-pequeno»: 24 de alto, letra 11, sin ancho mínimo.
+   Estados, iguales en todos los tamaños y tipos: encima (noche), pulsado (baja 1 px), foco con teclado (marco de 2 px), desactivado (al 40 %) y espera (aria-busy="true": rueda girando del color del texto). */
+.boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 10px;font-size:11px;line-height:14px}
+.boton:active{transform:translateY(1px)}
+.boton:focus-visible{outline:2px solid var(--ttk-boton-foco,#001524);outline-offset:2px}.sobre-oscuro .boton:focus-visible{outline-color:var(--ttk-boton-foco-oscuro,#fff)}
+.boton[aria-busy="true"]{position:relative;color:transparent!important;pointer-events:none}
+.boton[aria-busy="true"]::after{content:"";box-sizing:border-box;position:absolute;left:50%;top:50%;width:1em;height:1em;margin:-.5em 0 0 -.5em;border:2px solid var(--ttk-boton-secundario-claro);border-right-color:transparent;border-radius:50%;animation:boton-espera .8s linear infinite}
+.boton-principal[aria-busy="true"]::after,.boton-enviar[aria-busy="true"]::after{border-color:var(--ttk-boton-principal-claro-texto);border-right-color:transparent}
+.sobre-oscuro .boton-secundario[aria-busy="true"]::after{border-color:var(--ttk-boton-secundario-oscuro);border-right-color:transparent}.sobre-oscuro .boton-principal[aria-busy="true"]::after{border-color:var(--ttk-boton-principal-oscuro-texto);border-right-color:transparent}
+.boton-pequeno[aria-busy="true"]::after{width:12px;height:12px;margin:-6px 0 0 -6px}
+@keyframes boton-espera{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.boton[aria-busy="true"]::after{animation-duration:2.4s}}
+/* Carrusel (17-11-2026, Frankie: «vamos a trabajar el carrusel»). Uno solo para todo: cabecera con el título a la izquierda y, a la derecha, «Ver todas» (boton boton-secundario boton-pequeno) y dos flechas (boton boton-secundario boton-pequeno carrusel-flecha).
+   Debajo, «carrusel» con la pista «carrusel-pista»: tarjetas de 316 y 32 de hueco. Se mueve con window.nxCarrusel (nexo.js). */
+.carrusel-cabecera{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}.carrusel-titulo{min-width:0}.carrusel-acciones{display:flex;gap:8px;align-items:center;flex:none}
+.boton.carrusel-flecha{width:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0;font-size:16px;line-height:1}
+
+/* Acento lima (17-11-2026, traído de Madre): raya lima vertical delante de un título. «acento-lima» para el título de página (gruesa) y «acento-lima-fino» para los títulos de apartado. Sale de los tokens --ttk-acento-*. */
+.acento-lima{border-left:var(--ttk-acento-grueso,6px) solid var(--ttk-acento-color,#dbe64c);padding-left:var(--ttk-acento-aire,16px)}
+.acento-lima-fino{border-left:var(--ttk-acento-fino,3px) solid var(--ttk-acento-color,#dbe64c);padding-left:var(--ttk-acento-aire,16px)}
+
+/* Formularios y filtros (17-11-2026, como en el Sketch, «Formularios/…»). Una sola caja para todos los campos (estilo «Formularios/Campo»): fondo blanco, borde de 1 px y radio pequeño; con el foco, el borde pasa a noche.
+   «campo» (40) y «campo campo-grande» (52, el del buscador); «selector»; «casilla» (marcada en verde); «chip» (32, píldora). Todo sale de los tokens --ttk-campo-*. */
+.campo,.selector{box-sizing:border-box;min-height:var(--ttk-campo-alto,40px);padding:0 12px;border:1px solid var(--ttk-campo-borde,#66737c);border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,#fff);color:var(--ttk-campo-texto,#001524);font-family:Poppins,sans-serif;font-size:16px;line-height:24px}
+.campo::placeholder{color:var(--ttk-campo-ayuda,#66737c);opacity:1}
+.campo:focus,.selector:focus{outline:none;border-color:var(--ttk-campo-borde-activo,#001524);box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,#001524)}
+.campo-grande{min-height:var(--ttk-campo-alto-grande,52px)}
+.campo,.selector{-webkit-appearance:none;appearance:none;box-shadow:none;outline:none}
+.campo:focus-visible,.selector:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,#001524);box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,#001524)}
+.selector{appearance:none;-webkit-appearance:none;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5,6 8,10.5 12.5,6' fill='none' stroke='%23001524' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+/* Estados (17-11-2026, como la tabla de estados del Sketch): reposo; al pasar, borde noche; activo, borde noche más grueso; desactivado, atenuado. */
+.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:16px;height:16px;margin:0;border:1px solid var(--ttk-campo-borde,#66737c);border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,#fff) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
+.casilla:checked{background-color:var(--ttk-casilla-marcada,#357a38);border-color:var(--ttk-casilla-marcada,#357a38);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolyline points='4,8.3 6.8,11 12,5.2' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.campo:hover,.selector:hover,.chip:hover,.casilla:hover{border-color:var(--ttk-campo-borde-pasar,#001524)}
+.casilla:checked:hover{background-color:var(--ttk-casilla-pasar,#001524);border-color:var(--ttk-casilla-pasar,#001524)}
+.casilla:focus,.casilla:focus-visible,.chip:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,#001524);box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,#001524)}
+.campo:disabled,.selector:disabled,.casilla:disabled,.chip[aria-disabled="true"]{opacity:var(--ttk-campo-desactivado,.4);cursor:not-allowed;border-color:var(--ttk-campo-borde,#66737c)}
+.casilla:checked:disabled{background-color:var(--ttk-casilla-marcada,#357a38);border-color:var(--ttk-casilla-marcada,#357a38)}
+.chip{display:inline-flex;align-items:center;gap:8px;box-sizing:border-box;min-height:32px;padding:0 12px;border:1px solid var(--ttk-campo-borde,#66737c);border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,#fff);color:var(--ttk-campo-texto,#001524);font-size:14px;line-height:20px}
+.chip b{font-weight:700}.chip .chip-valor{color:var(--ttk-campo-ayuda,#66737c)}
+
+/* Tarjeta de plantilla (17-11-2026, «Tarjetas/Plantilla» del Sketch): margen interior de 16; al pasar el ratón o llegar con el teclado sube 4 px y la sombra pasa a «flotante», en 0,2 s; si el equipo pide reducir el movimiento, solo cambia la sombra. «tarjeta-plantilla». */
+.tarjeta-plantilla{transition:transform var(--ttk-tarjeta-transicion,.2s) ease,box-shadow var(--ttk-tarjeta-transicion,.2s) ease}
+.tarjeta-plantilla:hover,.tarjeta-plantilla:focus-within{transform:translateY(calc(-1 * var(--ttk-tarjeta-realce,4px)));box-shadow:var(--ttk-sombra-flotante)}
+@media (prefers-reduced-motion:reduce){.tarjeta-plantilla,.tarjeta-plantilla:hover,.tarjeta-plantilla:focus-within{transform:none;transition:box-shadow var(--ttk-tarjeta-transicion,.2s) ease}}
+

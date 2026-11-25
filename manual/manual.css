@@ -1,0 +1,41 @@
+/* Marco del manual (no es un componente del sistema). Todo sale de los tokens de cfs-tokens.css. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);background:var(--ttk-fondo-blanco);font-size:16px;line-height:26px}
+.m-cab{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 var(--ttk-espacio-24);background:var(--ttk-fondo-noche);color:var(--ttk-texto-blanco)}
+.m-marca{font-family:var(--ttk-font-titulos);font-weight:700;font-size:21px;color:var(--ttk-texto-blanco);text-decoration:none}
+.m-menu-boton{display:none}
+.m-cabecera-oscura .boton-secundario{color:var(--ttk-texto-blanco);border-color:var(--ttk-texto-blanco)}
+.m-cuerpo{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px)}
+.m-menu{border-right:1px solid var(--ttk-linea-clara);background:var(--ttk-fondo-gris-claro);padding:var(--ttk-espacio-24) var(--ttk-espacio-16);position:sticky;top:64px;height:calc(100vh - 64px);overflow:auto}
+.m-menu h2{font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris);margin:var(--ttk-espacio-24) 0 var(--ttk-espacio-8)}
+.m-menu h2:first-child{margin-top:0}
+.m-menu a{display:block;padding:var(--ttk-espacio-4) var(--ttk-espacio-8);border-radius:var(--ttk-radio-pequeno);color:var(--ttk-texto-oscuro);text-decoration:none;font-size:14px;line-height:20px}
+.m-menu a:hover{background:var(--ttk-accion-claro-al-pasar)}
+.m-menu a[aria-current="page"]{background:var(--ttk-fondo-noche);color:var(--ttk-texto-blanco)}
+.m-pagina{padding:var(--ttk-espacio-48) var(--ttk-espacio-48) var(--ttk-espacio-80);max-width:1100px}
+.m-pagina h1{font-family:var(--ttk-font-titulos);font-size:34px;line-height:40px;margin:0 0 var(--ttk-espacio-8);color:var(--ttk-texto-oscuro)}
+.m-pagina h2{font-family:var(--ttk-font-titulos);font-size:21px;line-height:28px;margin:var(--ttk-espacio-48) 0 var(--ttk-espacio-16);color:var(--ttk-texto-oscuro)}
+.m-entradilla{color:var(--ttk-texto-gris);margin:0 0 var(--ttk-espacio-32);max-width:720px}
+.m-lienzo{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande);padding:var(--ttk-espacio-32);display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-16);align-items:center;background:var(--ttk-fondo-blanco)}
+.m-lienzo.sobre-oscuro{background:var(--ttk-fondo-noche)}
+.m-nombre{font-size:12px;line-height:16px;color:var(--ttk-texto-gris);margin:var(--ttk-espacio-8) 0 var(--ttk-espacio-24)}
+.m-codigo{font-family:"Courier New",Courier,monospace;font-size:12px;line-height:16px;background:var(--ttk-fondo-gris-claro);border-radius:var(--ttk-radio-pequeno);padding:var(--ttk-espacio-12);white-space:pre-wrap;word-break:break-all;margin:0 0 var(--ttk-espacio-32)}
+.m-rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ttk-espacio-16)}
+.m-muestra{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande);overflow:hidden}
+.m-muestra i{display:block;height:72px}
+.m-muestra span{display:block;padding:var(--ttk-espacio-8);font-size:12px;line-height:16px}
+.m-muestra b{display:block;font-weight:600;color:var(--ttk-texto-oscuro)}
+.m-fila-letra{border-bottom:1px solid var(--ttk-linea-clara);padding:var(--ttk-espacio-16) 0}
+.m-fila-letra small{display:block;font-size:12px;line-height:16px;color:var(--ttk-texto-gris);margin-top:var(--ttk-espacio-4)}
+.m-medida{display:flex;align-items:center;gap:var(--ttk-espacio-16);margin:var(--ttk-espacio-8) 0;font-size:14px}
+.m-medida i{display:block;height:16px;background:var(--ttk-paleta-lima-800)}
+.m-caja{width:160px;height:96px;background:var(--ttk-fondo-blanco);border:1px solid var(--ttk-linea-clara);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ttk-texto-gris)}
+.m-pantallas{display:flex;gap:var(--ttk-espacio-8);margin:0 0 var(--ttk-espacio-16)}
+@media (max-width:760px){
+  .m-cuerpo{grid-template-columns:1fr}
+  .m-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;z-index:4;height:auto}
+  .m-menu.abierto{display:block}
+  .m-menu-boton{display:inline-flex;color:var(--ttk-texto-blanco);border-color:var(--ttk-texto-blanco)}
+  .m-pagina{padding:var(--ttk-espacio-24) var(--ttk-espacio-16) var(--ttk-espacio-48)}
+}
+.m-pagina:focus{outline:none}
