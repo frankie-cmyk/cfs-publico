@@ -87,10 +87,12 @@
       { n: 'Georgia', uso: 'Coletilla de los titulares, en cursiva', css: 'var(--ttk-font-acento)', peso: 400, cursiva: true, d: '' },
       { n: 'Courier New', uso: 'Código y valores técnicos', css: '"Courier New",monospace', peso: 400, d: '' }
     ];
-    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: seis titulares, párrafo, pequeña y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón. Las de títulos van primero.</p><h2>Las letras</h2>';
+    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: seis titulares, párrafo, pequeña y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón.</p><h2>Las letras</h2><div class="m-letras">';
     fuentes.forEach(function (f) {
-      h += '<div class="m-fila-letra"><b>' + esc(f.n) + '</b> · ' + esc(f.uso) + (f.d ? ' · <a href="' + f.d + '" target="_blank" rel="noopener">descargar</a>' : ' · viene con el sistema') + '<div style="font-family:' + f.css + ';font-weight:' + f.peso + ';font-size:21px;line-height:30px;margin-top:8px' + (f.cursiva ? ';font-style:italic' : '') + '">' + AB + '</div></div>';
+      var fs = 'font-family:' + f.css + ';font-weight:' + f.peso + (f.cursiva ? ';font-style:italic' : '');
+      h += '<div class="m-letra"><div class="m-letra-aa" style="' + fs + '">Aa</div><div class="m-letra-tx"><b>' + esc(f.n) + '</b><span>' + esc(f.uso) + '</span><p style="' + fs + '">' + AB + '</p>' + (f.d ? '<a href="' + f.d + '" target="_blank" rel="noopener">Descargar</a>' : '<em>Viene con el sistema</em>') + '</div></div>';
     });
+    h += '</div>';
     var escala = [
       { n: 'H1', c: 'ttk-titular-h1', uso: 'Título de página' },
       { n: 'H2', c: 'ttk-titular-h2', uso: 'Apartados' },
@@ -106,14 +108,24 @@
       { n: 'Nota', c: 'ttk-cuerpo-nota', uso: 'Pies y notas' }
     ];
     function mide(c, css) {
-      var d = document.createElement('div'); if (c) { d.className = c; } else { d.setAttribute('style', css); } d.style.position = 'absolute'; d.style.visibility = 'hidden'; d.textContent = 'x'; document.body.appendChild(d);
-      var cs = getComputedStyle(d); var r = { info: cs.fontFamily.split(',')[0].replace(/"/g, '') + ' · ' + cs.fontSize + ' / ' + cs.lineHeight + ' · ' + cs.fontWeight + (cs.fontStyle === 'italic' ? ' · cursiva' : ''), color: cs.color }; d.remove(); return r;
+      var d = document.createElement('div'); if (c) { d.className = c; } if (css) { d.setAttribute('style', css); } d.style.position = 'absolute'; d.style.visibility = 'hidden'; d.textContent = 'x'; document.body.appendChild(d);
+      var cs = getComputedStyle(d); var r = { letra: cs.fontFamily.split(',')[0].replace(/"/g, ''), tam: Math.round(parseFloat(cs.fontSize)) + ' / ' + Math.round(parseFloat(cs.lineHeight)), peso: cs.fontWeight === '700' ? 'negrita' : (cs.fontStyle === 'italic' ? 'cursiva' : 'normal') }; d.remove(); return r;
     }
-    h += '<h2>La escala</h2>';
+    h += '<h2>La escala</h2><div class="m-escala"><div class="m-escala-cab"><span>Estilo</span><span>Muestra</span><span>Medidas</span></div>';
     escala.forEach(function (e) {
       var m = mide(e.c, e.css);
-      h += '<div class="m-fila-letra"><div' + (e.c ? ' class="' + e.c + '"' : '') + ' style="text-align:left;' + (e.css || '') + '">Madre ordena lo que sabe</div><small><b>' + esc(e.n) + '</b> · ' + esc(e.uso) + ' · ' + esc(m.info) + (e.c ? ' · .' + e.c : '') + '</small></div>';
+      h += '<div class="m-escala-fila"><div class="m-escala-n"><b>' + esc(e.n) + '</b><span>' + esc(e.uso) + '</span></div><div class="m-escala-m"><div class="' + e.c + '" style="margin:0;' + (e.css || '') + '">Madre ordena lo que sabe</div></div><div class="m-escala-v"><i>' + esc(m.letra) + '</i><i>' + esc(m.tam) + '</i><i>' + esc(m.peso) + '</i><code>.' + esc(e.c) + '</code></div></div>';
     });
+    h += '</div>';
+    h += '<h2>Así se ven juntos</h2><div class="m-lienzo m-ejemplo-letra"><div>' +
+      '<div class="ttk-titular-h1" style="margin:0 0 4px">Certificaciones: <span class="ttk-acento">lo que nos piden y lo que cumplimos</span></div>' +
+      '<p class="ttk-cuerpo-parrafo" style="margin:0 0 24px">Cada norma que se exige a Confirmsign tiene aquí su ficha, con lo que cumplimos hoy y lo que falta.</p>' +
+      '<div class="ttk-titular-h2" style="margin:0 0 8px">ISO 27001</div>' +
+      '<p class="ttk-cuerpo-parrafo" style="margin:0 0 16px">La norma de seguridad de la información. La auditoría externa la renovó en <span class="ttk-cuerpo-parrafo-negrita">marzo de 2026</span>.</p>' +
+      '<div class="ttk-titular-h3" style="margin:0 0 8px">Qué toca hacer</div>' +
+      '<div class="ttk-titular-h4" style="margin:0 0 4px">Revisión de accesos</div>' +
+      '<p class="ttk-cuerpo-pequeno" style="margin:0 0 16px"><span class="ttk-cuerpo-pequeno-negrita">Responsable:</span> Dirección técnica · cada seis meses.</p>' +
+      '<p class="ttk-cuerpo-nota" style="margin:0">Fuente: informe de auditoría de 2026. Ejemplo con datos inventados.</p></div></div>';
     h += '<p class="m-nota">No hay más estilos de letra: estos son los mismos en GitHub, en las webs y en el Sketch.</p>';
     return h;
   } };

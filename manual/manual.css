@@ -44,5 +44,27 @@ body{margin:0;font-family:var(--ttk-font-textos);color:var(--ttk-texto-titular);
 
 /* Retícula (25-11-2026) */
 .m-ret{display:flex;box-sizing:border-box;max-width:100%;height:72px;margin:var(--ttk-espacio-8) 0 0;background:var(--ttk-paleta-crema-00);border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno)}.m-ret i{display:block;height:100%;background:var(--ttk-paleta-lima-200);border-left:1px solid var(--ttk-paleta-lima-800);border-right:1px solid var(--ttk-paleta-lima-800);box-sizing:border-box}.m-ret-rep{gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8)}.m-ret-rep b{display:flex;align-items:center;justify-content:center;background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);font-size:14px}.m-ret-nota{font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400);margin:var(--ttk-espacio-4) 0 var(--ttk-espacio-16)}
+/* Tipografía visual (26-11-2026): letras en tarjetas, escala en columnas y ejemplo de ficha */
+.m-letras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ttk-espacio-16)}
+.m-letra{display:flex;gap:var(--ttk-espacio-16);border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-grande);padding:var(--ttk-espacio-24);background:var(--ttk-paleta-crema-00)}
+.m-letra-aa{flex:none;width:96px;font-size:64px;line-height:72px;color:var(--ttk-paleta-noche-800)}
+.m-letra-tx b{display:block;font-size:16px;line-height:22px;color:var(--ttk-paleta-noche-800)}
+.m-letra-tx span{display:block;font-size:14px;line-height:20px;color:var(--ttk-paleta-noche-400);margin-bottom:var(--ttk-espacio-8)}
+.m-letra-tx p{margin:0 0 var(--ttk-espacio-8);font-size:16px;line-height:24px;color:var(--ttk-paleta-noche-800);word-break:break-word}
+.m-letra-tx a,.m-letra-tx em{font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400)}
+.m-escala{border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-grande);overflow:hidden;background:var(--ttk-paleta-crema-00)}
+.m-escala-cab,.m-escala-fila{display:grid;grid-template-columns:200px minmax(0,1fr) 220px;gap:var(--ttk-espacio-24);align-items:center;padding:var(--ttk-espacio-16) var(--ttk-espacio-24)}
+.m-escala-cab{background:var(--ttk-paleta-crema-600);font-size:12px;line-height:16px;font-weight:700;color:var(--ttk-paleta-noche-400)}
+.m-escala-fila{border-top:1px solid var(--ttk-paleta-noche-00);min-height:72px}
+.m-escala-n b{display:block;font-size:14px;line-height:20px;color:var(--ttk-paleta-noche-800)}
+.m-escala-n span{display:block;font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400)}
+.m-escala-m{min-width:0}
+.m-escala-v{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-4)}
+.m-escala-v i{font-style:normal;font-size:12px;line-height:16px;padding:2px 8px;border-radius:999px;background:var(--ttk-paleta-noche-00);color:var(--ttk-paleta-noche-800)}
+.m-escala-v code{flex-basis:100%;font-family:"Courier New",monospace;font-size:12px;line-height:16px;color:var(--ttk-paleta-noche-400)}
+.m-ejemplo-letra{display:block;padding:var(--ttk-espacio-48)}
+.m-ejemplo-letra>div{max-width:664px}
+@media (max-width:1024px){.m-letras{grid-template-columns:1fr}.m-escala-cab,.m-escala-fila{grid-template-columns:150px minmax(0,1fr)}.m-escala-cab span:last-child,.m-escala-v{grid-column:1 / -1}}
+@media (max-width:599px){.m-escala-cab{display:none}.m-escala-fila{grid-template-columns:1fr;gap:var(--ttk-espacio-8)}.m-escala-m{white-space:normal}.m-ejemplo-letra{padding:var(--ttk-espacio-24)}.m-letra{flex-direction:column}}
 /* Modo «solo»: sin cabecera ni índice (25-11-2026) */
 .m-solo .m-cab,.m-solo .m-menu{display:none}.m-solo .m-cuerpo{grid-template-columns:1fr;min-height:0}.m-solo .m-pagina{padding:0 0 var(--ttk-espacio-24)}.m-solo .m-pagina>h1{display:none}
