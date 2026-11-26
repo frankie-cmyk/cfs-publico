@@ -50,33 +50,23 @@
   } };
 
   P.graficas = { grupo: 'Fundamentos', titulo: 'Colores de las gráficas', html: function () {
-    var T = ['800', '600', '400', '200'], F = 'noche';
-    var D = -1; /* serie destacada: va en lima, el color de acento */
-    var col = function (i) { return i === D ? 'var(--ttk-paleta-lima-800)' : 'var(--ttk-paleta-' + F + '-' + T[(D >= 0 && i > D ? i - 1 : i) % 4] + ')'; };
-    var hueco = function (i) { return i !== D && (D >= 0 && i > D ? i - 1 : i) > 3; };
-    var S = T.map(function (t) { return '--ttk-paleta-noche-' + t; });
-    function ley(n) { return '<div style="display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 0;font-size:12px">' + n.map(function (t, i) { return '<span style="display:inline-flex;align-items:center;gap:6px"><i style="width:10px;height:10px;border-radius:50%;box-sizing:border-box;' + (hueco(i) ? 'border:2px solid ' + col(i) : 'background:' + col(i)) + '"></i>' + t + '</span>'; }).join('') + '</div>'; }
-    // Líneas: evolución de seis normas
-    D = 2;
+    var G = [['noche-800', 'Noche 800'], ['verde-800', 'Verde 800'], ['lima-800', 'Lima 800'], ['naranja-600', 'Naranja 600'], ['noche-400', 'Noche 400'], ['verde-400', 'Verde 400'], ['naranja-200', 'Naranja 200'], ['noche-200', 'Noche 200']];
+    var col = function (i) { return 'var(--ttk-grafica-' + (i % 8 + 1) + ')'; };
+    function ley(n) { return '<div style="display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 0;font-size:12px;line-height:16px">' + n.map(function (t, i) { return '<span style="display:inline-flex;align-items:center;gap:8px"><i style="width:12px;height:12px;border-radius:999px;background:' + col(i) + '"></i>' + esc(t) + '</span>'; }).join('') + '</div>'; }
+    var orden = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 32px">' + G.map(function (g, i) { return '<div style="width:96px;font-size:12px;line-height:16px"><i style="display:block;height:48px;border-radius:4px;background:var(--ttk-paleta-' + g[0] + ')"></i><b>' + (i + 1) + '</b> ' + esc(g[1]) + '<br><code style="font-family:\'Courier New\',monospace;color:var(--ttk-paleta-noche-400)">--ttk-grafica-' + (i + 1) + '</code></div>'; }).join('') + '</div>';
     var normas = ['RGPD', 'ISO 22301', 'ISO 27001', 'NIS2', 'ENS', 'eIDAS'], fin = [90, 63, 55, 50, 44, 39], ini = [60, 40, 48, 43, 37, 33];
     var W = 640, H = 220, l = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;max-width:640px;display:block">';
-    for (var g = 0; g <= 4; g++) { var y = 20 + g * 45; l += '<line x1="30" x2="' + W + '" y1="' + y + '" y2="' + y + '" stroke="var(--ttk-linea-clara)"/><text x="0" y="' + (y + 4) + '" font-size="11" fill="var(--ttk-texto-gris)">' + (100 - g * 25) + '</text>'; }
-    normas.forEach(function (n, i) { var pts = []; for (var k = 0; k <= 10; k++) { var v = ini[i] + (fin[i] - ini[i]) * Math.min(1, k / 3); pts.push((40 + k * 58) + ',' + (200 - v * 1.8)); } l += '<polyline fill="none" stroke-width="' + (i === D ? 5 : 3) + '" stroke-linejoin="round"' + (hueco(i) ? ' stroke-dasharray="6 4"' : '') + ' stroke="' + col(i) + '" points="' + pts.join(' ') + '"/>'; });
+    for (var g = 0; g <= 4; g++) { var y = 20 + g * 45; l += '<line x1="30" x2="' + W + '" y1="' + y + '" y2="' + y + '" stroke="var(--ttk-linea-clara)"/><text x="0" y="' + (y + 4) + '" font-size="12" fill="var(--ttk-paleta-noche-400)">' + (100 - g * 25) + '</text>'; }
+    normas.forEach(function (n, i) { var pts = []; for (var k = 0; k <= 10; k++) { var v = ini[i] + (fin[i] - ini[i]) * Math.min(1, k / 3) - (i * 3 * Math.sin(k)); pts.push((40 + k * 58) + ',' + (200 - v * 1.8)); } l += '<polyline fill="none" stroke-width="3" stroke-linejoin="round" stroke="' + col(i) + '" points="' + pts.join(' ') + '"/>'; });
     l += '</svg>' + ley(normas);
-    D = 4;
-    // Barras: facturación de cinco años
     var anos = ['2022', '2023', '2024', '2025', '2026'], b = '<svg viewBox="0 0 640 200" style="width:100%;max-width:640px;display:block">', meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun'];
-    meses.forEach(function (m, j) { anos.forEach(function (a, i) { var h = 40 + ((i * 37 + j * 23) % 110); var x = 20 + j * 102 + i * 17; b += '<rect x="' + x + '" y="' + (170 - h) + '" width="14" height="' + h + '" rx="2"' + (hueco(i) ? ' fill="var(--ttk-paleta-crema-00)" stroke-width="2" stroke="' + col(i) + '"' : ' fill="' + col(i) + '"') + '/>'; }); b += '<text x="' + (20 + j * 102 + 30) + '" y="188" font-size="11" fill="var(--ttk-texto-gris)">' + m + '</text>'; });
+    meses.forEach(function (m, j) { anos.forEach(function (a2, i) { var h = 40 + ((i * 37 + j * 23) % 110); var x = 20 + j * 102 + i * 17; b += '<rect x="' + x + '" y="' + (170 - h) + '" width="14" height="' + h + '" rx="2" fill="' + col(i) + '"/>'; }); b += '<text x="' + (20 + j * 102 + 40) + '" y="188" font-size="12" text-anchor="middle" fill="var(--ttk-paleta-noche-400)">' + m + '</text>'; });
     b += '<line x1="10" x2="630" y1="170" y2="170" stroke="var(--ttk-linea-clara)"/></svg>' + ley(anos);
-    D = 0;
-    // Dona: reparto en cuatro partes
-    var partes = [['Banca', 45], ['Seguros', 25], ['Laboral', 18], ['Otros', 12]], ang = 0, d = '<svg viewBox="0 0 200 200" style="width:200px;display:block">';
-    partes.forEach(function (p, i) { var a0 = ang, a1 = ang + p[1] / 100 * 2 * Math.PI; ang = a1; var r = 80, x0 = 100 + r * Math.sin(a0), y0 = 100 - r * Math.cos(a0), x1 = 100 + r * Math.sin(a1), y1 = 100 - r * Math.cos(a1); d += '<path d="M' + x0 + ' ' + y0 + ' A' + r + ' ' + r + ' 0 ' + (a1 - a0 > Math.PI ? 1 : 0) + ' 1 ' + x1 + ' ' + y1 + '" fill="none" stroke-width="32" stroke="' + col(i) + '"/>'; });
+    var partes = [['Banca', 34], ['Seguros', 22], ['Laboral', 16], ['Inmobiliario', 11], ['Salud', 7], ['Educación', 5], ['Ocio', 3], ['Otros', 2]], ang = 0, d = '<svg viewBox="0 0 200 200" style="width:200px;display:block">';
+    partes.forEach(function (p, i) { var a0 = ang, a1 = ang + p[1] / 100 * 2 * Math.PI; ang = a1; var r = 80, x0 = 100 + r * Math.sin(a0), y0 = 100 - r * Math.cos(a0), x1 = 100 + r * Math.sin(a1), y1 = 100 - r * Math.cos(a1); d += '<path d="M' + x0 + ' ' + y0 + ' A' + r + ' ' + r + ' 0 ' + (p[1] > 50 ? 1 : 0) + ' 1 ' + x1 + ' ' + y1 + '" fill="none" stroke-width="32" stroke="' + col(i) + '"/>'; });
     d += '</svg>' + ley(partes.map(function (p) { return p[0] + ' ' + p[1] + ' %'; }));
-    var orden = '<div style="display:flex;gap:8px;flex-wrap:wrap">' + S.map(function (v, i) { return '<div style="width:72px;font-size:12px;line-height:16px"><i style="display:block;height:40px;border-radius:4px;border:1px solid var(--ttk-linea-clara);background:var(' + v + ')"></i><b>' + (i + 1) + '</b> ' + v.replace('--ttk-paleta-', '').replace('-', ' ') + '</div>'; }).join('') + '</div>';
-    F = 'noche';
-    return '<h1 class="acento-lima">Colores de las gráficas</h1><p class="m-entradilla">Todas las gráficas usan la misma escala: noche 800, 600, 400 y 200, en ese orden. Sin mezclar colores y sin tonos más claros, que desaparecen. Lo que se quiere resaltar (el año en curso, la norma que se mira) va en lima, el color de acento, y más grueso si es una línea. Con más de cuatro series, las siguientes repiten tono con trazo de guiones (líneas) o solo con el borde (barras y partes).</p>' + orden +
-      '<h2>Líneas · seis normas, destacada ISO 27001</h2>' + l + '<h2>Barras · cinco años, destacado 2026</h2>' + b + '<h2>Dona · cuatro partes, destacada Banca</h2>' + d;
+    return '<h1 class="acento-lima">Colores de las gráficas</h1><p class="m-entradilla">Una sola gama de ocho colores, todos de la paleta de Confirmsign, en este orden: la primera serie va en el 1, la segunda en el 2, y así. Dos series seguidas nunca se confunden. Sin rojo, que queda para los estados. Si hay más de ocho series, se juntan en «Otros».</p>' + orden +
+      '<h2>Líneas · seis normas</h2>' + l + '<h2>Barras · cinco años</h2>' + b + '<h2>Dona · ocho partes</h2>' + d;
   } };
 
   P.tipografia = { grupo: 'Fundamentos', titulo: 'Tipografía', html: function () {
