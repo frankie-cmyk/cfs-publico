@@ -4,7 +4,7 @@
 /* ===== 1. Componentes del sistema (los mismos nombres que los símbolos del Sketch; esto es lo que programación se lleva tal cual) =====
    Botón: «boton» + tipo («boton-principal», «boton-secundario» o «boton-enviar») + tamaño opcional («boton-grande»).
    Sobre fondo oscuro, el contenedor lleva «sobre-oscuro». Todo sale de los tokens --ttk-boton-* y --ttk-radio-*. */
-.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:174px;padding:0 var(--ttk-espacio-16);box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:var(--ttk-boton-ancho-min);padding:0 var(--ttk-boton-relleno);box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);font-weight:var(--ttk-peso-medio);line-height:var(--ttk-letra-pequena-alto);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
 .boton-grande{min-height:var(--ttk-boton-alto-grande)}
 .boton.boton-principal{background:var(--ttk-boton-principal-claro);color:var(--ttk-boton-principal-claro-texto);border-color:var(--ttk-boton-principal-claro)}
 .boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-claro);border-color:var(--ttk-boton-secundario-claro)}
@@ -18,7 +18,7 @@
 .boton:disabled,.boton[aria-disabled="true"]{opacity:var(--ttk-boton-desactivado);pointer-events:none}
 /* Botón pequeño y estados (17-11-2026, Frankie: «uno más pequeño» y «que funcionen igual en wait, over…»). «boton-pequeno»: 24 de alto, letra 11, sin ancho mínimo.
    Estados, iguales en todos los tamaños y tipos: encima (noche), pulsado (baja 1 px), foco con teclado (marco de 2 px), desactivado (al 40 %) y espera (aria-busy="true": rueda girando del color del texto). */
-.boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 var(--ttk-espacio-16);font-size:12px;line-height:16px}
+.boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 var(--ttk-boton-relleno);font-size:var(--ttk-letra-minima);line-height:var(--ttk-letra-minima-alto)}
 .boton:active{transform:translateY(1px)}
 .boton:focus-visible{outline:2px solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:2px}.sobre-oscuro .boton:focus-visible{outline-color:var(--ttk-boton-foco-oscuro,var(--ttk-paleta-crema-00))}
 .boton[aria-busy="true"]{position:relative;color:transparent!important;pointer-events:none}
@@ -54,7 +54,7 @@
 .casilla:focus,.casilla:focus-visible,.chip:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .campo:disabled,.selector:disabled,.casilla:disabled,.chip[aria-disabled="true"]{opacity:var(--ttk-campo-desactivado,.4);cursor:not-allowed;border-color:var(--ttk-campo-borde,var(--ttk-paleta-noche-400))}
 .casilla:checked:disabled{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800))}
-.chip{display:inline-flex;align-items:center;gap:8px;box-sizing:border-box;min-height:32px;padding:0 12px;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:14px;line-height:20px}
+.chip{display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);box-sizing:border-box;min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
 .chip b{font-weight:700}.chip .chip-valor{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400))}
 /* Etiqueta elegida (25-11-2026, Frankie: CAMBIALO, tanda 9; la que ya usaba Madre en filtros y pestañas): «chip chip-elegida», en noche con letra papel. */
 .chip.chip-elegida{background:var(--ttk-paleta-noche-800);border-color:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
@@ -125,21 +125,21 @@ textarea.campo{padding:8px 12px}
 
 /* 26-11-2026 (Frankie, «el resto ok»): tres piezas nuevas del manual. */
 /* Menú desplegable: el menú de usuario, «Ver como» y cualquier lista de opciones que se abre. */
-.menu{list-style:none;margin:0;padding:var(--ttk-espacio-8) 0;min-width:200px;box-sizing:border-box;background:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);box-shadow:var(--ttk-sombra-flotante)}
-.menu-opcion{display:flex;align-items:center;gap:var(--ttk-espacio-8);width:100%;min-height:40px;padding:0 var(--ttk-espacio-16);box-sizing:border-box;border:0;border-radius:0;background:transparent;color:var(--ttk-paleta-noche-800);font-family:Poppins,sans-serif;font-size:14px;line-height:20px;font-weight:400;text-align:left;text-decoration:none;cursor:pointer}
+.menu{list-style:none;margin:0;padding:var(--ttk-espacio-8) 0;min-width:var(--ttk-menu-ancho-min);box-sizing:border-box;background:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);box-shadow:var(--ttk-sombra-flotante)}
+.menu-opcion{display:flex;align-items:center;gap:var(--ttk-espacio-8);width:100%;min-height:var(--ttk-menu-fila-alto);padding:0 var(--ttk-espacio-16);box-sizing:border-box;border:0;border-radius:0;background:transparent;color:var(--ttk-paleta-noche-800);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto);font-weight:var(--ttk-peso-normal);text-align:left;text-decoration:none;cursor:pointer}
 .menu-opcion:hover{background:var(--ttk-paleta-crema-600)}
 .menu-opcion.elegida,.menu-opcion[aria-current="true"]{background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
-.menu-opcion svg{width:16px;height:16px;flex:0 0 16px}
+.menu-opcion svg{width:var(--ttk-icono);height:var(--ttk-icono);flex:0 0 var(--ttk-icono)}
 /* Botón de icono: lupa, equis de cerrar, flechas. */
-.boton-icono{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;box-sizing:border-box;border:0;border-radius:var(--ttk-radio-pequeno);background:transparent;color:var(--ttk-paleta-noche-800);cursor:pointer}
-.boton-icono svg{width:16px;height:16px}
+.boton-icono{display:inline-flex;align-items:center;justify-content:center;width:var(--ttk-boton-icono);height:var(--ttk-boton-icono);padding:0;box-sizing:border-box;border:0;border-radius:var(--ttk-radio-pequeno);background:transparent;color:var(--ttk-paleta-noche-800);cursor:pointer}
+.boton-icono svg{width:var(--ttk-icono);height:var(--ttk-icono)}
 .boton-icono:hover{background:var(--ttk-paleta-crema-600)}
 .sobre-oscuro .boton-icono{color:var(--ttk-paleta-crema-00)}
 .sobre-oscuro .boton-icono:hover{background:var(--ttk-paleta-noche-600)}
 .boton-icono:focus-visible{outline:2px solid var(--ttk-paleta-lima-800);outline-offset:2px}
 /* Pestaña lateral: pegada al borde derecho, con su icono arriba y el nombre en vertical. */
-.pestana-lateral{display:inline-flex;flex-direction:column;align-items:center;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8);box-sizing:border-box;border:0;border-radius:var(--ttk-radio-grande) 0 0 var(--ttk-radio-grande);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);box-shadow:var(--ttk-sombra-tarjeta);font-family:Poppins,sans-serif;font-size:14px;line-height:20px;font-weight:700;cursor:pointer}
+.pestana-lateral{display:inline-flex;flex-direction:column;align-items:center;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8);box-sizing:border-box;border:0;border-radius:var(--ttk-radio-grande) 0 0 var(--ttk-radio-grande);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);box-shadow:var(--ttk-sombra-tarjeta);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto);font-weight:var(--ttk-peso-negrita);cursor:pointer}
 .pestana-lateral span{writing-mode:vertical-rl;transform:rotate(180deg)}
-.pestana-lateral svg{width:16px;height:16px}
+.pestana-lateral svg{width:var(--ttk-icono);height:var(--ttk-icono)}
 .pestana-lateral.pestana-lima{background:var(--ttk-paleta-lima-800)}
 .pestana-lateral.pestana-noche{background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
