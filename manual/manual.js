@@ -82,10 +82,10 @@
   P.tipografia = { grupo: 'Fundamentos', titulo: 'Tipografía', html: function () {
     var AB = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz 0123456789 áéíóú ¿?¡!';
     var fuentes = [
-      { n: 'Syne', uso: 'Titulares (H1, H2, H3)', css: 'var(--ttk-font-titulos)', peso: 700, d: 'https://fonts.google.com/specimen/Syne' },
+      { n: 'Syne', uso: 'Titulares (H1 a H6), portada y cifra', css: 'var(--ttk-font-titulos)', peso: 700, d: 'https://fonts.google.com/specimen/Syne' },
       { n: 'Poppins', uso: 'Textos, botones, etiquetas y menús', css: 'var(--ttk-font-textos)', peso: 400, d: 'https://fonts.google.com/specimen/Poppins' },
       { n: 'Georgia', uso: 'Coletilla de los titulares, en cursiva', css: 'var(--ttk-font-acento)', peso: 400, cursiva: true, d: '' },
-      { n: 'Courier New', uso: 'Código y valores técnicos', css: '"Courier New",monospace', peso: 400, d: '' }
+      { n: 'Courier New', uso: 'Código y valores técnicos', css: "'Courier New',monospace", peso: 400, d: '' }
     ];
     var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: portada, seis titulares, cifra, entradilla, párrafo, pequeña, mínima y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón.</p><h2>Las letras</h2><div class="m-letras">';
     fuentes.forEach(function (f) {
