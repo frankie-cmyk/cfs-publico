@@ -23,5 +23,7 @@ La norma (Frankie): se unifica en las webs y en GitHub y en los Sketch queda el 
 - `madre-opciones-archivo-casillas.php.txt` — fragmento 1129: opciones (Chip), subir archivo y casillas del manual en Madre.
 - `madre-piezas-en-fragmentos-antiguos.css.txt` — fragmentos 165, 205, 61 y 33: la parte de su estilo que usa piezas del manual (acento lima fino, botón secundario, chip elegido).
 - `nexo.css.txt` — nexo.css de nexoTTK.
+- `nexo-ficha.css.txt` y `nexo-fotos.css.txt` — los estilos de las fichas y del visor de fotos de nexoTTK.
+- Desde el 27-11-2026 los estilos de nexoTTK no llevan valores escritos a mano: todo sale de cfs-tokens.css, y las medidas propias de nexoTTK (anchos de columnas, tarjetas, iconos) tienen nombre en el bloque «Medidas propias de esta capa» al principio de cada archivo.
 
 Cuando cambia una de esas piezas en la web, se vuelve a copiar aquí.
