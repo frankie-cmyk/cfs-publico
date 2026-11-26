@@ -1,0 +1,28 @@
+/* Reflejo en GitHub del fragmento 1124 de Madre («[M10 Gráficas] Claude - muestra de las gráficas de Madre para el manual»), 26-11-2026. Lo que manda es el fragmento en Madre; esta copia es para tenerlo guardado y a la vista (Frankie: «que quede un reflejo en GitHub»). La sangría se pierde al copiar. */
+/* [M10 Gráficas] Muestra para el manual (Claude, 26-11-2026; Frankie: «hazlo»): la página de gráficas del manual (m-cfs.us/manual/#graficas) enseña las gráficas de verdad de Madre, dibujadas con el mismo motor (fragmento 52), no un dibujo aparte. Se abre en /?cfs_graf_muestra=1. Datos de muestra, inventados. Para volver: desactivar este fragmento y volver manual/manual.js a la versión anterior en GitHub. */
+add_action( 'template_redirect', function () {
+if ( empty( $_GET['cfs_graf_muestra'] ) || ! function_exists( 'cfs_graf' ) ) { return; }
+show_admin_bar( false );
+header( 'X-Robots-Tag: noindex, nofollow' );
+$meses = array( 'ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic' );
+$ts = array(); $marcas = array(); $h = array();
+for ( $i = 0; $i < 12; $i++ ) { $t = mktime( 12, 0, 0, $i + 1, 15, 2026 ); $ts[] = $t; $h[] = $meses[ $i ]; if ( 0 === $i % 2 ) { $marcas[] = array( $t, $meses[ $i ] ); } }
+$series = array();
+foreach ( array( 2022 => 1.0, 2023 => 1.25, 2024 => 1.55, 2025 => 1.9, 2026 => 2.3 ) as $y => $f ) {
+$v = array();
+for ( $i = 0; $i < 12; $i++ ) { $v[] = round( $f * ( 1800 + 420 * sin( ( $i + $y ) / 1.7 ) + 60 * $i ) ); }
+$series[] = array( 'n' => (string) $y, 'v' => $v );
+}
+$linea = cfs_graf( array( 'titulo' => 'Envíos al mes, por año', 'sub' => 'Cada línea es un año: el más reciente va en el color más oscuro y el más antiguo en el más claro', 'fuente' => 'Datos de muestra para el manual', 'ts' => $ts, 'h' => $h, 'marcas' => $marcas, 'series' => $series, 'unidad' => 'envíos', 'prep' => 'en' ) );
+$dona = cfs_graf_dona( 'Reparto por sector', array( array( 'Banca', 34 ), array( 'Seguros', 22 ), array( 'Laboral', 16 ), array( 'Inmobiliario', 11 ), array( 'Salud', 7 ), array( 'Educación', 5 ), array( 'Ocio', 3 ), array( 'Otros', 2 ) ), '%', 'No son fechas: la parte más grande va en el color más oscuro' );
+$barra = cfs_graf_barra( 'Envíos por año', array( array( '2022', 18200 ), array( '2023', 22800 ), array( '2024', 28300 ), array( '2025', 34600 ), array( '2026', 41900 ) ), 'Fechas: el año más reciente, en el color más oscuro' );
+echo '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">';
+wp_head();
+echo '<style>html,body{margin:0!important;padding:0!important;background:transparent!important}body>.cfs-muestra{padding:4px}#wpadminbar{display:none!important}</style></head><body class="cfs-graf-muestra"><div class="cfs-muestra">';
+$cuerpo = $linea . '<div class="cfs-graf-par">' . $dona . $barra . '</div>';
+echo function_exists( 'cfs_graf_caja' ) ? cfs_graf_caja( 'Gráficas de Madre', 'Muestra con datos inventados para el manual', array( array( '2026', '41.900', '+21 % sobre 2025' ), array( '2025', '34.600', '+22 % sobre 2024' ), array( '2024', '28.300', '+24 % sobre 2023' ), array( 'Media', '29.160', 'de los cinco años' ) ), $cuerpo ) : $cuerpo;
+echo '</div>';
+wp_footer();
+echo '<script>(function(){function quita(){Array.prototype.forEach.call(document.querySelectorAll("body *"),function(e){if(e.closest(".cfs-muestra"))return;var p=getComputedStyle(e).position;if(p==="fixed"||p==="sticky")e.style.setProperty("display","none","important");});}window.addEventListener("load",function(){quita();setTimeout(quita,1500);});quita();function m(){try{parent.postMessage({cfsMuestra:(document.querySelector(".cfs-muestra")||document.body).offsetHeight},"*");}catch(e){}}window.addEventListener("load",m);setInterval(m,1000);if(window.ResizeObserver){new ResizeObserver(m).observe(document.body);}})();</script></body></html>';
+exit;
+}, 0 );

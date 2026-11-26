@@ -1,0 +1,18 @@
+/* Reflejo en GitHub del fragmento 1127 de Madre («[M00 Componentes] Claude - piezas de Madre con las piezas del manual»), 26-11-2026. Lo que manda es el fragmento en Madre; esta copia es para tenerlo guardado y a la vista (Frankie: «que quede un reflejo en GitHub»). La sangría se pierde al copiar. */
+/* [M00 Componentes] Piezas de Madre con las piezas del manual (Claude, 26-11-2026; Frankie: «el resto ok»): «Volver al índice» es un Chip; el menú de usuario y «Ver como» son el Menú; la lupa y las equis son Botón de icono; Eat, Panic, Help, Show y Chat son Pestaña lateral, con su icono. Solo medidas y colores del manual (variables de cfs-tokens.css). Para volver: desactivar este fragmento. */
+add_action( 'wp_head', function () { echo '<style id="cfs-piezas-manual">' . <<<'CSS'
+/* Volver al índice: Chip del manual */
+html body .cfs-volver a{display:inline-flex!important;align-items:center!important;gap:var(--ttk-espacio-8)!important;min-height:var(--ttk-chip-alto)!important;height:auto!important;padding:0 var(--ttk-chip-relleno)!important;border:1px solid var(--ttk-paleta-noche-400)!important;border-radius:var(--ttk-radio-pildora)!important;background:var(--ttk-paleta-crema-00)!important;color:var(--ttk-paleta-noche-800)!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;box-sizing:border-box!important}
+/* Menú de usuario y «Ver como»: Menú del manual */
+html body .cfs-user-menu,html body .cfs-vercomo>div{background:var(--ttk-paleta-crema-00)!important;border-radius:var(--ttk-radio-pequeno)!important;box-shadow:var(--ttk-sombra-flotante)!important;padding:var(--ttk-espacio-8) 0!important;backdrop-filter:none!important}
+html body .cfs-user-menu{height:auto!important}
+html body header.wp-block-template-part{z-index:5!important}
+html body .cfs-user-menu .cfs-user-item,html body .cfs-vercomo>div button{display:flex!important;align-items:center!important;gap:var(--ttk-espacio-8)!important;width:100%!important;min-height:var(--ttk-menu-fila-alto)!important;height:auto!important;padding:0 var(--ttk-espacio-16)!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--ttk-paleta-noche-800)!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;font-weight:var(--ttk-peso-normal)!important;text-align:left!important;box-sizing:border-box!important}
+html body .cfs-user-menu .cfs-user-item:hover,html body .cfs-vercomo>div button:hover{background:var(--ttk-paleta-crema-600)!important}
+html body .cfs-vercomo>div button.on{background:var(--ttk-paleta-noche-800)!important;color:var(--ttk-paleta-crema-00)!important}
+/* Lupa y equis de cerrar: Botón de icono del manual */
+html body .cfs-busca-btn,html body .cfs-hp-x,html body .cfs-eat-x,html body .cfs-pn-x,html body .cfs-mm-x{align-items:center;justify-content:center;width:var(--ttk-boton-icono)!important;height:var(--ttk-boton-icono)!important;min-width:var(--ttk-boton-icono)!important;padding:0!important;border-radius:var(--ttk-radio-pequeno)!important;box-sizing:border-box!important}
+/* Pestañas laterales: Pestaña lateral del manual (con su icono) */
+html body .cfs-hp-tab,html body .cfs-eat-tab,html body .cfs-show-tab,html body .cfs-pn-tab,html body .cfs-ch-tab{font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;font-weight:var(--ttk-peso-negrita)!important;padding:var(--ttk-espacio-8)!important;border-radius:var(--ttk-radio-grande) 0 0 var(--ttk-radio-grande)!important}
+CSS
+. '</style>'; }, 99 );

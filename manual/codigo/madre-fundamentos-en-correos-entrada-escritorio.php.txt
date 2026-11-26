@@ -1,0 +1,51 @@
+/* Reflejo en GitHub del fragmento 1125 de Madre («[M00 Estilos de la casa] Claude - Fundamentos en correos, entrada y escritorio»), 26-11-2026. Lo que manda es el fragmento en Madre; esta copia es para tenerlo guardado y a la vista (Frankie: «que quede un reflejo en GitHub»). La sangría se pierde al copiar. */
+/* [M00 Estilos de la casa] Fundamentos del manual también en correos, pantalla de entrada y escritorio (Claude, 26-11-2026; Frankie: «hazlo»). Son las piezas que no pasaban por los correctores. No lleva medidas propias: colores, espacios, radios, sombras y letra salen de cfs-tokens.css de GitHub (las mismas funciones del fragmento 1096). En los correos no funcionan las variables, así que se escribe el valor del manual. Para volver: desactivar este fragmento. */
+if ( ! function_exists( 'cfs_fund_letras' ) ) { function cfs_fund_letras() {
+static $L = null;
+if ( null !== $L ) { return $L; }
+$css = base64_decode( (string) get_option( 'cfs_manual_' . md5( 'estilos/cfs-tokens.css' ) . '_ult', '' ) );
+$L = array();
+foreach ( array( '--ttk-escala-titulos', '--ttk-escala-textos' ) as $k ) { if ( preg_match( '/' . preg_quote( $k, '/' ) . '\s*:\s*([^;]+);/', $css, $m ) ) { foreach ( preg_split( '/\s+/', trim( $m[1] ) ) as $p ) { $a = explode( '/', $p ); if ( 2 === count( $a ) && (float) $a[0] > 0 ) { $L[ (string) (float) $a[0] ] = (float) $a[1]; } } } }
+return $L;
+} }
+if ( ! function_exists( 'cfs_fund_letra_pasa' ) ) { function cfs_fund_letra_pasa( $css ) {
+$L = cfs_fund_letras();
+if ( ! $L ) { return $css; }
+return preg_replace_callback( '/\{([^{}]*)\}|^([^{}]*)$/s', function ( $b ) use ( $L ) {
+$d = isset( $b[2] ) && '' !== $b[2] ? $b[2] : $b[1];
+if ( ! preg_match( '/(?<![\w-])font-size\s*:\s*(\d*\.?\d+)px/i', $d, $m ) ) { return $b[0]; }
+$fs = (float) $m[1]; $best = $fs; $dd = INF;
+foreach ( array_keys( $L ) as $k ) { $x = abs( (float) $k - $fs ); if ( $x < $dd ) { $dd = $x; $best = (float) $k; } }
+$d2 = preg_replace( '/((?<![\w-])font-size\s*:\s*)\d*\.?\d+px/i', '${1}' . $best . 'px', $d, 1 );
+$lh = $L[ (string) $best ];
+$d2 = preg_match( '/(?<![\w-])line-height\s*:/i', $d2 ) ? preg_replace( '/((?<![\w-])line-height\s*:\s*)[^;"}]+/i', '${1}' . $lh . 'px', $d2, 1 ) : $d2;
+return isset( $b[2] ) && '' !== $b[2] ? $d2 : '{' . $d2 . '}';
+}, $css );
+} }
+if ( ! function_exists( 'cfs_fund_css' ) ) { function cfs_fund_css( $css, $letra = true ) {
+if ( function_exists( 'cfs_paleta_pasa' ) ) { $css = cfs_paleta_pasa( $css ); }
+if ( function_exists( 'cfs_espacio_pasa' ) ) { $css = cfs_espacio_pasa( $css ); }
+if ( function_exists( 'cfs_forma_pasa' ) ) { $css = cfs_forma_pasa( $css ); }
+if ( $letra ) { $css = cfs_fund_letra_pasa( $css ); }
+return $css;
+} }
+if ( ! function_exists( 'cfs_fund_html' ) ) { function cfs_fund_html( $html, $letra = true ) {
+if ( ! is_string( $html ) || false === strpos( $html, '<' ) ) { return $html; }
+$html = preg_replace_callback( '#(<style\b[^>]*>)(.*?)(</style>)#is', function ( $m ) use ( $letra ) { return $m[1] . cfs_fund_css( $m[2], $letra ) . $m[3]; }, $html );
+$html = preg_replace_callback( '#(\sstyle=")([^"]*)(")#i', function ( $m ) use ( $letra ) { return $m[1] . cfs_fund_css( $m[2], $letra ) . $m[3]; }, $html );
+$html = preg_replace_callback( "#(\\sstyle=')([^']*)(')#i", function ( $m ) use ( $letra ) { return $m[1] . cfs_fund_css( $m[2], $letra ) . $m[3]; }, $html );
+if ( function_exists( 'cfs_paleta_cerca' ) ) { $html = preg_replace_callback( '#(\s(?:bgcolor|color|fill|stroke)=["\']?)\#([0-9a-fA-F]{6})\b#i', function ( $m ) { return $m[1] . '#' . strtolower( cfs_paleta_cerca( $m[2] ) ); }, $html ); }
+return $html;
+} }
+/* Correos: el HTML de cada correo pasa por el manual antes de salir. */
+add_filter( 'wp_mail', function ( $a ) {
+if ( isset( $a['message'] ) && is_string( $a['message'] ) && false !== stripos( $a['message'], '<' ) ) { $a['message'] = cfs_fund_html( $a['message'], true ); }
+return $a;
+}, 99 );
+/* Pantalla de entrada: carga la hoja del manual (para las variables), corrige sus estilos y lleva el mismo remate que el resto de Madre. */
+add_action( 'login_init', function () { ob_start( function ( $h ) { return cfs_fund_html( $h, true ); } ); } );
+add_action( 'login_enqueue_scripts', function () { echo '<link rel="stylesheet" id="cfs-tokens-css" href="' . esc_url( home_url( '/manual/estilos/cfs-tokens.css' ) . '?v=' . substr( md5( (string) get_option( 'cfs_manual_' . md5( 'estilos/cfs-tokens.css' ) . '_ult', '' ) ), 0, 8 ) ) . '">' . "\n"; }, 1 );
+add_action( 'login_footer', function () { echo '<script id="cfs-manual-remate" src="' . esc_url( home_url( '/manual/codigo/remate-del-manual.js' ) . '?v=' . substr( md5( (string) get_option( 'cfs_manual_' . md5( 'codigo/remate-del-manual.js' ) . '_ult', '' ) ), 0, 8 ) ) . '"></script>' . "\n"; }, 99 );
+/* Escritorio: carga la hoja del manual y corrige colores, espacios, radios y sombras de los estilos escritos en la página (las piezas de Madre); no toca la letra ni las hojas propias de WordPress. */
+add_action( 'admin_init', function () { if ( wp_doing_ajax() ) { return; } ob_start( function ( $h ) { return false === stripos( $h, '<html' ) ? $h : cfs_fund_html( $h, false ); } ); } );
+add_action( 'admin_head', function () { echo '<link rel="stylesheet" id="cfs-tokens-css" href="' . esc_url( home_url( '/manual/estilos/cfs-tokens.css' ) . '?v=' . substr( md5( (string) get_option( 'cfs_manual_' . md5( 'estilos/cfs-tokens.css' ) . '_ult', '' ) ), 0, 8 ) ) . '">' . "\n"; }, 1 );
