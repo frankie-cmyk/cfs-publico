@@ -1,0 +1,99 @@
+/* Valores del manual (Claude, 26-11-2026; Frankie: «hazlo bien todo»): todo lo que usan estos correctores (espacios, radios, sombras, caja y gama de las gráficas) se lee de cfs-tokens.css de GitHub; aquí no hay medidas escritas a mano. Si GitHub no respondiera nunca, se usan los valores del manual del 26-11-2026 como red. */
+function cfs_manual_tokens_de( $css ) {
+	$t = array();
+	if ( preg_match_all( '/(--ttk-[a-z0-9-]+)\s*:\s*([^;]+);/', (string) $css, $m, PREG_SET_ORDER ) ) { foreach ( $m as $x ) { $t[ $x[1] ] = trim( $x[2] ); } }
+	$res = function ( $k ) use ( $t ) { $val = isset( $t[ $k ] ) ? $t[ $k ] : ''; $n = 0; while ( $n++ < 6 && preg_match( '/^var\(\s*(--ttk-[a-z0-9-]+)\s*(?:,[^)]*)?\)$/', $val, $mm ) ) { $val = isset( $t[ $mm[1] ] ) ? $t[ $mm[1] ] : ''; } return $val; };
+	$num = function ( $k, $def ) use ( $res ) { $x = (float) $res( $k ); return $x > 0 ? $x : $def; };
+	$esp = array_values( array_filter( array_map( 'floatval', preg_split( '/\s+/', $res( '--ttk-escala-espacios' ) ) ) ) );
+	sort( $esp );
+	if ( count( $esp ) < 5 ) { $esp = array( 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 ); }
+	$gama = array();
+	for ( $i = 1; $i <= 8; $i++ ) { $g = strtolower( $res( '--ttk-grafica-' . $i ) ); if ( preg_match( '/^#[0-9a-f]{6}$/', $g ) ) { $gama[] = $g; } }
+	if ( count( $gama ) < 8 ) { $gama = array( '#001524', '#357a38', '#dbe64c', '#d27747', '#66737c', '#86af88', '#e9bba3', '#99a1a7' ); }
+	$bl = strtolower( $res( '--ttk-fondo-blanco' ) );
+	$st = $res( '--ttk-sombra-tarjeta' );
+	$sf = $res( '--ttk-sombra-flotante' );
+	return array( 'esp' => $esp, 'rp' => $num( '--ttk-radio-pequeno', 4 ), 'rg' => $num( '--ttk-radio-grande', 8 ), 'st' => $st ? $st : '0 2px 8px #00152440', 'sf' => $sf ? $sf : '0 12px 36px #0015243d', 'caja' => $num( '--ttk-ret-escritorio-contenedor', 1360 ), 'gama' => $gama, 'blanco' => preg_match( '/^#[0-9a-f]{6}$/', $bl ) ? $bl : '#fdfbf8' );
+}
+function cfs_manual_valores() {
+	static $v = null;
+	if ( null === $v ) { $v = cfs_manual_tokens_de( base64_decode( (string) get_option( 'cfs_manual_' . md5( 'estilos/cfs-tokens.css' ) . '_ult', '' ) ) ); }
+	return $v;
+}
+function cfs_espacio_paso( $n ) {
+	$a = abs( $n );
+	if ( $a == 0 || $a > 100 ) { return $n; }
+	$e = cfs_manual_valores()['esp'];
+	$r = $e[0];
+	if ( $a >= $e[0] ) { $d = INF; foreach ( $e as $x ) { $k = abs( $x - $a ); if ( $k < $d ) { $d = $k; $r = $x; } } }
+	return $n < 0 ? -$r : $r;
+}
+function cfs_espacio_pasa( $css ) {
+	return preg_replace_callback( '/((?<![\w-])(?:padding|margin)(?:-(?:top|right|bottom|left|block|inline)(?:-(?:start|end))?)?|(?<![\w-])(?:grid-)?(?:row-|column-)?gap)(\s*:\s*)([^;{}"]+)/i', function ( $m ) {
+		$v = preg_replace_callback( '/(?<![\w.#-])(-?\d*\.?\d+)(px|rem)\b/i', function ( $k ) {
+			$n = (float) $k[1];
+			$u = strtolower( $k[2] );
+			if ( 'rem' === $u ) { $n = $n * 16; }
+			$r = cfs_espacio_paso( $n );
+			return ( $r == $n && 'px' === $u ) ? $k[0] : ( $r . 'px' );
+		}, $m[3] );
+		return $m[1] . $m[2] . $v;
+	}, $css );
+}
+function cfs_sombra_partes( $s ) {
+	$s = strtolower( trim( (string) $s ) );
+	$c = '';
+	if ( preg_match( '/#([0-9a-f]{8}|[0-9a-f]{6})/', $s, $m ) ) { $c = strlen( $m[1] ) === 6 ? $m[1] . 'ff' : $m[1]; }
+	elseif ( preg_match( '/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)/', $s, $m ) ) { $al = isset( $m[4] ) && '' !== $m[4] ? (float) $m[4] : 1; $c = sprintf( '%02x%02x%02x%02x', $m[1], $m[2], $m[3], round( $al * 255 ) ); }
+	$sin = preg_replace( '/rgba?\([^)]*\)|#[0-9a-f]{3,8}/', ' ', $s );
+	$p = preg_split( '/\s+/', trim( $sin ) );
+	return array( (float) ( isset( $p[1] ) ? $p[1] : 0 ), (float) ( isset( $p[2] ) ? $p[2] : 0 ), $c );
+}
+function cfs_forma_pasa( $css ) {
+	$V = cfs_manual_valores();
+	$caja = (int) $V['caja'];
+	$css = preg_replace( '/(?<![\w(-])((?:max-|min-)?width\s*:\s*|flex-basis\s*:\s*)1200px/i', '$' . '{1}' . $caja . 'px', $css );
+	$css = preg_replace( '/((?:min|calc)\(\s*)1200px/i', '$' . '{1}' . $caja . 'px', $css );
+	$css = preg_replace_callback( '/((?<![\w-])border(?:-(?:top|bottom|start|end)-(?:left|right|start|end))?-radius|--(?!ttk-)[\w-]*radio[\w-]*)(\s*:\s*)([^;{}"]+)/i', function ( $m ) use ( $V ) {
+		$v = preg_replace_callback( '/(?<![\w.#-])(\d*\.?\d+)px\b/i', function ( $k ) use ( $V ) {
+			$n = (float) $k[1];
+			if ( $n <= 0 || $n >= 20 || $n == $V['rp'] || $n == $V['rg'] ) { return $k[0]; }
+			return ( $n <= ( $V['rp'] + $V['rg'] ) / 2 ? $V['rp'] : $V['rg'] ) . 'px';
+		}, $m[3] );
+		return $m[1] . $m[2] . $v;
+	}, $css );
+	$t = cfs_sombra_partes( $V['st'] );
+	$f = cfs_sombra_partes( $V['sf'] );
+	return preg_replace_callback( '/((?<![\w-])box-shadow)(\s*:\s*)([^;{}"]+)/i', function ( $m ) use ( $V, $t, $f ) {
+		$v = trim( $m[3] );
+		$imp = '';
+		if ( preg_match( '/\s*!important\s*$/i', $v ) ) { $imp = ' !important'; $v = trim( preg_replace( '/\s*!important\s*$/i', '', $v ) ); }
+		if ( '' === $v || preg_match( '/none|inset|var\(|inherit|initial|unset/i', $v ) ) { return $m[0]; }
+		$p = cfs_sombra_partes( $v );
+		if ( $p == $t || $p == $f ) { return $m[0]; }
+		if ( $p[1] <= 0 ) { return $m[0]; }
+		return $m[1] . $m[2] . ( $p[1] >= ( $t[1] + $f[1] ) / 2 ? $V['sf'] : $V['st'] ) . $imp;
+	}, $css );
+}
+/* Gráficas: los colores que traían de antes las gráficas de Madre pasan a la gama del manual (--ttk-grafica-1 a 8), por el puesto que tenían; los grises de ejes y fondos, al más próximo de la paleta. */
+function cfs_grafica_pasa( $js ) {
+	if ( false === stripos( $js, '#' ) && false === stripos( $js, 'white' ) ) { return $js; }
+	$V = cfs_manual_valores();
+	$G = $V['gama'];
+	$B = $V['blanco'];
+	$js = preg_replace( '/#fff(?![0-9a-fA-F])/i', $B, $js );
+	$js = preg_replace( '/([\'"])white\1/i', '$1' . $B . '$1', $js );
+	static $puesto = array( '0d3b4f' => 0, '13a3a8' => 1, 'a6cf3a' => 2, '3cbf7a' => 3, '7b8fd6' => 4, 'd4a106' => 5, 'e2624f' => 6, 'b8c2ca' => 7, '36a2eb' => 0, 'ff6384' => 1, '4bc0c0' => 2, 'ff9f40' => 3, '9966ff' => 4, 'ffce56' => 5, 'ffcd56' => 5, 'c9cbcf' => 7 );
+	return preg_replace_callback( '/#([0-9a-fA-F]{6})(?![0-9a-fA-F])/', function ( $m ) use ( $puesto, $G, $B ) {
+		$h = strtolower( $m[1] );
+		if ( isset( $puesto[ $h ] ) ) { return $G[ $puesto[ $h ] ]; }
+		if ( 'ffffff' === $h ) { return $B; }
+		if ( in_array( $h, cfs_paleta_lista_min(), true ) ) { return $m[0]; }
+		return in_array( $h, array( '8fd3d6', '8a909c', '5b6470', '3a4250', 'e6ebee', 'd9dee3', 'eef1f3', 'f5f6f8' ), true ) ? '#' . strtolower( cfs_paleta_cerca( $h ) ) : $m[0];
+	}, $js );
+}
+function cfs_paleta_lista_min() {
+	static $l = null;
+	if ( null === $l ) { $l = array_map( 'strtolower', cfs_paleta_lista() ); }
+	return $l;
+}
