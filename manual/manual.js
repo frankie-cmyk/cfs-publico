@@ -65,7 +65,7 @@
     var partes = [['Banca', 34], ['Seguros', 22], ['Laboral', 16], ['Inmobiliario', 11], ['Salud', 7], ['Educación', 5], ['Ocio', 3], ['Otros', 2]], ang = 0, d = '<svg viewBox="0 0 200 200" style="width:200px;display:block">';
     partes.forEach(function (p, i) { var a0 = ang, a1 = ang + p[1] / 100 * 2 * Math.PI; ang = a1; var r = 80, x0 = 100 + r * Math.sin(a0), y0 = 100 - r * Math.cos(a0), x1 = 100 + r * Math.sin(a1), y1 = 100 - r * Math.cos(a1); d += '<path d="M' + x0 + ' ' + y0 + ' A' + r + ' ' + r + ' 0 ' + (p[1] > 50 ? 1 : 0) + ' 1 ' + x1 + ' ' + y1 + '" fill="none" stroke-width="32" stroke="' + col(i) + '"/>'; });
     d += '</svg>' + ley(partes.map(function (p) { return p[0] + ' ' + p[1] + ' %'; }));
-    return '<h1 class="acento-lima">Colores de las gráficas</h1><p class="m-entradilla">Una sola gama de ocho colores, propia de las gráficas (añadida por Frankie el 26-11-2026), y una sola regla para todas las gráficas: la serie (o la parte) más grande va en el 1, la siguiente en el 2, y así. Alterna frío y cálido para que dos series seguidas nunca se confundan. Sin rojo, que queda para los estados. Si hay más de ocho series, se juntan en «Otros».</p>' + orden +
+    return '<h1 class="acento-lima">Colores de las gráficas</h1><p class="m-entradilla">Una sola gama de ocho colores, sacada solo de la paleta (sin colores propios), y una sola regla para todas las gráficas: la serie (o la parte) más grande va en el 1, la siguiente en el 2, y así. Alterna frío y cálido para que dos series seguidas nunca se confundan. Sin rojo, que queda para los estados. Si hay más de ocho series, se juntan en «Otros».</p>' + orden +
       '<h2>Líneas · seis normas</h2>' + l + '<h2>Barras · cinco años</h2>' + b + '<h2>Dona · ocho partes</h2>' + d;
   } };
 
