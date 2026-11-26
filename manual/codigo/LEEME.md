@@ -20,6 +20,7 @@ La norma (Frankie): se unifica en las webs y en GitHub y en los Sketch queda el 
 - `madre-fundamentos-en-correos-entrada-escritorio.php.txt` — fragmento 1125: Fundamentos en correos, pantalla de entrada y escritorio.
 - `madre-muestra-de-graficas.php.txt` — fragmento 1124: la muestra de gráficas de Madre que enseña el manual.
 - `madre-campos-del-manual.php.txt` — fragmento 1128: Campo y Selector del manual en todas las cajas y desplegables de Madre.
+- `madre-opciones-archivo-casillas.php.txt` — fragmento 1129: opciones (Chip), subir archivo y casillas del manual en Madre.
 - `nexo.css.txt` — nexo.css de nexoTTK.
 
 Cuando cambia una de esas piezas en la web, se vuelve a copiar aquí.
