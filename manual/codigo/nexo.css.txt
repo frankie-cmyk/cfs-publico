@@ -1,4 +1,3 @@
-/* Reflejo en GitHub de nexo.css de nexoTTK (TTK_Drop/Nexo_/Web/estilos), 26-11-2026. Lo que manda es el del nexo; esta copia es para tenerlo guardado y a la vista. */
 /* nexo.css · reglas comunes del nexo (Claude 17-11-2026). Los valores salen de los tokens de tatanka-tokens.css, que se sacan del Sketch. */
 
 /* ===== 1. Componentes del sistema: ya no se definen aquí. Botones, carrusel, acento lima, campos, selector, casilla, etiquetas (chip) y tarjeta de plantilla vienen del manual común de GitHub (manual/estilos/cfs-componentes.css), que carga tatanka-tokens.css (Frankie: CAMBIALO 25-11-2026, tandas 8 y 9). ===== */
@@ -371,7 +370,7 @@ html.nx-buscador [class*="DraftPagination-module__"][class*="__pageSize"] select
 .nx-fila-etiqueta{margin-top:var(--ttk-espacio-8);font:700 12px/16px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-fila-chips{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-8)}
 .nx-fila-chips .chip{min-height:28px;font-size:13px;line-height:18px}
-.nx-fila-lado{display:flex;flex-direction:column;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-24);border-left:1px solid var(--ttk-paleta-noche-00,#ccd0d342)}
+.nx-fila-lado{display:flex;flex-direction:column;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-24);border-left:1px solid var(--ttk-paleta-noche-00)}
 .nx-fila-precio{font:700 20px/24px var(--ttk-font-textos);color:var(--ttk-paleta-verde-800,var(--ttk-paleta-verde-800))}
 .nx-fila-fecha{margin-bottom:var(--ttk-espacio-8);font:400 12px/16px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-fila-lado .boton{width:100%;min-width:0;text-decoration:none}
@@ -379,7 +378,7 @@ html.nx-buscador [class*="DraftPagination-module__"][class*="__pageSize"] select
 .nx-mis-plantillas-flechas{display:flex;gap:var(--ttk-espacio-8)}
 .nx-mis-plantillas-flechas .boton{min-width:120px;text-decoration:none}
 .nx-apagado{opacity:var(--ttk-boton-desactivado,.4);pointer-events:none}
-@media (max-width:767px){.nx-fila-plantilla{grid-template-columns:1fr;gap:0}.nx-fila-foto{min-height:220px}.nx-fila-centro{padding:20px}.nx-fila-lado{border-left:0;border-top:1px solid var(--ttk-paleta-noche-00,#ccd0d342)}}
+@media (max-width:767px){.nx-fila-plantilla{grid-template-columns:1fr;gap:0}.nx-fila-foto{min-height:220px}.nx-fila-centro{padding:20px}.nx-fila-lado{border-left:0;border-top:1px solid var(--ttk-paleta-noche-00)}}
 .nx-barra-edicion{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ttk-paleta-noche-800,var(--ttk-paleta-noche-800));box-shadow:var(--ttk-sombra-flotante,0 -4px 16px rgba(0,21,36,.18))}
 .nx-barra-edicion-dentro{box-sizing:border-box;max-width:1440px;margin:0 auto;padding:var(--ttk-espacio-16) 40px;display:flex;align-items:center;justify-content:space-between;gap:var(--ttk-espacio-16)}
 .nx-barra-edicion-texto{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 14px/20px var(--ttk-font-textos);color:var(--ttk-texto-blanco,var(--ttk-paleta-crema-00))}
@@ -509,7 +508,7 @@ html:not(.nx-ed-vista) .nx-ed:hover,html:not(.nx-ed-vista) .nx-ed:focus-within,h
 .nx-ed-menu button.nx-on{background:var(--ttk-paleta-lima-800,var(--ttk-paleta-lima-800))}
 .nx-ed-menu button[disabled]{opacity:.4;cursor:not-allowed;background:transparent}
 .nx-ed-menu button em{margin-left:auto;font-size:12px;color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
-.nx-ed-menu .nx-ed-menu-quita{margin-top:var(--ttk-espacio-4);border-top:1px solid var(--ttk-paleta-noche-00,#ccd0d342);border-radius:0;color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
+.nx-ed-menu .nx-ed-menu-quita{margin-top:var(--ttk-espacio-4);border-top:1px solid var(--ttk-paleta-noche-00);border-radius:0;color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 /* Ventaja cambiada por el editor: contorno de puntos en Lima 800 (Frankie, 18-11-2026: «ponle el lima»); la de las etiquetas sigue en verde. */
 .nx-ed.nx-ed-cambiada{outline-color:var(--ttk-paleta-lima-800,var(--ttk-paleta-lima-800));outline-width:2px}
 /* Lista de ventajas con buscador y altura fija, como los grupos de filtros del buscador (campo de 40, lista de 260 con desplazamiento); «Quitar» fijo abajo. */
@@ -565,14 +564,14 @@ html:not(.nx-ed-vista) .nx-ed:hover,html:not(.nx-ed-vista) .nx-ed:focus-within,h
 .nx-ed-prefijo em{flex:0 0 auto;padding:0 var(--ttk-espacio-8) 0 var(--ttk-espacio-12);font:normal 400 14px/20px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-ed-prefijo input{border:0!important;padding-left:0}
 .nx-ed-ventana-sub{margin:var(--ttk-espacio-8) 0;font:700 12px/16px var(--ttk-font-textos);letter-spacing:1px;text-transform:uppercase;color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
-.nx-ed-google{display:flex;flex-direction:column;gap:var(--ttk-espacio-4);padding:var(--ttk-espacio-16);border:1px solid var(--ttk-paleta-noche-00,#ccd0d342);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande))}
+.nx-ed-google{display:flex;flex-direction:column;gap:var(--ttk-espacio-4);padding:var(--ttk-espacio-16);border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande))}
 .nx-ed-google-url{font:400 12px/16px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400));overflow-wrap:anywhere}
 .nx-ed-google-tit{font:400 18px/24px var(--ttk-font-textos);color:var(--ttk-paleta-verde-800,var(--ttk-paleta-verde-800))}
 .nx-ed-google-desc{font:400 14px/20px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-ed-ventana-botones{display:flex;justify-content:center;gap:var(--ttk-espacio-12);margin-top:28px}
 
 /* Maqueta de edición: Google en su sitio, bajo el título (18-11-2026) */
-.nx-ed-gz{display:flex;flex-direction:column;gap:var(--ttk-espacio-12);margin-top:var(--ttk-espacio-24)!important;padding:20px var(--ttk-espacio-24);background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00));border:1px solid var(--ttk-paleta-noche-00,#ccd0d342);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande));cursor:default}
+.nx-ed-gz{display:flex;flex-direction:column;gap:var(--ttk-espacio-12);margin-top:var(--ttk-espacio-24)!important;padding:20px var(--ttk-espacio-24);background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00));border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande));cursor:default}
 .nx-ed-gz-eb{margin:0;font:700 12px/16px var(--ttk-font-textos);letter-spacing:1px;text-transform:uppercase;color:var(--ttk-paleta-verde-800,var(--ttk-paleta-verde-800))}
 .nx-ed-gz-intro{margin:0;font:400 14px/20px var(--ttk-font-textos);color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-ed-gz .nx-ed-google{cursor:pointer;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
@@ -612,7 +611,7 @@ html.nx-edicion .lay .col > .ps{padding-top:0;padding-bottom:0}
 .nx-ed-gz-botones{margin-top:0}
 
 /* Datos para Google repartidos: título junto al título, texto junto a la entradilla (18-11-2026) */
-.nx-ed-gc{display:flex;flex-direction:column;gap:var(--ttk-espacio-12);padding:20px var(--ttk-espacio-24);background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00));border:1px solid var(--ttk-paleta-noche-00,#ccd0d342);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande));cursor:default}
+.nx-ed-gc{display:flex;flex-direction:column;gap:var(--ttk-espacio-12);padding:20px var(--ttk-espacio-24);background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00));border:1px solid var(--ttk-paleta-noche-00);border-radius:var(--ttk-radio-pequeno,var(--ttk-radio-grande));cursor:default}
 html.nx-edicion .nx-ed-gc{margin:var(--ttk-espacio-32) 0!important}
 .nx-ed-gc .nx-ed-campo{gap:0;margin:0}
 .nx-ed-gc .nx-ed-campo > span:first-child{margin-bottom:2px}
@@ -665,7 +664,7 @@ html.nx-edicion:not(.nx-ed-vista) .lay .col section.rel2,html.nx-edicion:not(.nx
 html.nx-edicion:not(.nx-ed-vista) nav.etqs2 .etq-fila{display:none}
 html.nx-ed-vista .nx-ed-arbol{display:none}
 .nx-ed-arbol{display:flex;flex-direction:column}
-.nx-ed-ar-fila{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--ttk-espacio-16);padding:var(--ttk-espacio-16) 0;border-bottom:1px solid var(--ttk-paleta-noche-00,#ccd0d342)}
+.nx-ed-ar-fila{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--ttk-espacio-16);padding:var(--ttk-espacio-16) 0;border-bottom:1px solid var(--ttk-paleta-noche-00)}
 .nx-ed-ar-fila:last-child{border-bottom:0}
 .nx-ed-ar-nom{display:flex;align-items:center;gap:var(--ttk-espacio-12);margin:0;font:700 12px/16px var(--ttk-font-textos);letter-spacing:1px;text-transform:uppercase;color:var(--ttk-paleta-noche-400,var(--ttk-paleta-noche-400))}
 .nx-ed-ar-op,.nx-ed-ar-ops{display:flex;flex-wrap:wrap;align-items:center;gap:var(--ttk-espacio-8)}
