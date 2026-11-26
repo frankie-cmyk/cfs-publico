@@ -87,7 +87,7 @@
       { n: 'Georgia', uso: 'Coletilla de los titulares, en cursiva', css: 'var(--ttk-font-acento)', peso: 400, cursiva: true, d: '' },
       { n: 'Courier New', uso: 'Código y valores técnicos', css: '"Courier New",monospace', peso: 400, d: '' }
     ];
-    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una escala de ocho estilos. Las de títulos van primero.</p><h2>Las letras</h2>';
+    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: seis titulares, párrafo, pequeña y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón. Las de títulos van primero.</p><h2>Las letras</h2>';
     fuentes.forEach(function (f) {
       h += '<div class="m-fila-letra"><b>' + esc(f.n) + '</b> · ' + esc(f.uso) + (f.d ? ' · <a href="' + f.d + '" target="_blank" rel="noopener">descargar</a>' : ' · viene con el sistema') + '<div style="font-family:' + f.css + ';font-weight:' + f.peso + ';font-size:21px;line-height:30px;margin-top:8px' + (f.cursiva ? ';font-style:italic' : '') + '">' + AB + '</div></div>';
     });
@@ -96,9 +96,13 @@
       { n: 'H2', c: 'ttk-titular-h2', uso: 'Apartados' },
       { n: 'Coletilla', c: 'ttk-acento', css: 'font-size:21px;line-height:27px', uso: 'Tras los dos puntos de un titular, del tamaño del titular' },
       { n: 'H3', c: 'ttk-titular-h3', uso: 'Subapartados y bloques' },
-      { n: 'Título de tarjeta', c: 'ttk-tarjeta-titulo', uso: 'Tarjetas y cajas' },
+      { n: 'H4', c: 'ttk-titular-h4', uso: 'Títulos dentro de un bloque' },
+      { n: 'H5', c: 'ttk-titular-h5', uso: 'Títulos menores' },
+      { n: 'H6', c: 'ttk-titular-h6', uso: 'El titular más pequeño' },
       { n: 'Párrafo', c: 'ttk-cuerpo-parrafo', uso: 'Todo el texto seguido' },
+      { n: 'Párrafo en negrita', c: 'ttk-cuerpo-parrafo-negrita', uso: 'Títulos de tarjeta y palabras destacadas' },
       { n: 'Pequeña', c: 'ttk-cuerpo-pequeno', uso: 'Textos secundarios, tablas y etiquetas' },
+      { n: 'Pequeña en negrita', c: 'ttk-cuerpo-pequeno-negrita', uso: 'Etiquetas y cabeceras de tabla' },
       { n: 'Nota', c: 'ttk-cuerpo-nota', uso: 'Pies y notas' }
     ];
     function mide(c, css) {
@@ -110,7 +114,7 @@
       var m = mide(e.c, e.css);
       h += '<div class="m-fila-letra"><div' + (e.c ? ' class="' + e.c + '"' : '') + ' style="text-align:left;' + (e.css || '') + '">Madre ordena lo que sabe</div><small><b>' + esc(e.n) + '</b> · ' + esc(e.uso) + ' · ' + esc(m.info) + (e.c ? ' · .' + e.c : '') + '</small></div>';
     });
-    h += '<p class="m-nota">No hay más estilos de letra: estos ocho son los mismos en GitHub, en las webs y en el Sketch.</p>';
+    h += '<p class="m-nota">No hay más estilos de letra: estos son los mismos en GitHub, en las webs y en el Sketch.</p>';
     return h;
   } };
 

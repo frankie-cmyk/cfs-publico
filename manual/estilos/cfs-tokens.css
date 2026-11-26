@@ -144,16 +144,19 @@
 
 /* Textos base */
 body,button,input,select,textarea{font-family:var(--ttk-font-textos)}
-h1,h2,h3{font-family:var(--ttk-font-titulos)}
+/* Escala de titulares H1 a H6 (Frankie, 26-11-2026, CAMBIALO): todos en Syne negrita, con los tamaños de la casa. Lo mismo en GitHub, Madre, nexoTTK y el Sketch. */
+h1,h2,h3,h4,h5,h6{font-family:var(--ttk-font-titulos);font-weight:700;color:var(--ttk-paleta-noche-800)}
+h1{font-size:34px;line-height:40px}h2{font-size:21px;line-height:27px}h3{font-size:18px;line-height:24px}h4{font-size:16px;line-height:22px}h5{font-size:14px;line-height:20px}h6{font-size:12px;line-height:16px}
 
-/* Estilos de texto: la escala única de Confirmsign (Frankie, 26-11-2026: «solo debe haber unos, en la web, en GitHub y en el Sketch»; CAMBIALO). H1, H2, H3, título de tarjeta, párrafo, pequeña y nota; la coletilla es «ttk-acento», más abajo. Los demás estilos que venían del Sketch de Tatanka se retiraron: ni Madre ni nexoTTK los usaban. */
-.ttk-titular-h1{font-family:var(--ttk-font-titulos);font-size:34px;font-weight:700;line-height:39px;color:var(--ttk-paleta-noche-800)}
-.ttk-titular-h2{font-family:var(--ttk-font-titulos);font-size:21px;font-weight:700;line-height:27px;color:var(--ttk-paleta-noche-800)}
-.ttk-titular-h3{font-family:var(--ttk-font-titulos);font-size:18px;font-weight:700;line-height:24px;color:var(--ttk-paleta-noche-800)}
+/* Estilos de texto: la escala única de Confirmsign (Frankie, 26-11-2026: «solo debe haber unos, en la web, en GitHub y en el Sketch»; CAMBIALO). H1 a H6, párrafo, pequeña y nota, con negrita como variante de párrafo y pequeña; la coletilla es «ttk-acento», más abajo. El texto de los botones va en la pieza Botón. Los demás estilos que venían del Sketch de Tatanka se retiraron: ni Madre ni nexoTTK los usaban. */
+.ttk-titular-h1,.ttk-titular-h2,.ttk-titular-h3,.ttk-titular-h4,.ttk-titular-h5,.ttk-titular-h6{font-family:var(--ttk-font-titulos);font-weight:700;color:var(--ttk-paleta-noche-800)}
+.ttk-titular-h1{font-size:34px;line-height:40px}.ttk-titular-h2{font-size:21px;line-height:27px}.ttk-titular-h3{font-size:18px;line-height:24px}.ttk-titular-h4{font-size:16px;line-height:22px}.ttk-titular-h5{font-size:14px;line-height:20px}.ttk-titular-h6{font-size:12px;line-height:16px}
 .ttk-cuerpo-parrafo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:400;line-height:26px;color:var(--ttk-paleta-noche-400)}
 .ttk-cuerpo-pequeno{font-family:var(--ttk-font-textos);font-size:14px;font-weight:400;line-height:20px;color:var(--ttk-paleta-noche-400)}
-.ttk-cuerpo-nota{font-family:var(--ttk-font-textos);font-size:10px;font-weight:400;line-height:14px;color:var(--ttk-paleta-noche-400);text-align:center}
-.ttk-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:20px;color:var(--ttk-paleta-noche-800)}
+.ttk-cuerpo-nota{font-family:var(--ttk-font-textos);font-size:10px;font-weight:400;line-height:14px;color:var(--ttk-paleta-noche-400)}
+/* Negrita: variante de párrafo y de pequeña (etiquetas, cabeceras de tabla, títulos de tarjeta). «ttk-tarjeta-titulo» queda como otro nombre de «párrafo en negrita». */
+.ttk-cuerpo-parrafo-negrita,.ttk-tarjeta-titulo{font-family:var(--ttk-font-textos);font-size:16px;font-weight:700;line-height:26px;color:var(--ttk-paleta-noche-800)}
+.ttk-cuerpo-pequeno-negrita{font-family:var(--ttk-font-textos);font-size:14px;font-weight:700;line-height:20px;color:var(--ttk-paleta-noche-800)}
 
 /* Títulos de las tarjetas de plantilla (Claude 16-11-2026, Frankie: «pasa las tarjetas»). Igual que en el Sketch v2.10 y los Tokens v2.7:
    Syne «Título 3» (18/24), sitio para tres líneas; lo que sigue a los dos puntos o la coma, en Georgia cursiva (nexo.js lo marca con «ttk-acento»). Tarjetas del carrusel a 484 de alto. */
