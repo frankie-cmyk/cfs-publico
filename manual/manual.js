@@ -87,13 +87,14 @@
       { n: 'Georgia', uso: 'Coletilla de los titulares, en cursiva', css: 'var(--ttk-font-acento)', peso: 400, cursiva: true, d: '' },
       { n: 'Courier New', uso: 'Código y valores técnicos', css: '"Courier New",monospace', peso: 400, d: '' }
     ];
-    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: seis titulares, párrafo, pequeña y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón.</p><h2>Las letras</h2><div class="m-letras">';
+    var h = '<h1 class="acento-lima">Tipografía</h1><p class="m-entradilla">Cuatro letras y una sola escala: portada, seis titulares, cifra, entradilla, párrafo, pequeña, mínima y nota. La negrita es una variante de párrafo y de pequeña. El texto de los botones va en la pieza Botón.</p><h2>Las letras</h2><div class="m-letras">';
     fuentes.forEach(function (f) {
       var fs = 'font-family:' + f.css + ';font-weight:' + f.peso + (f.cursiva ? ';font-style:italic' : '');
       h += '<div class="m-letra"><div class="m-letra-aa" style="' + fs + '">Aa</div><div class="m-letra-tx"><b>' + esc(f.n) + '</b><span>' + esc(f.uso) + '</span><p style="' + fs + '">' + AB + '</p>' + (f.d ? '<a href="' + f.d + '" target="_blank" rel="noopener">Descargar</a>' : '<em>Viene con el sistema</em>') + '</div></div>';
     });
     h += '</div>';
     var escala = [
+      { n: 'Portada', c: 'ttk-portada', uso: 'Título de la cabecera de Inicio y de cada sección (en móvil, 34)' },
       { n: 'H1', c: 'ttk-titular-h1', uso: 'Título de página' },
       { n: 'H2', c: 'ttk-titular-h2', uso: 'Apartados' },
       { n: 'Coletilla', c: 'ttk-acento', css: 'font-size:21px;line-height:27px', uso: 'Tras los dos puntos de un titular, del tamaño del titular' },
@@ -101,10 +102,15 @@
       { n: 'H4', c: 'ttk-titular-h4', uso: 'Títulos dentro de un bloque' },
       { n: 'H5', c: 'ttk-titular-h5', uso: 'Títulos menores' },
       { n: 'H6', c: 'ttk-titular-h6', uso: 'El titular más pequeño' },
+      { n: 'Cifra', c: 'ttk-cifra', uso: 'Cifras protagonistas (en móvil, 40)', muestra: '18.204' },
+      { n: 'Entradilla', c: 'ttk-entradilla', uso: 'Frase de entrada y saludo de la portada' },
+      { n: 'Entradilla en negrita', c: 'ttk-entradilla-negrita', uso: 'Lo destacado de la entradilla' },
       { n: 'Párrafo', c: 'ttk-cuerpo-parrafo', uso: 'Todo el texto seguido' },
       { n: 'Párrafo en negrita', c: 'ttk-cuerpo-parrafo-negrita', uso: 'Títulos de tarjeta y palabras destacadas' },
       { n: 'Pequeña', c: 'ttk-cuerpo-pequeno', uso: 'Textos secundarios, tablas y etiquetas' },
       { n: 'Pequeña en negrita', c: 'ttk-cuerpo-pequeno-negrita', uso: 'Etiquetas y cabeceras de tabla' },
+      { n: 'Mínima', c: 'ttk-minima', uso: 'Etiquetas pequeñas, fechas y leyendas' },
+      { n: 'Mínima en negrita', c: 'ttk-minima-negrita', uso: 'Etiquetas pequeñas destacadas' },
       { n: 'Nota', c: 'ttk-cuerpo-nota', uso: 'Pies y notas' }
     ];
     function mide(c, css) {
@@ -114,7 +120,7 @@
     h += '<h2>La escala</h2><div class="m-escala"><div class="m-escala-cab"><span>Estilo</span><span>Muestra</span><span>Medidas</span></div>';
     escala.forEach(function (e) {
       var m = mide(e.c, e.css);
-      h += '<div class="m-escala-fila"><div class="m-escala-n"><b>' + esc(e.n) + '</b><span>' + esc(e.uso) + '</span></div><div class="m-escala-m"><div class="' + e.c + '" style="margin:0;' + (e.css || '') + '">Madre ordena lo que sabe</div></div><div class="m-escala-v"><i>' + esc(m.letra) + '</i><i>' + esc(m.tam) + '</i><i>' + esc(m.peso) + '</i><code>.' + esc(e.c) + '</code></div></div>';
+      h += '<div class="m-escala-fila"><div class="m-escala-n"><b>' + esc(e.n) + '</b><span>' + esc(e.uso) + '</span></div><div class="m-escala-m"><div class="' + e.c + '" style="margin:0;' + (e.css || '') + '">' + (e.muestra || 'Madre ordena lo que sabe') + '</div></div><div class="m-escala-v"><i>' + esc(m.letra) + '</i><i>' + esc(m.tam) + '</i><i>' + esc(m.peso) + '</i><code>.' + esc(e.c) + '</code></div></div>';
     });
     h += '</div>';
     h += '<h2>Así se ven juntos</h2><div class="m-lienzo m-ejemplo-letra"><div>' +
