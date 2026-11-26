@@ -26,5 +26,6 @@ La norma (Frankie): se unifica en las webs y en GitHub y en los Sketch queda el 
 - `nexo-ficha.css.txt` y `nexo-fotos.css.txt` — los estilos de las fichas y del visor de fotos de nexoTTK.
 - Desde el 27-11-2026 los estilos de nexoTTK no llevan valores escritos a mano: todo sale de cfs-tokens.css, y las medidas propias de nexoTTK (anchos de columnas, tarjetas, iconos) tienen nombre en el bloque «Medidas propias de esta capa» al principio de cada archivo.
 - Madre (27-11-2026): sus fragmentos ya no llevan valores escritos a mano en sus estilos; las medidas propias de cada fragmento tienen nombre (--m<número>-…) al principio de su estilo. Quedan con valores a mano, a propósito, los correos y los PDF (los programas de correo no entienden los valores con nombre) y los cortes de pantalla (767, 1023…), que no admiten nombre.
+- `madre-medidas-sueltas.php.txt` — fragmento 1225 [M0 Medidas]: las medidas propias de piezas sueltas de Madre, con nombre, en un solo sitio.
 
 Cuando cambia una de esas piezas en la web, se vuelve a copiar aquí.
