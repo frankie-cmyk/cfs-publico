@@ -109,7 +109,7 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 .ventana-velo{position:fixed;inset:0;z-index:var(--ttk-capa-ventana);display:flex;align-items:center;justify-content:center;padding:var(--ttk-espacio-16);background:color-mix(in srgb,var(--ttk-paleta-noche-800) var(--ttk-velo),transparent)}
 .ventana{position:relative;box-sizing:border-box;width:var(--ttk-ventana-ancho);max-width:100%;padding:var(--ttk-espacio-40) var(--ttk-espacio-40) var(--ttk-espacio-32);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pequeno,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
 .ventana-ancha{width:var(--ttk-ventana-ancho-grande)}
-.ventana-titulo{margin:0 0 var(--ttk-espacio-12);font-family:var(--ttk-font-titulos);font-size:var(--ttk-letra-h3);line-height:var(--ttk-letra-h3-alto);font-weight:var(--ttk-peso-negrita);color:var(--ttk-paleta-noche-800)}
+.ventana-titulo{margin:0 0 var(--ttk-espacio-12);font-family:var(--ttk-font-titulos);font-size:var(--ttk-letra-h2);line-height:var(--ttk-letra-h2-alto);font-weight:var(--ttk-peso-negrita);color:var(--ttk-paleta-noche-800)}
 .ventana-texto{margin:0 0 var(--ttk-espacio-32);font-family:var(--ttk-font-textos);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto);font-weight:var(--ttk-peso-normal);color:var(--ttk-paleta-noche-400)}
 .ventana-botones{display:flex;justify-content:center;gap:var(--ttk-espacio-16)}
 .ventana-botones .boton{width:var(--ttk-ventana-boton-ancho);min-width:0}
