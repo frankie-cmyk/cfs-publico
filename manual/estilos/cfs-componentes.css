@@ -4,7 +4,7 @@
 /* ===== 1. Componentes del sistema (los mismos nombres que los símbolos del Sketch; esto es lo que programación se lleva tal cual) =====
    Botón: «boton» + tipo («boton-principal», «boton-secundario» o «boton-enviar») + tamaño opcional («boton-grande»).
    Sobre fondo oscuro, el contenedor lleva «sobre-oscuro». Todo sale de los tokens --ttk-boton-* y --ttk-radio-*. */
-.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:var(--ttk-boton-ancho-min);padding:0 var(--ttk-boton-relleno);box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);font-weight:var(--ttk-peso-medio);line-height:var(--ttk-letra-pequena-alto);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:var(--ttk-boton-ancho-min);padding:0 var(--ttk-boton-relleno);box-sizing:border-box;border:var(--ttk-borde) solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);font-weight:var(--ttk-peso-medio);line-height:var(--ttk-letra-pequena-alto);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
 .boton-grande{min-height:var(--ttk-boton-alto-grande)}
 .boton.boton-principal{background:var(--ttk-boton-principal-claro);color:var(--ttk-boton-principal-claro-texto);border-color:var(--ttk-boton-principal-claro)}
 .boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-claro);border-color:var(--ttk-boton-secundario-claro)}
@@ -39,22 +39,22 @@
 
 /* Formularios y filtros (17-11-2026, como en el Sketch, «Formularios/…»). Una sola caja para todos los campos (estilo «Formularios/Campo»): fondo blanco, borde de 1 px y radio pequeño; con el foco, el borde pasa a noche.
    «campo» (40) y «campo campo-grande» (52, el del buscador); «selector»; «casilla» (marcada en verde); «chip» (32, píldora). Todo sale de los tokens --ttk-campo-*. */
-.campo,.selector{box-sizing:border-box;min-height:var(--ttk-campo-alto,40px);padding:0 var(--ttk-campo-relleno);border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-family:Poppins,sans-serif;font-size:var(--ttk-letra-campo);line-height:var(--ttk-letra-campo-alto)}
+.campo,.selector{box-sizing:border-box;min-height:var(--ttk-campo-alto,40px);padding:0 var(--ttk-campo-relleno);border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-family:Poppins,sans-serif;font-size:var(--ttk-letra-campo);line-height:var(--ttk-letra-campo-alto)}
 .campo::placeholder{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400));opacity:1}
-.campo:focus,.selector:focus{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
+.campo:focus,.selector:focus{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 var(--ttk-borde) var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .campo-grande{min-height:var(--ttk-campo-alto-grande,52px)}
 .campo,.selector{-webkit-appearance:none;appearance:none;box-shadow:none;outline:none}
-.campo:focus-visible,.selector:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
+.campo:focus-visible,.selector:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 var(--ttk-borde) var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .selector{appearance:none;-webkit-appearance:none;padding-right:var(--ttk-campo-relleno-flecha);background-image:var(--ttk-selector-flecha);background-repeat:no-repeat;background-position:right var(--ttk-campo-relleno) center}
 /* Estados (17-11-2026, como la tabla de estados del Sketch): reposo; al pasar, borde noche; activo, borde noche más grueso; desactivado, atenuado. */
-.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--ttk-icono);height:var(--ttk-icono);margin:0;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
+.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--ttk-icono);height:var(--ttk-icono);margin:0;border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
 .casilla:checked{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));background-image:var(--ttk-casilla-marca)}
 .campo:hover,.selector:hover,.chip:hover,.casilla:hover{border-color:var(--ttk-campo-borde-pasar,var(--ttk-paleta-noche-800))}
 .casilla:checked:hover{background-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800));border-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800))}
-.casilla:focus,.casilla:focus-visible,.chip:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
+.casilla:focus,.casilla:focus-visible,.chip:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 var(--ttk-borde) var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .campo:disabled,.selector:disabled,.casilla:disabled,.chip[aria-disabled="true"]{opacity:var(--ttk-campo-desactivado,.4);cursor:not-allowed;border-color:var(--ttk-campo-borde,var(--ttk-paleta-noche-400))}
 .casilla:checked:disabled{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800))}
-.chip{display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);box-sizing:border-box;min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
+.chip{display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);box-sizing:border-box;min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
 .chip b{font-weight:700}.chip .chip-valor{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400))}
 /* Etiqueta elegida (25-11-2026, Frankie: CAMBIALO, tanda 9; la que ya usaba Madre en filtros y pestañas): «chip chip-elegida», en noche con letra papel. */
 .chip.chip-elegida{background:var(--ttk-paleta-noche-800);border-color:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
@@ -73,19 +73,19 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
    En el móvil, con la clase tabla-tarjetas, una tarjeta por fila y el nombre de la columna (data-l) encima de cada dato.
    Lleva !important porque manda sobre los estilos viejos de cada entorno. */
 .tabla-marco{overflow:auto;max-width:100%}
-.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:1px solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-grande,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto!important}
+.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-grande,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto!important}
 .tabla th,.tabla td{word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important}
-.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:1px solid var(--ttk-linea-clara)!important;padding:10px 16px!important;font-size:12px!important;line-height:16px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
+.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;padding:10px 16px!important;font-size:12px!important;line-height:16px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
 .tabla th:has(>button){padding:0!important}
 .tabla th>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:4px;width:100%;padding:10px 16px;font:inherit;letter-spacing:inherit;text-transform:uppercase!important;color:inherit;cursor:pointer}
 .tabla th>button:hover{color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))}.tabla th>button:focus-visible{outline:2px solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:-2px}
 .tabla th>button::after{content:"↕";opacity:.5;font-weight:400}.tabla th[aria-sort=ascending]>button::after{content:"↑";opacity:1}.tabla th[aria-sort=descending]>button::after{content:"↓";opacity:1}
-.tabla td{padding:14px 16px!important;border:0!important;border-bottom:1px solid var(--ttk-linea-clara)!important;vertical-align:middle!important;font-size:14px!important;line-height:20px!important;font-weight:400!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;background:transparent!important;text-align:left}
+.tabla td{padding:14px 16px!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;vertical-align:middle!important;font-size:14px!important;line-height:20px!important;font-weight:400!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;background:transparent!important;text-align:left}
 .tabla tbody tr:last-child td{border-bottom:0!important}
 .tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)!important}
 .tabla td b,.tabla td strong{font-weight:700}
 .tabla .tabla-num,.tabla th.tabla-num>button{text-align:right!important;justify-content:flex-end;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tabla tbody th{background:transparent!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;line-height:20px!important;font-weight:700!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;vertical-align:middle!important;padding:14px 16px!important;border-bottom:1px solid var(--ttk-linea-clara)!important}
+.tabla tbody th{background:transparent!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;line-height:20px!important;font-weight:700!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;vertical-align:middle!important;padding:14px 16px!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important}
 .tabla tbody tr:last-child th{border-bottom:0!important}
 .tabla:not(:has(thead)) td:first-child{color:var(--ttk-texto-gris)!important;width:1%;white-space:nowrap}
 .tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:400}
@@ -94,12 +94,12 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 .tabla-no{background:var(--ttk-paleta-rojo-00);color:var(--ttk-estado-cerrar-sesion)}.tabla-no::before{content:"✕"}
 .tabla-barra{display:block;height:4px;width:120px;max-width:100%;margin:6px 0 0 auto;background:var(--ttk-fondo-gris-claro);border-radius:2px;overflow:hidden}
 .tabla-barra i{display:block;height:4px;background:var(--ttk-paleta-verde-800)}.tabla-barra.no i{background:var(--ttk-paleta-rojo-800)}
-.tabla tfoot td{font-size:10px!important;line-height:14px!important;font-style:italic;color:var(--ttk-texto-gris)!important;background:var(--ttk-fondo-gris-claro)!important;border-top:1px solid var(--ttk-linea-clara)!important;border-bottom:0!important;padding:10px 16px!important}
+.tabla tfoot td{font-size:10px!important;line-height:14px!important;font-style:italic;color:var(--ttk-texto-gris)!important;background:var(--ttk-fondo-gris-claro)!important;border-top:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-bottom:0!important;padding:10px 16px!important}
 @media (max-width:599px){
 .tabla.tabla-tarjetas{border:0!important;background:transparent!important;border-radius:0!important;overflow:visible}
 .tabla.tabla-tarjetas thead{display:none}
 .tabla.tabla-tarjetas,.tabla.tabla-tarjetas tbody,.tabla.tabla-tarjetas tfoot,.tabla.tabla-tarjetas tr,.tabla.tabla-tarjetas td{display:block;width:auto!important}
-.tabla.tabla-tarjetas tbody tr{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
+.tabla.tabla-tarjetas tbody tr{border:var(--ttk-borde) solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
 .tabla.tabla-tarjetas tbody td{border:0!important;padding:4px 16px!important;white-space:normal!important;text-align:left!important}
 .tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris)}
 .tabla.tabla-tarjetas .tabla-barra{margin-left:0}
@@ -146,4 +146,4 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 
 /* 26-11-2026 (Frankie: «ok cambialo»): grupo de opciones (elegir una) con Chip, y campo de archivo. */
 .opciones{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-8)}
-.archivo{display:flex;align-items:center;gap:var(--ttk-espacio-12);min-height:var(--ttk-campo-alto);padding:0 var(--ttk-campo-relleno);box-sizing:border-box;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-paleta-noche-400);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
+.archivo{display:flex;align-items:center;gap:var(--ttk-espacio-12);min-height:var(--ttk-campo-alto);padding:0 var(--ttk-campo-relleno);box-sizing:border-box;border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-paleta-noche-400);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
