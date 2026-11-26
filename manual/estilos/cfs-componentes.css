@@ -1,9 +1,10 @@
+/* 26-11-2026 (Frankie, CAMBIALO): botones con relleno de 16 a los lados (20 no está en la escala) y el pequeño con letra 12/16 (11 no está en la escala). */
 /* nexo.css · reglas comunes del nexo (Claude 17-11-2026). Los valores salen de los tokens de tatanka-tokens.css, que se sacan del Sketch. */
 
 /* ===== 1. Componentes del sistema (los mismos nombres que los símbolos del Sketch; esto es lo que programación se lleva tal cual) =====
    Botón: «boton» + tipo («boton-principal», «boton-secundario» o «boton-enviar») + tamaño opcional («boton-grande»).
    Sobre fondo oscuro, el contenedor lleva «sobre-oscuro». Todo sale de los tokens --ttk-boton-* y --ttk-radio-*. */
-.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:174px;padding:0 20px;box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:174px;padding:0 var(--ttk-espacio-16);box-sizing:border-box;border:1px solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
 .boton-grande{min-height:var(--ttk-boton-alto-grande)}
 .boton.boton-principal{background:var(--ttk-boton-principal-claro);color:var(--ttk-boton-principal-claro-texto);border-color:var(--ttk-boton-principal-claro)}
 .boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-claro);border-color:var(--ttk-boton-secundario-claro)}
@@ -17,7 +18,7 @@
 .boton:disabled,.boton[aria-disabled="true"]{opacity:var(--ttk-boton-desactivado);pointer-events:none}
 /* Botón pequeño y estados (17-11-2026, Frankie: «uno más pequeño» y «que funcionen igual en wait, over…»). «boton-pequeno»: 24 de alto, letra 11, sin ancho mínimo.
    Estados, iguales en todos los tamaños y tipos: encima (noche), pulsado (baja 1 px), foco con teclado (marco de 2 px), desactivado (al 40 %) y espera (aria-busy="true": rueda girando del color del texto). */
-.boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 10px;font-size:11px;line-height:14px}
+.boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 var(--ttk-espacio-16);font-size:12px;line-height:16px}
 .boton:active{transform:translateY(1px)}
 .boton:focus-visible{outline:2px solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:2px}.sobre-oscuro .boton:focus-visible{outline-color:var(--ttk-boton-foco-oscuro,var(--ttk-paleta-crema-00))}
 .boton[aria-busy="true"]{position:relative;color:transparent!important;pointer-events:none}
