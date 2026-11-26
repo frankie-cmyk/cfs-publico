@@ -122,3 +122,24 @@ textarea.campo{padding:8px 12px}
 .col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-9{grid-column:span 9}.col-12{grid-column:span 12}
 @media (max-width:1024px){.contenedor{padding:0 var(--ttk-ret-tableta-margen,24px)}.reticula{grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--ttk-ret-tableta-hueco,24px)}.col-3,.col-4,.col-6{grid-column:span 4}.col-9,.col-12{grid-column:span 8}}
 @media (max-width:599px){.contenedor{padding:0 var(--ttk-ret-movil-margen,16px)}.reticula{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ttk-ret-movil-hueco,16px)}.col-3,.col-4,.col-6,.col-9,.col-12{grid-column:span 4}}
+
+/* 26-11-2026 (Frankie, «el resto ok»): tres piezas nuevas del manual. */
+/* Menú desplegable: el menú de usuario, «Ver como» y cualquier lista de opciones que se abre. */
+.menu{list-style:none;margin:0;padding:var(--ttk-espacio-8) 0;min-width:200px;box-sizing:border-box;background:var(--ttk-paleta-crema-00);border-radius:var(--ttk-radio-pequeno);box-shadow:var(--ttk-sombra-flotante)}
+.menu-opcion{display:flex;align-items:center;gap:var(--ttk-espacio-8);width:100%;min-height:40px;padding:0 var(--ttk-espacio-16);box-sizing:border-box;border:0;border-radius:0;background:transparent;color:var(--ttk-paleta-noche-800);font-family:Poppins,sans-serif;font-size:14px;line-height:20px;font-weight:400;text-align:left;text-decoration:none;cursor:pointer}
+.menu-opcion:hover{background:var(--ttk-paleta-crema-600)}
+.menu-opcion.elegida,.menu-opcion[aria-current="true"]{background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
+.menu-opcion svg{width:16px;height:16px;flex:0 0 16px}
+/* Botón de icono: lupa, equis de cerrar, flechas. */
+.boton-icono{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;box-sizing:border-box;border:0;border-radius:var(--ttk-radio-pequeno);background:transparent;color:var(--ttk-paleta-noche-800);cursor:pointer}
+.boton-icono svg{width:16px;height:16px}
+.boton-icono:hover{background:var(--ttk-paleta-crema-600)}
+.sobre-oscuro .boton-icono{color:var(--ttk-paleta-crema-00)}
+.sobre-oscuro .boton-icono:hover{background:var(--ttk-paleta-noche-600)}
+.boton-icono:focus-visible{outline:2px solid var(--ttk-paleta-lima-800);outline-offset:2px}
+/* Pestaña lateral: pegada al borde derecho, con su icono arriba y el nombre en vertical. */
+.pestana-lateral{display:inline-flex;flex-direction:column;align-items:center;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8);box-sizing:border-box;border:0;border-radius:var(--ttk-radio-grande) 0 0 var(--ttk-radio-grande);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);box-shadow:var(--ttk-sombra-tarjeta);font-family:Poppins,sans-serif;font-size:14px;line-height:20px;font-weight:700;cursor:pointer}
+.pestana-lateral span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.pestana-lateral svg{width:16px;height:16px}
+.pestana-lateral.pestana-lima{background:var(--ttk-paleta-lima-800)}
+.pestana-lateral.pestana-noche{background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}

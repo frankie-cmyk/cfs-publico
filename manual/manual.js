@@ -190,6 +190,21 @@
     return '<h1 class="acento-lima">Chip</h1><p class="m-entradilla">Para filtros: 32 de alto y radio píldora.</p>' + ejemplo(c, 'chip · chip b · chip-valor');
   } };
 
+  P.menu = { grupo: 'Componentes', titulo: 'Menú', html: function () {
+    var c = '<div class="menu" role="menu"><button class="menu-opcion elegida" role="menuitem">Master</button><button class="menu-opcion" role="menuitem">Administración</button><button class="menu-opcion" role="menuitem">Equipo</button><a class="menu-opcion" role="menuitem" href="#menu">Cerrar sesión</a></div>';
+    return '<h1 class="acento-lima">Menú</h1><p class="m-entradilla">Un solo menú para todo lo que se abre con opciones (el de usuario, «Ver como»…): caja papel con radio pequeño y sombra flotante, filas de 40 con 16 a los lados y letra 14/20. La opción elegida va en noche; el rojo queda para los estados.</p>' + ejemplo(c, 'menu · menu-opcion · elegida');
+  } };
+
+  P.icono = { grupo: 'Componentes', titulo: 'Botón de icono', html: function () {
+    var c = '<button class="boton-icono" aria-label="Buscar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5l3 3"/></svg></button><button class="boton-icono" aria-label="Cerrar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></button><button class="boton-icono" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5L5.5 8l4.5 4.5"/></svg></button>';
+    return '<h1 class="acento-lima">Botón de icono</h1><p class="m-entradilla">Para lo que solo lleva icono (lupa, equis de cerrar, flechas): cuadrado de 32, sin relleno, radio pequeño e icono de 16. Noche sobre claro y papel sobre oscuro.</p>' + ejemplo(c, 'boton-icono') + ejemplo(c, 'el contenedor lleva «sobre-oscuro»', true);
+  } };
+
+  P.pestana = { grupo: 'Componentes', titulo: 'Pestaña lateral', html: function () {
+    var c = '<div style="display:flex;gap:16px;align-items:flex-start"><button class="pestana-lateral"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M6.5 6.2a1.6 1.6 0 1 1 2.3 1.5c-.5.3-.8.6-.8 1.2M8 11h0"/></svg><span>Help</span></button><button class="pestana-lateral pestana-lima"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M6.5 6.2a1.6 1.6 0 1 1 2.3 1.5c-.5.3-.8.6-.8 1.2M8 11h0"/></svg><span>Panic</span></button><button class="pestana-lateral pestana-noche"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M6.5 6.2a1.6 1.6 0 1 1 2.3 1.5c-.5.3-.8.6-.8 1.2M8 11h0"/></svg><span>Chat</span></button></div>';
+    return '<h1 class="acento-lima">Pestaña lateral</h1><p class="m-entradilla">Las pestañas pegadas al borde derecho (Eat, Panic, Help, Show, Chat): icono de 16 arriba y el nombre en vertical, letra 14/20 en negrita, 8 de relleno y radio grande hacia dentro.</p>' + ejemplo(c, 'pestana-lateral · pestana-lima · pestana-noche');
+  } };
+
   P.acento = { grupo: 'Componentes', titulo: 'Acento lima', html: function () {
     var c = '<h3 class="acento-lima" style="margin:0">Título de página</h3><h4 class="acento-lima-fino" style="margin:0">Título de apartado</h4>';
     return '<h1 class="acento-lima">Acento lima</h1><p class="m-entradilla">Raya lima delante de un título: gruesa para el título de página y fina para los apartados.</p>' + ejemplo(c, 'acento-lima · acento-lima-fino');
@@ -217,7 +232,7 @@
     return '<h1 class="acento-lima">Ventana</h1><p class="m-entradilla">Una sola para todo: velo noche, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado, texto pequeño gris, botones de 160 en fila y centrados, equis arriba a la derecha. 480 de ancho; «ventana-ancha», 560, para formularios. Se cierra con la equis, con Escape o pulsando fuera.</p>' + ejemplo(c, 'ventana-velo › ventana (ventana-ancha) › ventana-cerrar · ventana-titulo · ventana-texto · ventana-botones');
   } };
 
-  var orden = ['inicio', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'campo', 'casilla', 'chip', 'acento', 'carrusel', 'tarjeta', 'tabla', 'ventana'];
+  var orden = ['inicio', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'icono', 'campo', 'casilla', 'chip', 'menu', 'pestana', 'acento', 'carrusel', 'tarjeta', 'tabla', 'ventana'];
   var menu = document.getElementById('m-menu'), pagina = document.getElementById('m-pagina');
 
   function pintaMenu(actual) {
