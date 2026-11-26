@@ -1,3 +1,4 @@
+/* Remate del manual: una sola copia. Madre y nexoTTK lo cargan de aquí (m-cfs.us/manual/codigo/remate-del-manual.js); la regla de colores de las gráficas (orden) también la usan de aquí. */
 (function(){
 var R=getComputedStyle(document.documentElement);
 function tk(n){return R.getPropertyValue(n).trim();}
@@ -61,7 +62,7 @@ if(parte){var V=(d.data||[]).map(function(x){return +x||0;});var OP=orden((ch.da
 else{d.borderColor=col;if(typeof d.backgroundColor==='function'){d.backgroundColor=grad(col);}else{var a2=alfa(d.backgroundColor);d.backgroundColor=a2<1?con(col,a2):col;}d.pointBackgroundColor=col;d.pointBorderColor=col;d.hoverBackgroundColor=col;d.hoverBorderColor=col;}});}catch(e){}}
 var enganchado=false;
 function graficas(){var C=window.Chart;if(!C)return;if(!enganchado){enganchado=true;var plug={id:'cfsGama',beforeInit:gama,beforeUpdate:gama};try{if(C.register)C.register(plug);else if(C.plugins&&C.plugins.register)C.plugins.register(plug);}catch(e){}}var I=C.instances||{};Object.keys(I).forEach(function(k){gama(I[k]);try{I[k].update('none');}catch(e){}});}
-window.cfsManual={pasa:pasa,graficas:graficas};
+window.cfsManual={pasa:pasa,graficas:graficas,orden:orden,fecha:fe};
 var nv=0;var tc=setInterval(function(){if(window.Chart){graficas();clearInterval(tc);}if(++nv>40)clearInterval(tc);},250);
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',pasa);}else{pasa();}
 window.addEventListener('load',function(){pasa();graficas();setTimeout(function(){pasa();graficas();},2500);});
