@@ -4,3 +4,4 @@ Lo que Madre y nexoTTK usan para llevar a la escala del manual lo que no viene d
 
 - remate-del-manual.js: se carga en el navegador de Madre y de nexoTTK; lee las variables --ttk-… de la página y ajusta espacios, radios, sombras, tamaño e interlineado de letra y la gama de las gráficas.
 - madre-correctores.php.txt: el mismo trabajo en las hojas de estilo de Madre (fragmento 1096), leyendo cfs-tokens.css.
+- nexo-correctores.php.txt: el mismo trabajo en las hojas del nexo (motor, fragmento 735), leyendo cfs-tokens.css de m-cfs.us/manual con una hora de memoria.

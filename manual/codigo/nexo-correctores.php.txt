@@ -1,0 +1,75 @@
+/* Valores del manual (Claude, 26-11-2026; Frankie: «hazlo bien todo»): espacios, radios y sombras se leen de cfs-tokens.css de GitHub (m-cfs.us/manual), guardado una hora; aquí no hay medidas escritas a mano. */
+function nx_valores() {
+	static $v = null;
+	if ( null !== $v ) { return $v; }
+	$f = __DIR__ . '/cache/valores-del-manual.css';
+	$css = is_readable( $f ) ? (string) file_get_contents( $f ) : '';
+	if ( '' === $css || filemtime( $f ) < time() - 3600 ) {
+		$ctx = stream_context_create( array( 'http' => array( 'timeout' => 5 ), 'ssl' => array( 'verify_peer' => true ) ) );
+		$nuevo = @file_get_contents( 'https://www.m-cfs.us/manual/estilos/cfs-tokens.css', false, $ctx );
+		if ( $nuevo && false !== strpos( $nuevo, '--ttk-escala-espacios' ) ) { $css = $nuevo; @file_put_contents( $f, $css ); } elseif ( '' !== $css ) { @touch( $f ); }
+	}
+	$t = array();
+	if ( preg_match_all( '/(--ttk-[a-z0-9-]+)\s*:\s*([^;]+);/', $css, $m, PREG_SET_ORDER ) ) { foreach ( $m as $x ) { $t[ $x[1] ] = trim( $x[2] ); } }
+	$res = function ( $k ) use ( $t ) { $val = isset( $t[ $k ] ) ? $t[ $k ] : ''; $n = 0; while ( $n++ < 6 && preg_match( '/^var\(\s*(--ttk-[a-z0-9-]+)\s*(?:,[^)]*)?\)$/', $val, $mm ) ) { $val = isset( $t[ $mm[1] ] ) ? $t[ $mm[1] ] : ''; } return $val; };
+	$num = function ( $k, $def ) use ( $res ) { $x = (float) $res( $k ); return $x > 0 ? $x : $def; };
+	$esp = array_values( array_filter( array_map( 'floatval', preg_split( '/\s+/', $res( '--ttk-escala-espacios' ) ) ) ) );
+	sort( $esp );
+	if ( count( $esp ) < 5 ) { $esp = array( 4, 8, 12, 16, 24, 32, 40, 48, 64, 80 ); }
+	$st = $res( '--ttk-sombra-tarjeta' );
+	$sf = $res( '--ttk-sombra-flotante' );
+	$v = array( 'esp' => $esp, 'rp' => $num( '--ttk-radio-pequeno', 4 ), 'rg' => $num( '--ttk-radio-grande', 8 ), 'st' => $st ? $st : '0 2px 8px #00152440', 'sf' => $sf ? $sf : '0 12px 36px #0015243d' );
+	return $v;
+}
+function nx_espacio_paso( $n ) {
+	$a = abs( $n );
+	if ( $a == 0 || $a > 100 ) { return $n; }
+	$e = nx_valores()['esp'];
+	$r = $e[0];
+	if ( $a >= $e[0] ) { $d = INF; foreach ( $e as $x ) { $k = abs( $x - $a ); if ( $k < $d ) { $d = $k; $r = $x; } } }
+	return $n < 0 ? -$r : $r;
+}
+function nx_espacios( $css ) {
+	return preg_replace_callback( '/((?<![\w-])(?:padding|margin)(?:-(?:top|right|bottom|left|block|inline)(?:-(?:start|end))?)?|(?<![\w-])(?:grid-)?(?:row-|column-)?gap)(\s*:\s*)([^;{}"]+)/i', function ( $m ) {
+		$v = preg_replace_callback( '/(?<![\w.#-])(-?\d*\.?\d+)(px|rem)\b/i', function ( $k ) {
+			$n = (float) $k[1];
+			$u = strtolower( $k[2] );
+			if ( 'rem' === $u ) { $n = $n * 16; }
+			$r = nx_espacio_paso( $n );
+			return ( $r == $n && 'px' === $u ) ? $k[0] : ( $r . 'px' );
+		}, $m[3] );
+		return $m[1] . $m[2] . $v;
+	}, $css );
+}
+function nx_sombra_partes( $s ) {
+	$s = strtolower( trim( (string) $s ) );
+	$c = '';
+	if ( preg_match( '/#([0-9a-f]{8}|[0-9a-f]{6})/', $s, $m ) ) { $c = strlen( $m[1] ) === 6 ? $m[1] . 'ff' : $m[1]; }
+	elseif ( preg_match( '/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)/', $s, $m ) ) { $al = isset( $m[4] ) && '' !== $m[4] ? (float) $m[4] : 1; $c = sprintf( '%02x%02x%02x%02x', $m[1], $m[2], $m[3], round( $al * 255 ) ); }
+	$sin = preg_replace( '/rgba?\([^)]*\)|#[0-9a-f]{3,8}/', ' ', $s );
+	$p = preg_split( '/\s+/', trim( $sin ) );
+	return array( (float) ( isset( $p[1] ) ? $p[1] : 0 ), (float) ( isset( $p[2] ) ? $p[2] : 0 ), $c );
+}
+function nx_forma_pasa( $css ) {
+	$V = nx_valores();
+	$css = preg_replace_callback( '/((?<![\w-])border(?:-(?:top|bottom|start|end)-(?:left|right|start|end))?-radius|--(?!ttk-)[\w-]*radio[\w-]*)(\s*:\s*)([^;{}"]+)/i', function ( $m ) use ( $V ) {
+		$v = preg_replace_callback( '/(?<![\w.#-])(\d*\.?\d+)px\b/i', function ( $k ) use ( $V ) {
+			$n = (float) $k[1];
+			if ( $n <= 0 || $n >= 20 || $n == $V['rp'] || $n == $V['rg'] ) { return $k[0]; }
+			return ( $n <= ( $V['rp'] + $V['rg'] ) / 2 ? $V['rp'] : $V['rg'] ) . 'px';
+		}, $m[3] );
+		return $m[1] . $m[2] . $v;
+	}, $css );
+	$t = nx_sombra_partes( $V['st'] );
+	$f = nx_sombra_partes( $V['sf'] );
+	return preg_replace_callback( '/((?<![\w-])box-shadow)(\s*:\s*)([^;{}"]+)/i', function ( $m ) use ( $V, $t, $f ) {
+		$v = trim( $m[3] );
+		$imp = '';
+		if ( preg_match( '/\s*!important\s*$/i', $v ) ) { $imp = ' !important'; $v = trim( preg_replace( '/\s*!important\s*$/i', '', $v ) ); }
+		if ( '' === $v || preg_match( '/none|inset|var\(|inherit|initial|unset/i', $v ) ) { return $m[0]; }
+		$p = nx_sombra_partes( $v );
+		if ( $p == $t || $p == $f ) { return $m[0]; }
+		if ( $p[1] <= 0 ) { return $m[0]; }
+		return $m[1] . $m[2] . ( $p[1] >= ( $t[1] + $f[1] ) / 2 ? $V['sf'] : $V['st'] ) . $imp;
+	}, $css );
+}
