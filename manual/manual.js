@@ -94,7 +94,7 @@
     var escala = [
       { n: 'H1', c: 'ttk-titular-h1', uso: 'Título de página' },
       { n: 'H2', c: 'ttk-titular-h2', uso: 'Apartados' },
-      { n: 'Coletilla', css: 'font-family:var(--ttk-font-acento);font-style:italic;font-size:21px;line-height:27px', uso: 'Tras los dos puntos de un titular, del tamaño del titular' },
+      { n: 'Coletilla', c: 'ttk-acento', css: 'font-size:21px;line-height:27px', uso: 'Tras los dos puntos de un titular, del tamaño del titular' },
       { n: 'H3', c: 'ttk-titular-h3', uso: 'Subapartados y bloques' },
       { n: 'Título de tarjeta', c: 'ttk-tarjeta-titulo', uso: 'Tarjetas y cajas' },
       { n: 'Párrafo', c: 'ttk-cuerpo-parrafo', uso: 'Todo el texto seguido' },
@@ -110,13 +110,7 @@
       var m = mide(e.c, e.css);
       h += '<div class="m-fila-letra"><div' + (e.c ? ' class="' + e.c + '"' : '') + ' style="text-align:left;' + (e.css || '') + '">Madre ordena lo que sabe</div><small><b>' + esc(e.n) + '</b> · ' + esc(e.uso) + ' · ' + esc(m.info) + (e.c ? ' · .' + e.c : '') + '</small></div>';
     });
-    h += '<h2>Los demás estilos del Sketch</h2><p class="m-entradilla">Siguen en los tokens para no romper nada, pero no son de la escala: hay que reducirlos a los de arriba. Los claros se enseñan sobre noche.</p>';
-    var hechos = escala.map(function (e) { return e.c; });
-    clasesTexto().forEach(function (c) {
-      if (hechos.indexOf(c) >= 0) { return; }
-      var m = mide(c), claro = /^rgb\((2[0-9][0-9]|1[89][0-9]), /.test(m.color);
-      h += '<div class="m-fila-letra"' + (claro ? ' style="background:var(--ttk-paleta-noche-800);padding:12px"' : '') + '><div class="' + c + '" style="text-align:left">Firma y envía tus documentos con validez legal</div><small' + (claro ? ' style="color:var(--ttk-paleta-noche-00)"' : '') + '>.' + c + ' · ' + esc(m.info) + '</small></div>';
-    });
+    h += '<p class="m-nota">No hay más estilos de letra: estos ocho son los mismos en GitHub, en las webs y en el Sketch.</p>';
     return h;
   } };
 
@@ -200,7 +194,7 @@
   } };
 
   P.tarjeta = { grupo: 'Componentes', titulo: 'Tarjeta de plantilla', html: function () {
-    var c = '<a class="tarjeta-plantilla" href="#tarjeta" style="display:block;width:316px;padding:16px;border-radius:var(--ttk-radio-pequeno);box-shadow:var(--ttk-sombra-tarjeta);background:#fff;color:inherit;text-decoration:none"><span class="ttk-etiqueta-pastilla">Laboral</span><div style="font-family:var(--ttk-font-titulos);font-weight:700;font-size:18px;line-height:24px;margin-top:8px">Comunicación de vacaciones</div></a>';
+    var c = '<a class="tarjeta-plantilla" href="#tarjeta" style="display:block;width:316px;padding:16px;border-radius:var(--ttk-radio-pequeno);box-shadow:var(--ttk-sombra-tarjeta);background:#fff;color:inherit;text-decoration:none"><span class="chip">Laboral</span><div style="font-family:var(--ttk-font-titulos);font-weight:700;font-size:18px;line-height:24px;margin-top:8px">Comunicación de vacaciones</div></a>';
     return '<h1 class="acento-lima">Tarjeta de plantilla</h1><p class="m-entradilla">Margen interior de 16. Al pasar el ratón o llegar con el teclado sube 4 y la sombra pasa a flotante. Si el equipo pide menos movimiento, solo cambia la sombra.</p>' + ejemplo(c, 'tarjeta-plantilla (el relleno de la tarjeta es de Tatanka)');
   } };
 
