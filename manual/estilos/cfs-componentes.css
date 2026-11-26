@@ -47,8 +47,8 @@
 .campo:focus-visible,.selector:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .selector{appearance:none;-webkit-appearance:none;padding-right:var(--ttk-campo-relleno-flecha);background-image:var(--ttk-selector-flecha);background-repeat:no-repeat;background-position:right var(--ttk-campo-relleno) center}
 /* Estados (17-11-2026, como la tabla de estados del Sketch): reposo; al pasar, borde noche; activo, borde noche más grueso; desactivado, atenuado. */
-.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:16px;height:16px;margin:0;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
-.casilla:checked{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolyline points='4,8.3 6.8,11 12,5.2' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--ttk-icono);height:var(--ttk-icono);margin:0;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
+.casilla:checked{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));background-image:var(--ttk-casilla-marca)}
 .campo:hover,.selector:hover,.chip:hover,.casilla:hover{border-color:var(--ttk-campo-borde-pasar,var(--ttk-paleta-noche-800))}
 .casilla:checked:hover{background-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800));border-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800))}
 .casilla:focus,.casilla:focus-visible,.chip:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 1px var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
@@ -143,3 +143,7 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 .pestana-lateral svg{width:var(--ttk-icono);height:var(--ttk-icono)}
 .pestana-lateral.pestana-lima{background:var(--ttk-paleta-lima-800)}
 .pestana-lateral.pestana-noche{background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
+
+/* 26-11-2026 (Frankie: «ok cambialo»): grupo de opciones (elegir una) con Chip, y campo de archivo. */
+.opciones{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-8)}
+.archivo{display:flex;align-items:center;gap:var(--ttk-espacio-12);min-height:var(--ttk-campo-alto);padding:0 var(--ttk-campo-relleno);box-sizing:border-box;border:1px solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-paleta-noche-400);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}

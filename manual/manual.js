@@ -205,6 +205,12 @@
     return '<h1 class="acento-lima">Pestaña lateral</h1><p class="m-entradilla">Las pestañas pegadas al borde derecho (Eat, Panic, Help, Show, Chat): icono de 16 arriba y el nombre en vertical, letra 14/20 en negrita, 8 de relleno y radio grande hacia dentro.</p>' + ejemplo(c, 'pestana-lateral · pestana-lima · pestana-noche');
   } };
 
+  P.opciones = { grupo: 'Componentes', titulo: 'Opciones y archivo', html: function () {
+    var c = '<div class="opciones"><span class="chip chip-elegida">Vacaciones</span><span class="chip">Asuntos propios</span></div>';
+    var a = '<div class="archivo" style="width:100%;max-width:420px"><button class="boton boton-secundario boton-pequeno">Elegir archivo</button><span>Ningún archivo elegido</span></div>';
+    return '<h1 class="acento-lima">Opciones y archivo</h1><p class="m-entradilla">Para elegir una opción entre varias, cada una es un Chip y la elegida va en noche. Para subir un archivo, una caja como la de escribir con un botón secundario pequeño dentro.</p>' + ejemplo(c, 'opciones · chip · chip-elegida') + ejemplo(a, 'archivo · boton-secundario boton-pequeno');
+  } };
+
   P.acento = { grupo: 'Componentes', titulo: 'Acento lima', html: function () {
     var c = '<h3 class="acento-lima" style="margin:0">Título de página</h3><h4 class="acento-lima-fino" style="margin:0">Título de apartado</h4>';
     return '<h1 class="acento-lima">Acento lima</h1><p class="m-entradilla">Raya lima delante de un título: gruesa para el título de página y fina para los apartados.</p>' + ejemplo(c, 'acento-lima · acento-lima-fino');
@@ -232,7 +238,7 @@
     return '<h1 class="acento-lima">Ventana</h1><p class="m-entradilla">Una sola para todo: velo noche, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado, texto pequeño gris, botones de 160 en fila y centrados, equis arriba a la derecha. 480 de ancho; «ventana-ancha», 560, para formularios. Se cierra con la equis, con Escape o pulsando fuera.</p>' + ejemplo(c, 'ventana-velo › ventana (ventana-ancha) › ventana-cerrar · ventana-titulo · ventana-texto · ventana-botones');
   } };
 
-  var orden = ['inicio', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'icono', 'campo', 'casilla', 'chip', 'menu', 'pestana', 'acento', 'carrusel', 'tarjeta', 'tabla', 'ventana'];
+  var orden = ['inicio', 'colorcomp', 'graficas', 'tipografia', 'reticula', 'espacios', 'radios', 'sombras', 'boton', 'icono', 'campo', 'casilla', 'chip', 'opciones', 'menu', 'pestana', 'acento', 'carrusel', 'tarjeta', 'tabla', 'ventana'];
   var menu = document.getElementById('m-menu'), pagina = document.getElementById('m-pagina');
 
   function pintaMenu(actual) {
