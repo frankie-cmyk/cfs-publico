@@ -4,7 +4,7 @@
 /* ===== 1. Componentes del sistema (los mismos nombres que los símbolos del Sketch; esto es lo que programación se lleva tal cual) =====
    Botón: «boton» + tipo («boton-principal», «boton-secundario» o «boton-enviar») + tamaño opcional («boton-grande»).
    Sobre fondo oscuro, el contenedor lleva «sobre-oscuro». Todo sale de los tokens --ttk-boton-* y --ttk-radio-*. */
-.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:var(--ttk-boton-ancho-min);padding:0 var(--ttk-boton-relleno);box-sizing:border-box;border:var(--ttk-borde) solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);font-weight:var(--ttk-peso-medio);line-height:var(--ttk-letra-pequena-alto);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:var(--ttk-boton-alto);min-width:var(--ttk-boton-ancho-min);padding:0 var(--ttk-boton-relleno);box-sizing:border-box;border:var(--ttk-borde) solid transparent;border-radius:var(--ttk-radio-pequeno);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);font-weight:var(--ttk-peso-medio);line-height:var(--ttk-letra-pequena-alto);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background-color var(--ttk-tiempo-rapido),color var(--ttk-tiempo-rapido),border-color var(--ttk-tiempo-rapido)}
 .boton-grande{min-height:var(--ttk-boton-alto-grande)}
 .boton.boton-principal{background:var(--ttk-boton-principal-claro);color:var(--ttk-boton-principal-claro-texto);border-color:var(--ttk-boton-principal-claro)}
 .boton.boton-secundario{background:transparent;color:var(--ttk-boton-secundario-claro);border-color:var(--ttk-boton-secundario-claro)}
@@ -19,23 +19,23 @@
 /* Botón pequeño y estados (17-11-2026, Frankie: «uno más pequeño» y «que funcionen igual en wait, over…»). «boton-pequeno»: 24 de alto, letra 11, sin ancho mínimo.
    Estados, iguales en todos los tamaños y tipos: encima (noche), pulsado (baja 1 px), foco con teclado (marco de 2 px), desactivado (al 40 %) y espera (aria-busy="true": rueda girando del color del texto). */
 .boton-pequeno{min-height:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0 var(--ttk-boton-relleno);font-size:var(--ttk-letra-minima);line-height:var(--ttk-letra-minima-alto)}
-.boton:active{transform:translateY(1px)}
-.boton:focus-visible{outline:2px solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:2px}.sobre-oscuro .boton:focus-visible{outline-color:var(--ttk-boton-foco-oscuro,var(--ttk-paleta-crema-00))}
+.boton:active{transform:translateY(var(--ttk-borde))}
+.boton:focus-visible{outline:var(--ttk-foco) solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:var(--ttk-foco)}.sobre-oscuro .boton:focus-visible{outline-color:var(--ttk-boton-foco-oscuro,var(--ttk-paleta-crema-00))}
 .boton[aria-busy="true"]{position:relative;color:transparent!important;pointer-events:none}
-.boton[aria-busy="true"]::after{content:"";box-sizing:border-box;position:absolute;left:50%;top:50%;width:1em;height:1em;margin:-.5em 0 0 -.5em;border:2px solid var(--ttk-boton-secundario-claro);border-right-color:transparent;border-radius:50%;animation:boton-espera .8s linear infinite}
+.boton[aria-busy="true"]::after{content:"";box-sizing:border-box;position:absolute;left:50%;top:50%;width:1em;height:1em;margin:-.5em 0 0 -.5em;border:var(--ttk-foco) solid var(--ttk-boton-secundario-claro);border-right-color:transparent;border-radius:50%;animation:boton-espera var(--ttk-tiempo-giro) linear infinite}
 .boton-principal[aria-busy="true"]::after,.boton-enviar[aria-busy="true"]::after{border-color:var(--ttk-boton-principal-claro-texto);border-right-color:transparent}
 .sobre-oscuro .boton-secundario[aria-busy="true"]::after{border-color:var(--ttk-boton-secundario-oscuro);border-right-color:transparent}.sobre-oscuro .boton-principal[aria-busy="true"]::after{border-color:var(--ttk-boton-principal-oscuro-texto);border-right-color:transparent}
-.boton-pequeno[aria-busy="true"]::after{width:12px;height:12px;margin:-6px 0 0 -6px}
+.boton-pequeno[aria-busy="true"]::after{width:var(--ttk-espacio-12);height:var(--ttk-espacio-12);margin:calc(var(--ttk-espacio-12) / -2) 0 0 calc(var(--ttk-espacio-12) / -2)}
 @keyframes boton-espera{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.boton[aria-busy="true"]::after{animation-duration:2.4s}}
+@media (prefers-reduced-motion:reduce){.boton[aria-busy="true"]::after{animation-duration:var(--ttk-tiempo-giro-lento)}}
 /* Carrusel (17-11-2026, Frankie: «vamos a trabajar el carrusel»). Uno solo para todo: cabecera con el título a la izquierda y, a la derecha, «Ver todas» (boton boton-secundario boton-pequeno) y dos flechas (boton boton-secundario boton-pequeno carrusel-flecha).
    Debajo, «carrusel» con la pista «carrusel-pista»: tarjetas de 316 y 32 de hueco. Se mueve con window.nxCarrusel (nexo.js). */
-.carrusel-cabecera{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}.carrusel-titulo{min-width:0}.carrusel-acciones{display:flex;gap:8px;align-items:center;flex:none}
-.boton.carrusel-flecha{width:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0;font-size:16px;line-height:1}
+.carrusel-cabecera{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--ttk-espacio-24)}.carrusel-titulo{min-width:0}.carrusel-acciones{display:flex;gap:var(--ttk-espacio-8);align-items:center;flex:none}
+.boton.carrusel-flecha{width:var(--ttk-boton-alto-pequeno,24px);min-width:0;padding:0;font-size:var(--ttk-letra-campo);line-height:1}
 
 /* Acento lima (17-11-2026, traído de Madre): raya lima vertical delante de un título. «acento-lima» para el título de página (gruesa) y «acento-lima-fino» para los títulos de apartado. Sale de los tokens --ttk-acento-*. */
-.acento-lima{border-left:var(--ttk-acento-grueso,6px) solid var(--ttk-acento-color,var(--ttk-paleta-lima-800));padding-left:var(--ttk-acento-aire,16px)}
-.acento-lima-fino{border-left:var(--ttk-acento-fino,3px) solid var(--ttk-acento-color,var(--ttk-paleta-lima-800));padding-left:var(--ttk-acento-aire,16px)}
+.acento-lima{border-left:var(--ttk-acento-grueso,6px) solid var(--ttk-acento-color,var(--ttk-paleta-lima-800));padding-left:var(--ttk-acento-aire,var(--ttk-espacio-16))}
+.acento-lima-fino{border-left:var(--ttk-acento-fino,3px) solid var(--ttk-acento-color,var(--ttk-paleta-lima-800));padding-left:var(--ttk-acento-aire,var(--ttk-espacio-16))}
 
 /* Formularios y filtros (17-11-2026, como en el Sketch, «Formularios/…»). Una sola caja para todos los campos (estilo «Formularios/Campo»): fondo blanco, borde de 1 px y radio pequeño; con el foco, el borde pasa a noche.
    «campo» (40) y «campo campo-grande» (52, el del buscador); «selector»; «casilla» (marcada en verde); «chip» (32, píldora). Todo sale de los tokens --ttk-campo-*. */
@@ -47,7 +47,7 @@
 .campo:focus-visible,.selector:focus-visible{outline:none;border-color:var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800));box-shadow:0 0 0 var(--ttk-borde) var(--ttk-campo-borde-activo,var(--ttk-paleta-noche-800))}
 .selector{appearance:none;-webkit-appearance:none;padding-right:var(--ttk-campo-relleno-flecha);background-image:var(--ttk-selector-flecha);background-repeat:no-repeat;background-position:right var(--ttk-campo-relleno) center}
 /* Estados (17-11-2026, como la tabla de estados del Sketch): reposo; al pasar, borde noche; activo, borde noche más grueso; desactivado, atenuado. */
-.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--ttk-icono);height:var(--ttk-icono);margin:0;border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/16px 16px no-repeat;cursor:pointer;vertical-align:middle}
+.casilla{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--ttk-icono);height:var(--ttk-icono);margin:0;border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno,4px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00)) center/var(--ttk-icono) var(--ttk-icono) no-repeat;cursor:pointer;vertical-align:middle}
 .casilla:checked{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));background-image:var(--ttk-casilla-marca)}
 .campo:hover,.selector:hover,.chip:hover,.casilla:hover{border-color:var(--ttk-campo-borde-pasar,var(--ttk-paleta-noche-800))}
 .casilla:checked:hover{background-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800));border-color:var(--ttk-casilla-pasar,var(--ttk-paleta-noche-800))}
@@ -55,7 +55,7 @@
 .campo:disabled,.selector:disabled,.casilla:disabled,.chip[aria-disabled="true"]{opacity:var(--ttk-campo-desactivado,.4);cursor:not-allowed;border-color:var(--ttk-campo-borde,var(--ttk-paleta-noche-400))}
 .casilla:checked:disabled{background-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800));border-color:var(--ttk-casilla-marcada,var(--ttk-paleta-verde-800))}
 .chip{display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);box-sizing:border-box;min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pildora,999px);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-campo-texto,var(--ttk-paleta-noche-800));font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
-.chip b{font-weight:700}.chip .chip-valor{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400))}
+.chip b{font-weight:var(--ttk-peso-negrita)}.chip .chip-valor{color:var(--ttk-campo-ayuda,var(--ttk-paleta-noche-400))}
 /* Etiqueta elegida (25-11-2026, Frankie: CAMBIALO, tanda 9; la que ya usaba Madre en filtros y pestañas): «chip chip-elegida», en noche con letra papel. */
 .chip.chip-elegida{background:var(--ttk-paleta-noche-800);border-color:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00)}
 /* Campo de varias líneas (25-11-2026, tanda 9): «textarea» con «campo» lleva aire arriba y abajo para que el texto no pegue al borde. */
@@ -73,55 +73,55 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
    En el móvil, con la clase tabla-tarjetas, una tarjeta por fila y el nombre de la columna (data-l) encima de cada dato.
    Lleva !important porque manda sobre los estilos viejos de cada entorno. */
 .tabla-marco{overflow:auto;max-width:100%}
-.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-grande,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto!important}
+.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-grande,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,var(--ttk-espacio-32))!important;table-layout:auto!important}
 .tabla th,.tabla td{word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important}
-.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;padding:var(--ttk-espacio-8) var(--ttk-espacio-16)!important;font-size:var(--ttk-letra-minima)!important;line-height:var(--ttk-letra-minima-alto)!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
+.tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;padding:var(--ttk-espacio-8) var(--ttk-espacio-16)!important;font-size:var(--ttk-letra-minima)!important;line-height:var(--ttk-letra-minima-alto)!important;font-weight:var(--ttk-peso-negrita)!important;text-transform:uppercase!important;letter-spacing:var(--ttk-espaciado-mayusculas)!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
 .tabla th:has(>button){padding:0!important}
 .tabla th>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:var(--ttk-espacio-4);width:100%;padding:var(--ttk-espacio-8) var(--ttk-espacio-16);font:inherit;letter-spacing:inherit;text-transform:uppercase!important;color:inherit;cursor:pointer}
-.tabla th>button:hover{color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))}.tabla th>button:focus-visible{outline:2px solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:-2px}
-.tabla th>button::after{content:"↕";opacity:.5;font-weight:400}.tabla th[aria-sort=ascending]>button::after{content:"↑";opacity:1}.tabla th[aria-sort=descending]>button::after{content:"↓";opacity:1}
-.tabla td{padding:14px 16px!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;vertical-align:middle!important;font-size:14px!important;line-height:20px!important;font-weight:400!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;background:transparent!important;text-align:left}
+.tabla th>button:hover{color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))}.tabla th>button:focus-visible{outline:var(--ttk-foco) solid var(--ttk-boton-foco,var(--ttk-paleta-noche-800));outline-offset:calc(var(--ttk-foco) * -1)}
+.tabla th>button::after{content:"↕";opacity:.5;font-weight:var(--ttk-peso-normal)}.tabla th[aria-sort=ascending]>button::after{content:"↑";opacity:1}.tabla th[aria-sort=descending]>button::after{content:"↓";opacity:1}
+.tabla td{padding:var(--ttk-espacio-12) var(--ttk-espacio-16)!important;border:0!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important;vertical-align:middle!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;font-weight:var(--ttk-peso-normal)!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;background:transparent!important;text-align:left}
 .tabla tbody tr:last-child td{border-bottom:0!important}
 .tabla tbody tr:hover td{background:var(--ttk-fondo-gris-claro)!important}
-.tabla td b,.tabla td strong{font-weight:700}
+.tabla td b,.tabla td strong{font-weight:var(--ttk-peso-negrita)}
 .tabla .tabla-num,.tabla th.tabla-num>button{text-align:right!important;justify-content:flex-end;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tabla tbody th{background:transparent!important;text-transform:none!important;letter-spacing:0!important;font-size:14px!important;line-height:20px!important;font-weight:700!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;vertical-align:middle!important;padding:14px 16px!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important}
+.tabla tbody th{background:transparent!important;text-transform:none!important;letter-spacing:0!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;font-weight:var(--ttk-peso-negrita)!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;vertical-align:middle!important;padding:var(--ttk-espacio-12) var(--ttk-espacio-16)!important;border-bottom:var(--ttk-borde) solid var(--ttk-linea-clara)!important}
 .tabla tbody tr:last-child th{border-bottom:0!important}
 .tabla:not(:has(thead)) td:first-child{color:var(--ttk-texto-gris)!important;width:1%;white-space:nowrap}
-.tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:400}
-.tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 10px;border-radius:999px;font-size:12px;line-height:16px;font-weight:700;white-space:nowrap}
+.tabla-sec{display:block;color:var(--ttk-texto-gris);font-weight:var(--ttk-peso-normal)}
+.tabla-si,.tabla-no{display:inline-flex;align-items:center;gap:var(--ttk-espacio-4);min-height:var(--ttk-etiqueta-alto);padding:0 var(--ttk-espacio-8);border-radius:var(--ttk-radio-pildora);font-size:var(--ttk-letra-minima);line-height:var(--ttk-letra-minima-alto);font-weight:var(--ttk-peso-negrita);white-space:nowrap}
 .tabla-si{background:var(--ttk-paleta-verde-00);color:var(--ttk-paleta-verde-800)}.tabla-si::before{content:"✓"}
 .tabla-no{background:var(--ttk-paleta-rojo-00);color:var(--ttk-estado-cerrar-sesion)}.tabla-no::before{content:"✕"}
-.tabla-barra{display:block;height:4px;width:120px;max-width:100%;margin:6px 0 0 auto;background:var(--ttk-fondo-gris-claro);border-radius:2px;overflow:hidden}
-.tabla-barra i{display:block;height:4px;background:var(--ttk-paleta-verde-800)}.tabla-barra.no i{background:var(--ttk-paleta-rojo-800)}
-.tabla tfoot td{font-size:10px!important;line-height:14px!important;font-style:italic;color:var(--ttk-texto-gris)!important;background:var(--ttk-fondo-gris-claro)!important;border-top:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-bottom:0!important;padding:10px 16px!important}
+.tabla-barra{display:block;height:var(--ttk-espacio-4);width:var(--ttk-tabla-barra-ancho);max-width:100%;margin:var(--ttk-espacio-4) 0 0 auto;background:var(--ttk-fondo-gris-claro);border-radius:var(--ttk-radio-pildora);overflow:hidden}
+.tabla-barra i{display:block;height:var(--ttk-espacio-4);background:var(--ttk-paleta-verde-800)}.tabla-barra.no i{background:var(--ttk-paleta-rojo-800)}
+.tabla tfoot td{font-size:var(--ttk-letra-nota)!important;line-height:var(--ttk-letra-nota-alto)!important;font-style:italic;color:var(--ttk-texto-gris)!important;background:var(--ttk-fondo-gris-claro)!important;border-top:var(--ttk-borde) solid var(--ttk-linea-clara)!important;border-bottom:0!important;padding:var(--ttk-espacio-8) var(--ttk-espacio-16)!important}
 @media (max-width:599px){
 .tabla.tabla-tarjetas{border:0!important;background:transparent!important;border-radius:0!important;overflow:visible}
 .tabla.tabla-tarjetas thead{display:none}
 .tabla.tabla-tarjetas,.tabla.tabla-tarjetas tbody,.tabla.tabla-tarjetas tfoot,.tabla.tabla-tarjetas tr,.tabla.tabla-tarjetas td{display:block;width:auto!important}
-.tabla.tabla-tarjetas tbody tr{border:var(--ttk-borde) solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
-.tabla.tabla-tarjetas tbody td{border:0!important;padding:4px 16px!important;white-space:normal!important;text-align:left!important}
-.tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris)}
+.tabla.tabla-tarjetas tbody tr{border:var(--ttk-borde) solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande,8px);margin:0 0 var(--ttk-espacio-12);padding:var(--ttk-espacio-8) 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
+.tabla.tabla-tarjetas tbody td{border:0!important;padding:var(--ttk-espacio-4) var(--ttk-espacio-16)!important;white-space:normal!important;text-align:left!important}
+.tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:var(--ttk-letra-minima);line-height:var(--ttk-letra-minima-alto);font-weight:var(--ttk-peso-negrita);text-transform:uppercase;letter-spacing:var(--ttk-espaciado-mayusculas);color:var(--ttk-texto-gris)}
 .tabla.tabla-tarjetas .tabla-barra{margin-left:0}
 }
 /* Ventana (25-11-2026, Frankie: «modo nexottk», CAMBIALO). Una sola para Madre y nexoTTK, la del nexo: velo noche al 70 %, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado (sin franja), texto pequeño gris, botones de 160 en fila y centrados, equis noche arriba a la derecha.
    «ventana-velo» > «ventana» (480; «ventana ventana-ancha», 560, para formularios) > «ventana-cerrar», «ventana-titulo», «ventana-texto», «ventana-botones». */
-.ventana-velo{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:color-mix(in srgb,var(--ttk-paleta-noche-800) 70%,transparent)}
-.ventana{position:relative;box-sizing:border-box;width:480px;max-width:100%;padding:40px 40px 32px;background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pequeno,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
-.ventana-ancha{width:560px}
-.ventana-titulo{margin:0 0 12px;font-family:var(--ttk-font-titulos);font-size:21px;line-height:28px;font-weight:700;color:var(--ttk-paleta-noche-800)}
-.ventana-texto{margin:0 0 32px;font-family:var(--ttk-font-textos);font-size:14px;line-height:20px;font-weight:400;color:var(--ttk-paleta-noche-400)}
-.ventana-botones{display:flex;justify-content:center;gap:16px}
-.ventana-botones .boton{width:160px;min-width:0}
-.ventana-cerrar{position:absolute;top:12px;right:12px;width:32px;height:32px;padding:0;border:0;font-size:0;color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%23001524' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/16px 16px no-repeat;cursor:pointer}
-@media (max-width:599px){.ventana{padding:32px 24px 24px}.ventana-botones{flex-direction:column;gap:8px}.ventana-botones .boton{width:100%}}
+.ventana-velo{position:fixed;inset:0;z-index:var(--ttk-capa-ventana);display:flex;align-items:center;justify-content:center;padding:var(--ttk-espacio-16);background:color-mix(in srgb,var(--ttk-paleta-noche-800) var(--ttk-velo),transparent)}
+.ventana{position:relative;box-sizing:border-box;width:var(--ttk-ventana-ancho);max-width:100%;padding:var(--ttk-espacio-40) var(--ttk-espacio-40) var(--ttk-espacio-32);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pequeno,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
+.ventana-ancha{width:var(--ttk-ventana-ancho-grande)}
+.ventana-titulo{margin:0 0 var(--ttk-espacio-12);font-family:var(--ttk-font-titulos);font-size:var(--ttk-letra-h3);line-height:var(--ttk-letra-h3-alto);font-weight:var(--ttk-peso-negrita);color:var(--ttk-paleta-noche-800)}
+.ventana-texto{margin:0 0 var(--ttk-espacio-32);font-family:var(--ttk-font-textos);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto);font-weight:var(--ttk-peso-normal);color:var(--ttk-paleta-noche-400)}
+.ventana-botones{display:flex;justify-content:center;gap:var(--ttk-espacio-16)}
+.ventana-botones .boton{width:var(--ttk-ventana-boton-ancho);min-width:0}
+.ventana-cerrar{position:absolute;top:var(--ttk-espacio-12);right:var(--ttk-espacio-12);width:var(--ttk-boton-icono);height:var(--ttk-boton-icono);padding:0;border:0;font-size:0;color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%23001524' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/var(--ttk-icono) var(--ttk-icono) no-repeat;cursor:pointer}
+@media (max-width:599px){.ventana{padding:var(--ttk-espacio-32) var(--ttk-espacio-24) var(--ttk-espacio-24)}.ventana-botones{flex-direction:column;gap:var(--ttk-espacio-8)}.ventana-botones .boton{width:100%}}
 /* Retícula (25-11-2026, Frankie: «¿has creado una hoja de grid?»). La hoja que se usa: «contenedor» centra el contenido a 1360 con márgenes de 40; «reticula» reparte en 12 columnas con huecos de 32 (8 columnas y 24 en tableta, 4 y 16 en móvil); cada pieza dice cuántas columnas ocupa con «col-3», «col-4», «col-6», «col-9» o «col-12».
    En tableta, 12 pasa a 8, 9 a 8, 6 a 4, 4 a 4 y 3 a 4; en móvil todo va a 4 (una por fila). Valores de los tokens --ttk-ret-*. */
-.contenedor{box-sizing:border-box;width:100%;max-width:calc(var(--ttk-ret-escritorio-contenedor,1360px) + 2 * var(--ttk-ret-escritorio-margen,40px));margin:0 auto;padding:0 var(--ttk-ret-escritorio-margen,40px)}
-.reticula{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--ttk-ret-escritorio-hueco,32px)}
+.contenedor{box-sizing:border-box;width:100%;max-width:calc(var(--ttk-ret-escritorio-contenedor,1360px) + 2 * var(--ttk-ret-escritorio-margen,40px));margin:0 auto;padding:0 var(--ttk-ret-escritorio-margen,var(--ttk-espacio-40))}
+.reticula{display:grid;grid-template-columns:repeat(var(--ttk-ret-escritorio-columnas),minmax(0,1fr));gap:var(--ttk-ret-escritorio-hueco,var(--ttk-espacio-32))}
 .col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-9{grid-column:span 9}.col-12{grid-column:span 12}
-@media (max-width:1024px){.contenedor{padding:0 var(--ttk-ret-tableta-margen,24px)}.reticula{grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--ttk-ret-tableta-hueco,24px)}.col-3,.col-4,.col-6{grid-column:span 4}.col-9,.col-12{grid-column:span 8}}
-@media (max-width:599px){.contenedor{padding:0 var(--ttk-ret-movil-margen,16px)}.reticula{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--ttk-ret-movil-hueco,16px)}.col-3,.col-4,.col-6,.col-9,.col-12{grid-column:span 4}}
+@media (max-width:1024px){.contenedor{padding:0 var(--ttk-ret-tableta-margen,var(--ttk-espacio-24))}.reticula{grid-template-columns:repeat(var(--ttk-ret-tableta-columnas),minmax(0,1fr));gap:var(--ttk-ret-tableta-hueco,var(--ttk-espacio-24))}.col-3,.col-4,.col-6{grid-column:span 4}.col-9,.col-12{grid-column:span 8}}
+@media (max-width:599px){.contenedor{padding:0 var(--ttk-ret-movil-margen,var(--ttk-espacio-16))}.reticula{grid-template-columns:repeat(var(--ttk-ret-movil-columnas),minmax(0,1fr));gap:var(--ttk-ret-movil-hueco,var(--ttk-espacio-16))}.col-3,.col-4,.col-6,.col-9,.col-12{grid-column:span 4}}
 
 /* 26-11-2026 (Frankie, «el resto ok»): tres piezas nuevas del manual. */
 /* Menú desplegable: el menú de usuario, «Ver como» y cualquier lista de opciones que se abre. */
@@ -136,7 +136,7 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 .boton-icono:hover{background:var(--ttk-paleta-crema-600)}
 .sobre-oscuro .boton-icono{color:var(--ttk-paleta-crema-00)}
 .sobre-oscuro .boton-icono:hover{background:var(--ttk-paleta-noche-600)}
-.boton-icono:focus-visible{outline:2px solid var(--ttk-paleta-lima-800);outline-offset:2px}
+.boton-icono:focus-visible{outline:var(--ttk-foco) solid var(--ttk-paleta-lima-800);outline-offset:var(--ttk-foco)}
 /* Pestaña lateral: pegada al borde derecho, con su icono arriba y el nombre en vertical. */
 .pestana-lateral{display:inline-flex;flex-direction:column;align-items:center;gap:var(--ttk-espacio-8);padding:var(--ttk-espacio-8);box-sizing:border-box;border:0;border-radius:var(--ttk-radio-grande) 0 0 var(--ttk-radio-grande);background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);box-shadow:var(--ttk-sombra-tarjeta);font-family:Poppins,sans-serif;font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto);font-weight:var(--ttk-peso-negrita);cursor:pointer}
 .pestana-lateral span{writing-mode:vertical-rl;transform:rotate(180deg)}
@@ -148,5 +148,5 @@ textarea.campo{padding:var(--ttk-espacio-8) var(--ttk-campo-relleno)}
 .opciones{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-8)}
 .archivo{display:flex;align-items:center;gap:var(--ttk-espacio-12);min-height:var(--ttk-campo-alto);padding:0 var(--ttk-campo-relleno);box-sizing:border-box;border:var(--ttk-borde) solid var(--ttk-campo-borde,var(--ttk-paleta-noche-400));border-radius:var(--ttk-radio-pequeno);background:var(--ttk-campo-fondo,var(--ttk-paleta-crema-00));color:var(--ttk-paleta-noche-400);font-size:var(--ttk-letra-pequena);line-height:var(--ttk-letra-pequena-alto)}
 
-/* 26-11-2026 (Frankie, CAMBIALO 23:43): la primera columna, cuando es cabecera de fila, va como una celda en negrita. */
+/* 26-11-2026 (Frankie, CAMBIALO 23:43; «ya no debería existir» nada escrito a mano: 23:49): la primera columna, cuando es cabecera de fila, va como una celda en negrita. */
 .tabla tbody th{background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;padding:var(--ttk-espacio-12) var(--ttk-espacio-16)!important;font-size:var(--ttk-letra-pequena)!important;line-height:var(--ttk-letra-pequena-alto)!important;font-weight:var(--ttk-peso-negrita)!important;text-transform:none!important;letter-spacing:0!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important}
