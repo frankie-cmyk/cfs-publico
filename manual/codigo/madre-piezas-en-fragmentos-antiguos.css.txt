@@ -1,33 +1,37 @@
 /* Reflejo en GitHub de lo que usa piezas del manual dentro de fragmentos antiguos de Madre (m-cfs.us).
    Solo la parte que toca piezas del manual; el resto de cada fragmento no cambia.
+   Desde el 27-11-2026 todos los valores salen del manual (var(--ttk-…)); las medidas propias de cada fragmento
+   tienen nombre (--m<número>-…) en un bloque :root al principio de su estilo.
    Al día el 27-11-2026. */
 
 /* ---------- Fragmento 165 · [M7 Documento] caja del documento ----------
    Raya: acento lima fino del manual. Botones «Leer aquí» y «Descargar»: botón secundario del manual
    (en el código: <a class="boton boton-secundario cfs-doc-leer">Leer aquí</a> y <a class="boton boton-secundario" download>Descargar</a>). */
-.cfs-doc{background:var(--ttk-paleta-crema-00);border:1px solid var(--ttk-paleta-crema-600);border-left:var(--ttk-acento-fino) solid var(--ttk-acento-color);border-radius:12px;margin:18px 0 22px;overflow:hidden;max-width:none}
-.cfs-doc-tarjeta{display:flex;gap:18px;align-items:center;padding:var(--ttk-espacio-16) 18px}
+.cfs-doc{background:var(--ttk-paleta-crema-00);border:var(--ttk-borde) solid var(--ttk-paleta-crema-600);border-left:var(--ttk-acento-fino) solid var(--ttk-acento-color);border-radius:var(--ttk-radio-grande);margin:var(--ttk-espacio-16) 0 var(--ttk-espacio-24);overflow:hidden;max-width:none}
+.cfs-doc-tarjeta{display:flex;gap:var(--ttk-espacio-16);align-items:center;padding:var(--ttk-espacio-16) var(--ttk-espacio-16)}
 .cfs-doc-acc{display:flex;flex-wrap:wrap;gap:var(--ttk-espacio-8);margin:var(--ttk-espacio-8) 0 0!important}
 
 /* ---------- Fragmento 205 · [M7 Vacaciones] aviso al elegir el tipo de permiso ----------
    Acento lima fino del manual. */
-.cfs-pm-r{margin:6px 0 0;font-size:var(--ttk-letra-pequena);line-height:1.45;color:var(--ttk-paleta-noche-800);background:var(--ttk-paleta-crema-00);border:var(--ttk-borde) solid var(--ttk-paleta-noche-00);border-left:var(--ttk-acento-fino) solid var(--ttk-acento-color);border-radius:var(--ttk-radio-grande);padding:var(--ttk-espacio-8) var(--ttk-acento-aire)}
+.cfs-pm-r{margin:var(--ttk-espacio-4) 0 0;font-size:var(--ttk-letra-pequena);line-height:1.45;color:var(--ttk-paleta-noche-800);background:var(--ttk-paleta-crema-00);border:var(--ttk-borde) solid var(--ttk-paleta-noche-00);border-left:var(--ttk-acento-fino) solid var(--ttk-acento-color);border-radius:var(--ttk-radio-grande);padding:var(--ttk-espacio-8) var(--ttk-acento-aire)}
 
 /* ---------- Fragmento 61 · [M1 Página] «Ver como» (y «Con IVA», fragmento 262, que usa el mismo estilo) ----------
    Chip elegido del manual. */
-.cfs-vercomo{position:fixed;left:32px;bottom:32px;z-index:60;font-size:var(--cfs-letra-peque,14px);line-height:1}
+:root{--m61-vercomo-desenfoque:blur(6px);--m61-vercomo-ancho-min:180px;--m61-vercomo-alto-min:44px}
+.cfs-vercomo{position:fixed;left:var(--ttk-espacio-32);bottom:var(--ttk-espacio-32);z-index:60;font-size:var(--cfs-letra-peque,14px);line-height:1}
 .cfs-vercomo summary{list-style:none;display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:var(--ttk-borde) solid var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pildora);background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00);cursor:pointer;box-shadow:var(--cfs-sombra-suave,0 2px 8px rgba(0,21,36,.25))}
-.cfs-vercomo summary::-webkit-details-marker{display:none}.cfs-vercomo summary:hover{background:var(--ttk-paleta-rojo-600)}
-.cfs-vercomo div{position:absolute;left:0;bottom:calc(var(--ttk-chip-alto) + var(--ttk-espacio-8));display:flex;flex-direction:column;gap:var(--ttk-espacio-4);padding:var(--ttk-espacio-8);border-radius:12px;background:rgba(0,21,36,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:var(--cfs-sombra-suave,0 2px 8px rgba(0,21,36,.25));min-width:180px}
-.cfs-vercomo button{font:inherit;text-align:left;border:0;border-radius:var(--ttk-radio-pildora);background:none;color:var(--ttk-paleta-crema-00);padding:9px 14px;cursor:pointer}.cfs-vercomo button:hover,.cfs-vercomo button.on{background:var(--ttk-paleta-rojo-600)}
-.cfs-vercomo~.cfs-vercomo{bottom:84px}
-@media (max-width:767px){.cfs-vercomo{left:0;bottom:0;width:50%;font-size:var(--cfs-letra-mini,12px)}.cfs-vercomo summary{width:100%;min-height:44px;border-radius:0;justify-content:center;padding:0 var(--ttk-espacio-8);gap:6px;background:rgba(0,21,36,.97);box-shadow:none;border-right:1px solid rgba(255,255,255,.18)}.cfs-vercomo~.cfs-vercomo{left:50%;bottom:0}.cfs-vercomo~.cfs-vercomo summary{border-right:0}.cfs-vercomo div{bottom:46px;left:8px}body{padding-bottom:56px}}
+.cfs-vercomo summary::-webkit-details-marker{display:none}
+.cfs-vercomo div{position:absolute;left:0;bottom:calc(var(--ttk-chip-alto) + var(--ttk-espacio-8));display:flex;flex-direction:column;gap:var(--ttk-espacio-4);padding:var(--ttk-espacio-8);border-radius:var(--ttk-radio-grande);background:color-mix(in srgb,var(--ttk-paleta-noche-800) 90%,transparent);-webkit-backdrop-filter:var(--m61-vercomo-desenfoque);backdrop-filter:var(--m61-vercomo-desenfoque);box-shadow:var(--cfs-sombra-suave,0 2px 8px rgba(0,21,36,.25));min-width:var(--m61-vercomo-ancho-min)}
+.cfs-vercomo button{font:inherit;text-align:left;border:0;border-radius:var(--ttk-radio-pildora);background:none;color:var(--ttk-paleta-crema-00);padding:var(--ttk-espacio-8) var(--ttk-espacio-12);cursor:pointer}
+.cfs-vercomo~.cfs-vercomo{bottom:var(--ttk-espacio-80)}
+@media (max-width:767px){.cfs-vercomo{left:0;bottom:0;width:50%;font-size:var(--cfs-letra-mini,12px)}.cfs-vercomo summary{width:100%;min-height:var(--m61-vercomo-alto-min);border-radius:0;justify-content:center;padding:0 var(--ttk-espacio-8);gap:var(--ttk-espacio-4);background:color-mix(in srgb,var(--ttk-paleta-noche-800) 97%,transparent);box-shadow:none;border-right:var(--ttk-borde) solid color-mix(in srgb,var(--ttk-paleta-crema-00) 18%,transparent)}.cfs-vercomo~.cfs-vercomo{left:50%;bottom:0}.cfs-vercomo~.cfs-vercomo summary{border-right:0}.cfs-vercomo div{bottom:var(--ttk-espacio-48);left:var(--ttk-espacio-8)}body{padding-bottom:var(--ttk-espacio-48)}}
 
 /* ---------- Fragmento 33 · [M7 Índice] «Volver al índice» flotante ----------
    Chip elegido del manual, igual que «Ver como». */
-.cfs-volver-flot{position:fixed;right:32px;bottom:32px;z-index:50;display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:var(--ttk-borde) solid var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pildora);background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00) !important;font-size:var(--cfs-letra-peque,14px);line-height:1;text-decoration:none !important;box-shadow:var(--cfs-sombra-suave,0 2px 8px rgba(0,21,36,.25));opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s,background-color .15s}
-.cfs-volver-flot.on{opacity:1;visibility:visible;transform:none;transition:opacity .2s ease,transform .2s ease,visibility 0s,background-color .15s}
+:root{--m33-volver-flot-mueve:translateY(6px);--m33-volver-flot-foco-aire:3px;--m33-volver-flot-ancho:16px;--m33-volver-flot-alto:16px}
+.cfs-volver-flot{position:fixed;right:var(--ttk-espacio-32);bottom:var(--ttk-espacio-32);z-index:50;display:inline-flex;align-items:center;gap:var(--ttk-espacio-8);min-height:var(--ttk-chip-alto);padding:0 var(--ttk-chip-relleno);border:var(--ttk-borde) solid var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pildora);background:var(--ttk-paleta-noche-800);color:var(--ttk-paleta-crema-00) !important;font-size:var(--cfs-letra-peque,14px);line-height:1;text-decoration:none !important;box-shadow:var(--cfs-sombra-suave,0 2px 8px rgba(0,21,36,.25));opacity:0;visibility:hidden;transform:var(--m33-volver-flot-mueve);transition:opacity var(--ttk-tiempo-rapido) ease,transform var(--ttk-tiempo-rapido) ease,visibility 0s linear var(--ttk-tiempo-rapido),background-color var(--ttk-tiempo-rapido)}
+.cfs-volver-flot.on{opacity:1;visibility:visible;transform:none;transition:opacity var(--ttk-tiempo-rapido) ease,transform var(--ttk-tiempo-rapido) ease,visibility 0s,background-color var(--ttk-tiempo-rapido)}
 .cfs-volver-flot:hover{background:var(--ttk-paleta-rojo-600)}
-.cfs-volver-flot:focus-visible{outline:3px solid var(--ttk-paleta-rojo-600);outline-offset:3px}
-.cfs-volver-flot svg{width:16px;height:16px;flex:none}
-@media (max-width:767px){.cfs-volver-flot{right:16px;bottom:16px}}
+.cfs-volver-flot:focus-visible{outline:3px solid var(--ttk-paleta-rojo-600);outline-offset:var(--m33-volver-flot-foco-aire)}
+.cfs-volver-flot svg{width:var(--m33-volver-flot-ancho);height:var(--m33-volver-flot-alto);flex:none}
+@media (max-width:767px){.cfs-volver-flot{right:var(--ttk-espacio-16);bottom:var(--ttk-espacio-16)}}

@@ -18,7 +18,7 @@ $dona = cfs_graf_dona( 'Reparto por sector', array( array( 'Banca', 34 ), array(
 $barra = cfs_graf_barra( 'Envíos por año', array( array( '2022', 18200 ), array( '2023', 22800 ), array( '2024', 28300 ), array( '2025', 34600 ), array( '2026', 41900 ) ), 'Fechas: el año más reciente, en el color más oscuro' );
 echo '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">';
 wp_head();
-echo '<style>html,body{margin:0!important;padding:0!important;background:transparent!important}body>.cfs-muestra{padding:4px}#wpadminbar{display:none!important}</style></head><body class="cfs-graf-muestra"><div class="cfs-muestra">';
+echo '<style>html,body{margin:0!important;padding:0!important;background:transparent!important}body>.cfs-muestra{padding:var(--ttk-espacio-4)}#wpadminbar{display:none!important}</style></head><body class="cfs-graf-muestra"><div class="cfs-muestra">';
 $cuerpo = $linea . '<div class="cfs-graf-par">' . $dona . $barra . '</div>';
 echo function_exists( 'cfs_graf_caja' ) ? cfs_graf_caja( 'Gráficas de Madre', 'Muestra con datos inventados para el manual', array( array( '2026', '41.900', '+21 % sobre 2025' ), array( '2025', '34.600', '+22 % sobre 2024' ), array( '2024', '28.300', '+24 % sobre 2023' ), array( 'Media', '29.160', 'de los cinco años' ) ), $cuerpo ) : $cuerpo;
 echo '</div>';
