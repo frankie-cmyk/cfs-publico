@@ -72,7 +72,7 @@ textarea.campo{padding:8px 12px}
    En el móvil, con la clase tabla-tarjetas, una tarjeta por fila y el nombre de la columna (data-l) encima de cada dato.
    Lleva !important porque manda sobre los estilos viejos de cada entorno. */
 .tabla-marco{overflow:auto;max-width:100%}
-.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:1px solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-caja,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto!important}
+.tabla{width:100%!important;border-collapse:separate!important;border-spacing:0!important;border:1px solid var(--ttk-linea-clara)!important;border-radius:var(--ttk-radio-grande,8px)!important;overflow:hidden;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))!important;font-family:var(--ttk-font-textos)!important;font-size:14px!important;line-height:20px!important;color:var(--ttk-texto-oscuro,var(--ttk-paleta-noche-800))!important;margin:0 0 var(--ttk-espacio-32,32px)!important;table-layout:auto!important}
 .tabla th,.tabla td{word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important}
 .tabla th{text-align:left;background:var(--ttk-fondo-gris-claro)!important;border:0!important;border-bottom:1px solid var(--ttk-linea-clara)!important;padding:10px 16px!important;font-size:12px!important;line-height:16px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;color:var(--ttk-texto-gris)!important;vertical-align:bottom!important}
 .tabla th:has(>button){padding:0!important}
@@ -98,7 +98,7 @@ textarea.campo{padding:8px 12px}
 .tabla.tabla-tarjetas{border:0!important;background:transparent!important;border-radius:0!important;overflow:visible}
 .tabla.tabla-tarjetas thead{display:none}
 .tabla.tabla-tarjetas,.tabla.tabla-tarjetas tbody,.tabla.tabla-tarjetas tfoot,.tabla.tabla-tarjetas tr,.tabla.tabla-tarjetas td{display:block;width:auto!important}
-.tabla.tabla-tarjetas tbody tr{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-caja,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
+.tabla.tabla-tarjetas tbody tr{border:1px solid var(--ttk-linea-clara);border-radius:var(--ttk-radio-grande,8px);margin:0 0 12px;padding:8px 0;background:var(--ttk-fondo-blanco,var(--ttk-paleta-crema-00))}
 .tabla.tabla-tarjetas tbody td{border:0!important;padding:4px 16px!important;white-space:normal!important;text-align:left!important}
 .tabla.tabla-tarjetas td[data-l]::before{content:attr(data-l);display:block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ttk-texto-gris)}
 .tabla.tabla-tarjetas .tabla-barra{margin-left:0}
@@ -106,7 +106,7 @@ textarea.campo{padding:8px 12px}
 /* Ventana (25-11-2026, Frankie: «modo nexottk», CAMBIALO). Una sola para Madre y nexoTTK, la del nexo: velo noche al 70 %, caja papel con radio y sombra de tarjeta, título en Syne 21 centrado (sin franja), texto pequeño gris, botones de 160 en fila y centrados, equis noche arriba a la derecha.
    «ventana-velo» > «ventana» (480; «ventana ventana-ancha», 560, para formularios) > «ventana-cerrar», «ventana-titulo», «ventana-texto», «ventana-botones». */
 .ventana-velo{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:color-mix(in srgb,var(--ttk-paleta-noche-800) 70%,transparent)}
-.ventana{position:relative;box-sizing:border-box;width:480px;max-width:100%;padding:40px 40px 32px;background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-tarjeta,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
+.ventana{position:relative;box-sizing:border-box;width:480px;max-width:100%;padding:40px 40px 32px;background:var(--ttk-paleta-crema-00);color:var(--ttk-paleta-noche-800);border-radius:var(--ttk-radio-pequeno,4px);box-shadow:var(--ttk-sombra-tarjeta);text-align:center}
 .ventana-ancha{width:560px}
 .ventana-titulo{margin:0 0 12px;font-family:var(--ttk-font-titulos);font-size:21px;line-height:28px;font-weight:700;color:var(--ttk-paleta-noche-800)}
 .ventana-texto{margin:0 0 32px;font-family:var(--ttk-font-textos);font-size:14px;line-height:20px;font-weight:400;color:var(--ttk-paleta-noche-400)}

@@ -176,8 +176,10 @@
   } };
 
   P.espacios = medidas('--ttk-espacio-', 'Espacios', 'La escala de espacios. Márgenes y separaciones usan solo estos valores.', function (x) { return '<div class="m-medida"><i style="width:' + x.v + '"></i>' + esc(bonito(x.n)) + ' · ' + esc(x.v) + '</div>'; });
-  P.radios = medidas('--ttk-radio-', 'Radios', 'Solo tres: pequeño para botones, campos y tarjetas; grande para cajas y banners; píldora para etiquetas y chips.', function (x) { return '<div class="m-medida"><div class="m-caja" style="border-radius:' + x.v + '">' + esc(x.v) + '</div>' + esc(bonito(x.n)) + '</div>'; });
-  P.sombras = medidas('--ttk-sombra-', 'Sombras', 'Solo dos: tarjeta para lo apoyado en la página y flotante para lo que queda por encima.', function (x) { return '<div class="m-medida"><div class="m-caja" style="box-shadow:' + x.v + ';border:0">' + esc(bonito(x.n)) + '</div>' + esc(x.v) + '</div>'; });
+  var usos = { 'radio-pequeno': 'botones, campos, selectores, casillas, tarjetas y ventanas', 'radio-grande': 'cajas, bandas, banners y tablas', 'radio-pildora': 'etiquetas, chips y avatar', 'sombra-tarjeta': 'lo apoyado en la página: tarjetas, cajas, paneles y ventanas', 'sombra-flotante': 'lo que queda por encima mientras flota: desplegables y la tarjeta al pasar el ratón' };
+  function uso(n) { var k = n.replace('--ttk-', ''); return usos[k] ? '<small style="display:block;color:var(--ttk-paleta-noche-400);font-size:12px;line-height:16px">' + esc(usos[k]) + '</small>' : ''; }
+  P.radios = medidas('--ttk-radio-', 'Radios', 'Solo tres, y nada más: pequeño (4), grande (8) y píldora. Cada pieza usa uno de los tres directamente.', function (x) { return '<div class="m-medida"><div class="m-caja" style="border-radius:' + x.v + '">' + esc(x.v) + '</div><div>' + esc(bonito(x.n)) + uso(x.n) + '</div></div>'; });
+  P.sombras = medidas('--ttk-sombra-', 'Sombras', 'Solo dos, y nada más: tarjeta para lo apoyado en la página y flotante para lo que queda por encima.', function (x) { return '<div class="m-medida"><div class="m-caja" style="box-shadow:' + x.v + ';border:0">' + esc(bonito(x.n)) + '</div><div>' + esc(x.v) + uso(x.n) + '</div></div>'; });
 
   P.boton = { grupo: 'Componentes', titulo: 'Botón', html: function () {
     var claro = '<button class="boton boton-principal">Principal</button><button class="boton boton-secundario">Secundario</button><button class="boton boton-enviar">Enviar</button>';

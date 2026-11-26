@@ -31,8 +31,8 @@ Dónde está en Madre: fragmento 670 «[M00 Estilos de la casa]» (copia previa:
 | Variable de Madre | Valor del manual | Antes |
 |---|---|---|
 | --cfs-radio-peque | --ttk-radio-pequeno (4) | 8 |
-| --cfs-radio-tarjeta | --ttk-radio-tarjeta (4) | 12 |
-| --cfs-radio-caja | --ttk-radio-caja (8) | 10 |
+| --cfs-radio-tarjeta | --ttk-radio-pequeno (4) | 12 |
+| --cfs-radio-caja | --ttk-radio-grande (8) | 10 |
 | --cfs-radio-pastilla | --ttk-radio-pildora | 999 |
 | --cfs-sombra-suave | --ttk-sombra-tarjeta | mismo valor |
 | --cfs-sombra-alzada | --ttk-sombra-flotante | mismo valor |
@@ -86,3 +86,8 @@ El fragmento 444 lee del manual común las etiquetas (chip y chip-elegida) y los
 ## Ventanas «modo nexottk» (25-11-2026)
 
 Pieza «Ventana» común en cfs-componentes.css. Madre (444) la aplica a Help, Eat, Brunch, Show, Panic y Chat, sin franja. Copia: 1090.
+
+
+## Radios y sombras sin nombres repetidos (26-11-2026, CAMBIALO de Frankie)
+
+El manual deja solo tres radios (pequeño 4, grande 8, píldora) y dos sombras (tarjeta y flotante). Se quitan los nombres repetidos radio-boton, -tarjeta, -selector, -caja, -banner, -chip y sombra-caja, -panel, -ventana; Madre (fragmento 670, copia 1110) y nexo.css usan ya los tres radios directamente.
